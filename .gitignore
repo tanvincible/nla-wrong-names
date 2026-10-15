@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+nla_ref/
+.claude/
+# large and reproducible: activations are re-extracted by fade.py / fade2.py
+runs/**/acts-*.pt
+# staging copies for Kaggle uploads (the originals are tracked elsewhere in the repo)
+kaggle/dataset*/*
+!kaggle/dataset*/dataset-metadata.json
