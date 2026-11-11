@@ -1,0 +1,61 @@
+23:56:54 loading Qwen/Qwen2.5-7B-Instruct on mps
+23:58:00 extract 0/1884 sequences
+23:58:38 extract 40/1884 sequences
+23:59:04 extract 80/1884 sequences
+23:59:25 extract 120/1884 sequences
+23:59:52 extract 160/1884 sequences
+00:00:17 extract 200/1884 sequences
+00:00:40 extract 240/1884 sequences
+00:01:00 extract 280/1884 sequences
+00:01:48 extract 320/1884 sequences
+00:03:57 extract 360/1884 sequences
+00:04:27 extract 400/1884 sequences
+00:04:57 extract 440/1884 sequences
+00:05:23 extract 480/1884 sequences
+00:05:54 extract 520/1884 sequences
+00:06:22 extract 560/1884 sequences
+00:06:49 extract 600/1884 sequences
+00:08:38 extract 640/1884 sequences
+00:10:45 extract 680/1884 sequences
+00:13:45 extract 720/1884 sequences
+00:15:41 extract 760/1884 sequences
+00:17:37 extract 800/1884 sequences
+00:19:40 extract 840/1884 sequences
+00:20:58 extract 880/1884 sequences
+00:21:26 extract 920/1884 sequences
+00:21:51 extract 960/1884 sequences
+00:22:20 extract 1000/1884 sequences
+00:22:54 extract 1040/1884 sequences
+00:23:24 extract 1080/1884 sequences
+00:23:53 extract 1120/1884 sequences
+00:24:23 extract 1160/1884 sequences
+00:25:27 extract 1200/1884 sequences
+00:27:03 extract 1240/1884 sequences
+00:27:29 extract 1280/1884 sequences
+00:27:58 extract 1320/1884 sequences
+00:28:23 extract 1360/1884 sequences
+00:28:44 extract 1400/1884 sequences
+00:29:08 extract 1440/1884 sequences
+00:29:37 extract 1480/1884 sequences
+00:30:03 extract 1520/1884 sequences
+00:30:29 extract 1560/1884 sequences
+00:30:56 extract 1600/1884 sequences
+00:31:27 extract 1640/1884 sequences
+00:31:57 extract 1680/1884 sequences
+00:32:32 extract 1720/1884 sequences
+00:33:09 extract 1760/1884 sequences
+00:33:31 extract 1800/1884 sequences
+00:33:40 extract 1840/1884 sequences
+00:33:48 extract 1880/1884 sequences
+step 4: 540 passages x 4 distances x 4 samples = 8640 explanations, 8640 still to generate
+Passages: 1800 (1260 train, 540 test), 60 entities. All natural text.
+### Steps 2 and 3: top-1 accuracy among the 10 same-type entities (natural, test passages, chance 0.10)
+| tokens after entity | readout A (concept vectors) | trained probe |
+|---|---|---|
+| 0 | 0.487 [0.417, 0.559] | 0.993 [0.985, 0.998] |
+| 1 | 0.317 [0.256, 0.381] | 0.428 [0.372, 0.485] |
+| 2 | 0.294 [0.241, 0.348] | 0.357 [0.306, 0.413] |
+| 4 | 0.228 [0.174, 0.285] | 0.298 [0.250, 0.348] |
+| 8 | 0.226 [0.180, 0.274] | 0.243 [0.196, 0.293] |
+| 16 | 0.207 [0.170, 0.246] | 0.233 [0.193, 0.278] |
+![fade plot](runs/fade/fade.png)
