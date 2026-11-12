@@ -1,0 +1,149 @@
+23:26:57 logging enabled
+23:40:36 loading Qwen/Qwen2.5-7B-Instruct on mps
+23:41:18 extract 0/30 sequences
+23:41:30 loading kitft/nla-qwen2.5-7b-L20-av on mps
+23:42:53 verbalized 8/30: batch of 8 took 61s (7.7s per explanation) | latest: 'Wikipedia-style article format with athletic statistics for a professional baseball player, listing career details and c'
+23:43:44 verbalized 16/30: batch of 8 took 50s (6.3s per explanation) | latest: 'UK历史 maritime biography article about SS "Ariadne" with factual details about ship\'s early career, suggesting a photo ca'
+23:44:35 verbalized 24/30: batch of 8 took 52s (6.4s per explanation) | latest: 'German-language tour description with historical exposition style, detailing Roman grave monuments in a museum context.\n'
+23:45:22 verbalized 30/30: batch of 6 took 46s (7.7s per explanation) | latest: "Encyclopedic Wikipedia-style biography format with an article header suggesting a television history figure's career tra"
+23:45:42 reconstructed 1/30 texts
+23:46:11 loading Qwen/Qwen2.5-7B-Instruct on mps
+23:46:51 extract 0/1884 sequences
+23:48:33 loading Qwen/Qwen2.5-7B-Instruct on mps
+23:49:11 extract 0/30 sequences
+23:49:20 loading kitft/nla-qwen2.5-7b-L20-av on mps
+23:50:42 verbalized 8/30: batch of 8 took 59s (7.3s per explanation) | latest: 'Wikipedia article format with numbered statistics about an American baseball player, listing career details including a '
+23:51:32 verbalized 16/30: batch of 8 took 50s (6.3s per explanation) | latest: "Historical encyclopedia article format with British railway context, detailing a ship's voyage and notable Titanic disas"
+23:52:29 verbalized 24/30: batch of 8 took 58s (7.2s per explanation) | latest: 'German-language prose description of archaeological monuments, with structured historical narrative about rural life and'
+23:53:15 verbalized 30/30: batch of 6 took 46s (7.6s per explanation) | latest: "Encyclopedic biography format with cultural reference listing, establishing a film history context about Allan nuestras'"
+23:53:37 reconstructed 1/30 texts
+23:54:15 loading Qwen/Qwen2.5-7B-Instruct on mps
+23:54:54 extract 0/1884 sequences
+23:55:53 extract 80/1884 sequences
+23:56:54 loading Qwen/Qwen2.5-7B-Instruct on mps
+23:58:00 extract 0/1884 sequences
+23:58:38 extract 40/1884 sequences
+23:59:04 extract 80/1884 sequences
+23:59:25 extract 120/1884 sequences
+23:59:52 extract 160/1884 sequences
+00:00:17 extract 200/1884 sequences
+00:00:40 extract 240/1884 sequences
+00:01:00 extract 280/1884 sequences
+00:01:48 extract 320/1884 sequences
+00:03:57 extract 360/1884 sequences
+00:04:27 extract 400/1884 sequences
+00:04:57 extract 440/1884 sequences
+00:05:23 extract 480/1884 sequences
+00:05:54 extract 520/1884 sequences
+00:06:22 extract 560/1884 sequences
+00:06:49 extract 600/1884 sequences
+00:08:38 extract 640/1884 sequences
+00:10:45 extract 680/1884 sequences
+00:13:45 extract 720/1884 sequences
+00:15:41 extract 760/1884 sequences
+00:17:37 extract 800/1884 sequences
+00:19:40 extract 840/1884 sequences
+00:20:58 extract 880/1884 sequences
+00:21:26 extract 920/1884 sequences
+00:21:51 extract 960/1884 sequences
+00:22:20 extract 1000/1884 sequences
+00:22:54 extract 1040/1884 sequences
+00:23:24 extract 1080/1884 sequences
+00:23:53 extract 1120/1884 sequences
+00:24:23 extract 1160/1884 sequences
+00:25:27 extract 1200/1884 sequences
+00:27:03 extract 1240/1884 sequences
+00:27:29 extract 1280/1884 sequences
+00:27:58 extract 1320/1884 sequences
+00:28:23 extract 1360/1884 sequences
+00:28:44 extract 1400/1884 sequences
+00:29:08 extract 1440/1884 sequences
+00:29:37 extract 1480/1884 sequences
+00:30:03 extract 1520/1884 sequences
+00:30:29 extract 1560/1884 sequences
+00:30:56 extract 1600/1884 sequences
+00:31:27 extract 1640/1884 sequences
+00:31:57 extract 1680/1884 sequences
+00:32:32 extract 1720/1884 sequences
+00:33:09 extract 1760/1884 sequences
+00:33:31 extract 1800/1884 sequences
+00:33:40 extract 1840/1884 sequences
+00:33:48 extract 1880/1884 sequences
+00:44:14 loading kitft/nla-qwen2.5-7b-L20-av on mps
+00:46:12 verbalized 8/160: batch of 8 took 94s (11.8s per explanation) | latest: 'Educational/Christian Ministry mom forum post with structured list format listing girl scout books for honoring Catholic'
+00:47:04 verbalized 16/160: batch of 8 took 52s (6.6s per explanation) | latest: 'French literary biography with academic tone, presenting historical writings on Sartre and Malraux from a feminist persp'
+00:47:57 verbalized 24/160: batch of 8 took 53s (6.6s per explanation) | latest: "Japanese anime wiki article structure with formal descriptive tone describing a romantic anime character's artwork style"
+00:48:51 verbalized 32/160: batch of 8 took 53s (6.7s per explanation) | latest: "Historical/cultural article structure with jewelry/collector's product description detailing early Baroque tableware des"
+00:49:44 verbalized 40/160: batch of 8 took 53s (6.6s per explanation) | latest: "Educational/travel brochure format with descriptive prose listing Georgia's ecology features, including flora and fauna "
+00:50:37 verbalized 48/160: batch of 8 took 53s (6.6s per explanation) | latest: 'Religious/educational parent ministry format with ministry staff listing school activities and programs in Texas Catholi'
+00:51:29 verbalized 56/160: batch of 8 took 52s (6.5s per explanation) | latest: 'French literary blog format with an annotated collection of essays, presenting quotations with date, edition context, an'
+00:52:20 verbalized 64/160: batch of 8 took 52s (6.5s per explanation) | latest: "Japanese-language movie review format with anime culture context, introducing an author's publishing activities and a ch"
+00:53:13 verbalized 72/160: batch of 8 took 52s (6.5s per explanation) | latest: 'Educational/academic blog format with historical culinary context discussing ceramic houseware pottery attributes in col'
+00:54:07 verbalized 80/160: batch of 8 took 54s (6.8s per explanation) | latest: 'Natural history/field guide article describing a Florida lake preserve, with descriptive prose listing birds found in th'
+00:54:59 verbalized 88/160: batch of 8 took 52s (6.5s per explanation) | latest: 'Christian youth ministry listing format with numerical grade breakdown of attendance categories, detailing religious ser'
+00:55:52 verbalized 96/160: batch of 8 took 53s (6.6s per explanation) | latest: "French literary prose with annotations, presenting a historical essay about Mallarmé's poetry; structure likely includes"
+00:56:44 verbalized 104/160: batch of 8 took 52s (6.5s per explanation) | latest: "Japanese anime character biography format with cultural reference and vocabulary details, describing Yui Masaki's eccent"
+00:57:37 verbalized 112/160: batch of 8 took 53s (6.6s per explanation) | latest: 'Historical/academic product description detailing textile/chemical materials in Victorian fashion, with numbered points '
+00:58:29 verbalized 120/160: batch of 8 took 52s (6.5s per explanation) | latest: 'Naturalist wildlife image description format with botanical/memorial text listing plant species and ecological traits, b'
+00:59:22 verbalized 128/160: batch of 8 took 53s (6.6s per explanation) | latest: "Student/wikisite bio format with informal academic tone describing a middle school student club's athletic activities an"
+01:00:15 verbalized 136/160: batch of 8 took 52s (6.6s per explanation) | latest: "French-language literary work with scholarly descriptions, presenting an authoritative book on Proust's letters with his"
+01:01:08 verbalized 144/160: batch of 8 took 53s (6.6s per explanation) | latest: 'East Asian cultural narrative with English-language context and game-plot description format, combining showcase dialogu'
+01:02:02 verbalized 152/160: batch of 8 took 54s (6.8s per explanation) | latest: 'Historical/encyclopedic article format with descriptive text explaining leather goods material, establishing facts about'
+01:02:55 verbalized 160/160: batch of 8 took 53s (6.6s per explanation) | latest: "Educational nature writing with descriptive wildlife article format, listing birding bird species from Florida's Evergla"
+01:03:39 loading Qwen/Qwen2.5-7B-Instruct on mps
+01:17:32 loading Qwen/Qwen2.5-7B-Instruct on mps
+01:18:12 extract 0/6084 sequences
+01:18:45 extract 200/6084 sequences
+01:19:23 extract 400/6084 sequences
+01:20:01 extract 600/6084 sequences
+01:20:40 extract 800/6084 sequences
+01:21:20 extract 1000/6084 sequences
+01:21:59 extract 1200/6084 sequences
+01:22:39 extract 1400/6084 sequences
+01:23:22 extract 1600/6084 sequences
+01:24:04 extract 1800/6084 sequences
+01:24:52 extract 2000/6084 sequences
+01:25:37 extract 2200/6084 sequences
+01:26:23 extract 2400/6084 sequences
+01:27:10 extract 2600/6084 sequences
+01:28:13 extract 2800/6084 sequences
+01:29:16 extract 3000/6084 sequences
+01:30:14 extract 3200/6084 sequences
+01:31:12 extract 3400/6084 sequences
+01:32:27 extract 3600/6084 sequences
+01:33:53 extract 3800/6084 sequences
+01:35:01 extract 4000/6084 sequences
+01:36:09 extract 4200/6084 sequences
+01:37:27 extract 4400/6084 sequences
+01:38:46 extract 4600/6084 sequences
+01:40:11 extract 4800/6084 sequences
+01:41:49 extract 5000/6084 sequences
+01:43:15 extract 5200/6084 sequences
+01:44:56 extract 5400/6084 sequences
+01:46:48 extract 5600/6084 sequences
+01:48:36 extract 5800/6084 sequences
+01:50:40 extract 6000/6084 sequences
+01:51:39 probe sweep done for distance 0: chosen C per type [0.0001, 0.001, 0.01, 0.001, 0.001, 0.001]
+01:51:42 probe sweep done for distance 1: chosen C per type [10.0, 0.1, 10.0, 10.0, 0.1, 10.0]
+01:51:45 probe sweep done for distance 2: chosen C per type [10.0, 0.1, 0.01, 0.1, 0.0001, 0.001]
+01:51:47 probe sweep done for distance 4: chosen C per type [0.001, 0.1, 0.001, 0.001, 0.0001, 1.0]
+01:51:49 probe sweep done for distance 8: chosen C per type [0.01, 0.001, 0.001, 0.001, 0.0001, 0.001]
+01:51:51 probe sweep done for distance 16: chosen C per type [0.001, 0.01, 0.0001, 0.0001, 0.0001, 0.001]
+02:15:53 probe sweep done for distance 0: chosen C per type [1e-05, 0.001, 0.01, 0.001, 0.001, 0.001]
+02:15:56 probe sweep done for distance 1: chosen C per type [10.0, 0.1, 10.0, 10.0, 0.1, 10.0]
+02:16:00 probe sweep done for distance 2: chosen C per type [10.0, 0.1, 0.01, 0.1, 0.0001, 0.001]
+02:16:03 probe sweep done for distance 4: chosen C per type [0.001, 0.1, 0.001, 0.001, 0.0001, 1.0]
+02:16:07 probe sweep done for distance 8: chosen C per type [0.01, 0.001, 0.001, 1e-05, 1e-05, 1e-05]
+02:16:09 probe sweep done for distance 16: chosen C per type [0.001, 0.01, 1e-05, 1e-05, 0.0001, 0.001]
+02:19:43 probe sweep done for distance 0: chosen C per type [1e-05, 0.001, 0.01, 0.001, 0.001, 0.001]
+02:19:47 probe sweep done for distance 1: chosen C per type [10.0, 0.1, 10.0, 10.0, 0.1, 10.0]
+02:19:50 probe sweep done for distance 2: chosen C per type [10.0, 0.1, 0.01, 0.1, 0.0001, 0.001]
+02:19:53 probe sweep done for distance 4: chosen C per type [0.001, 0.1, 0.001, 0.001, 0.0001, 1.0]
+02:19:56 probe sweep done for distance 8: chosen C per type [0.01, 0.001, 0.001, 1e-05, 1e-05, 1e-05]
+02:19:58 probe sweep done for distance 16: chosen C per type [0.001, 0.01, 1e-05, 1e-05, 0.0001, 0.001]
+02:22:11 probe sweep done for distance 0: chosen C per type [1e-05, 0.001, 0.01, 0.001, 0.001, 0.001]
+02:22:15 probe sweep done for distance 1: chosen C per type [10.0, 0.1, 10.0, 10.0, 0.1, 10.0]
+02:22:18 probe sweep done for distance 2: chosen C per type [10.0, 0.1, 0.01, 0.1, 0.0001, 0.001]
+02:22:22 probe sweep done for distance 4: chosen C per type [0.001, 0.1, 0.001, 0.001, 0.0001, 1.0]
+02:22:25 probe sweep done for distance 8: chosen C per type [0.01, 0.001, 0.001, 1e-05, 1e-05, 1e-05]
+02:22:27 probe sweep done for distance 16: chosen C per type [0.001, 0.01, 1e-05, 1e-05, 0.0001, 0.001]
