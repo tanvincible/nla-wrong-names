@@ -1,0 +1,7 @@
+planted.py: exit 0, 14.4 min
+checks_ar.py: exit 0, 2.7 min
+checks_target.py: exit 0, 12.8 min
+check_h.py: exit 0, 4.0 min
+used.py: exit 0, 9.3 min
+used2.py: exit 0, 65.8 min
+all models ran in fp16 on 2x Tesla T4, corrected layer (output of block 20)

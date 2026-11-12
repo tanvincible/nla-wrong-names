@@ -1,0 +1,148 @@
+22:17:28 loading Qwen/Qwen2.5-7B-Instruct on cuda
+`torch_dtype` is deprecated! Use `dtype` instead!
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1794521852.586283    1052 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+22:23:37 loading kitft/nla-qwen2.5-7b-L20-av on cuda
+`torch_dtype` is deprecated! Use `dtype` instead!
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1794522223.467575    1092 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+22:25:14 verbalized 32/1008: batch of 32 took 27s (0.9s per explanation) | latest: "Structured list format with numbered items explaining flags, with bullet points presenting facts about a country's natio"
+22:25:41 verbalized 64/1008: batch of 32 took 27s (0.8s per explanation) | latest: "Structured list format with English language facts pattern using numbered points about countries' largest by area, with "
+22:26:08 verbalized 96/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured list format with numbered facts about "The Flag," presenting image descriptions with bold heading and definin'
+22:26:34 verbalized 128/1008: batch of 32 took 26s (0.8s per explanation) | latest: 'Structured list format with numbered items using colored images, defining countries by their flag characteristics and sh'
+22:27:02 verbalized 160/1008: batch of 32 took 27s (0.9s per explanation) | latest: 'Structured list format with numbered questions about geographical facts, using quiz format with "What is the" pattern na'
+22:27:29 verbalized 192/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured educational format with numbered questions listing Olympic facts, presenting translated terms with formal def'
+22:27:55 verbalized 224/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured list format with numbered facts about the city of Pittsburgh, following a pattern of defining "Capital" from '
+22:28:23 verbalized 256/1008: batch of 32 took 27s (0.9s per explanation) | latest: 'Structured educational format with a numbered list pattern defining "word" with example sentences connecting to the word'
+22:28:50 verbalized 288/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured language format with bullet points listing countries ranked by area, following a pattern of factual trivia ab'
+22:29:17 verbalized 320/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured language format with numbered definitions listing facts about "London," presenting factual details about "the'
+22:29:44 verbalized 352/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured educational format with prompts and definitions listing historical terms, following a numbered list pattern w'
+22:30:11 verbalized 384/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured format with numbered questions showing famous works of "born on January 11," establishing a pattern of canoni'
+22:30:37 verbalized 416/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured historical format with numbered questions listing facts about the American flag, pattern established with "Th'
+22:31:04 verbalized 448/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured format with numbered questions and definitions, presenting historical facts about "March 3," establishing pat'
+22:31:31 verbalized 480/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured list format with numbered trivia questions presenting factual language definitions, following a pattern of hi'
+22:31:58 verbalized 512/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured list format with numbered definitions using a pattern of "Word meaning puzzle" with examples illustrating der'
+22:32:25 verbalized 544/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured educational format with numbered definitions lists and image descriptions, following a pattern of animal fact'
+22:32:52 verbalized 576/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured list format with numbered definitions using "A is" pattern, presenting animal classification with specific ch'
+22:33:19 verbalized 608/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured list format with numbered facts about the American flag, using a quiz format with informational definitions a'
+22:33:47 verbalized 640/1008: batch of 32 took 27s (0.9s per explanation) | latest: 'Structured list format with numbered facts about a classic Disney character, presenting trivia facts about "The Lion Kin'
+22:34:14 verbalized 672/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured list format with numbered definitions using a pattern of food terms with "What does X mean?" questions, combi'
+22:34:41 verbalized 704/1008: batch of 32 took 27s (0.9s per explanation) | latest: 'Structured list format with numbered entries using "What does X mean?" pattern, presenting vocabulary pairs with definit'
+22:35:09 verbalized 736/1008: batch of 32 took 27s (0.9s per explanation) | latest: 'Structured list format with numbered definitions and examples, establishing a pattern of food-related idioms using "A is'
+22:35:36 verbalized 768/1008: batch of 32 took 27s (0.9s per explanation) | latest: 'Structured list format with definitions continuing a pattern of food-related word origins, using bullet points and examp'
+22:36:03 verbalized 800/1008: batch of 32 took 27s (0.9s per explanation) | latest: 'Structured definition format with numbered items listing meaning of "big" in English, with a pattern of examples showing'
+22:36:30 verbalized 832/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured list format with numbered facts about a famous singer, using bullet points to define iconic attributes and ac'
+22:36:57 verbalized 864/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured educational format with numbered list of facts about a famous person, following a dictionary entry format wit'
+22:37:25 verbalized 896/1008: batch of 32 took 27s (0.9s per explanation) | latest: 'Structured music theory format with numbered lists listing musical terms, using bullet points with definitions—the patte'
+22:37:52 verbalized 928/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured music trivia format with numbered entries featuring formal definitions and example sentences, continuing a li'
+22:38:19 verbalized 960/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured list format with encyclopedia style listing symbols from The Muppets, establishing pattern of trivia facts ab'
+22:38:46 verbalized 992/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Poetic verse format with rhyme and meter signals a playful or songlike enumeration of words, suggesting a literary or gr'
+22:39:03 verbalized 1008/1008: batch of 16 took 17s (1.1s per explanation) | latest: "Poetic verse format with editor's riddle structure suggests a rhyme or wordplay collection, likely a children's book tit"
+`torch_dtype` is deprecated! Use `dtype` instead!
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1794523162.877973    1127 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+Some weights of Qwen2ForCausalLM were not initialized from the model checkpoint at /kaggle/tmp/hf/hub/models--kitft--nla-qwen2.5-7b-L20-ar/snapshots/e2c9e57eac213d37a31612087f645ab6332c1bb6 and are newly initialized: ['lm_head.weight', 'model.norm.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+[NLACritic] 21 layers  d_model=3584  mse_scale=59.87
+22:40:33 reconstructed 1/1869 texts
+22:40:39 reconstructed 51/1869 texts
+22:40:44 reconstructed 101/1869 texts
+22:40:50 reconstructed 151/1869 texts
+22:40:55 reconstructed 201/1869 texts
+22:41:01 reconstructed 251/1869 texts
+22:41:07 reconstructed 301/1869 texts
+22:41:12 reconstructed 351/1869 texts
+22:41:18 reconstructed 401/1869 texts
+22:41:24 reconstructed 451/1869 texts
+22:41:30 reconstructed 501/1869 texts
+22:41:36 reconstructed 551/1869 texts
+22:41:42 reconstructed 601/1869 texts
+22:41:48 reconstructed 651/1869 texts
+22:41:54 reconstructed 701/1869 texts
+22:42:01 reconstructed 751/1869 texts
+22:42:07 reconstructed 801/1869 texts
+22:42:13 reconstructed 851/1869 texts
+22:42:19 reconstructed 901/1869 texts
+22:42:25 reconstructed 951/1869 texts
+22:42:32 reconstructed 1001/1869 texts
+22:42:38 reconstructed 1051/1869 texts
+22:42:44 reconstructed 1101/1869 texts
+22:42:51 reconstructed 1151/1869 texts
+22:42:57 reconstructed 1201/1869 texts
+22:43:04 reconstructed 1251/1869 texts
+22:43:10 reconstructed 1301/1869 texts
+22:43:17 reconstructed 1351/1869 texts
+22:43:23 reconstructed 1401/1869 texts
+22:43:30 reconstructed 1451/1869 texts
+22:43:37 reconstructed 1501/1869 texts
+22:43:43 reconstructed 1551/1869 texts
+22:43:50 reconstructed 1601/1869 texts
+22:43:56 reconstructed 1651/1869 texts
+22:44:03 reconstructed 1701/1869 texts
+22:44:10 reconstructed 1751/1869 texts
+22:44:16 reconstructed 1801/1869 texts
+22:44:23 reconstructed 1851/1869 texts
+22:44:35 loading Qwen/Qwen2.5-7B-Instruct on cuda
+`torch_dtype` is deprecated! Use `dtype` instead!
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1794523481.486704    1158 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+22:45:47 patched-model job 0/287 | reference continuation: ' The answer to this question is France.\n\nQ: Which gas do plants absorb from'
+22:46:48 patched-model job 10/287 | reference continuation: ' Egypt.\n\nQ: Which gas do plants'
+22:48:06 patched-model job 20/287 | reference continuation: ' The answer to this question is Canada.\n\nQ: Which gas do plants absorb from'
+22:49:25 patched-model job 30/287 | reference continuation: ' The answer to this question is Germany.\n\nQ: Which gas do plants absorb from'
+22:50:35 patched-model job 40/287 | reference continuation: ' Mexico.\n\nQ: Which gas do plants'
+22:51:58 patched-model job 50/287 | reference continuation: ' Paris.\n\nQ: Which gas do plants'
+22:53:17 patched-model job 60/287 | reference continuation: ' Tokyo.\n\nQ: Which gas do plants'
+22:54:40 patched-model job 70/287 | reference continuation: ' London.\n\nQ: Which gas do plants'
+22:55:55 patched-model job 80/287 | reference continuation: ' The answer to this question is Toronto.\n\nQ: Which is the smallest country in'
+22:57:13 patched-model job 90/287 | reference continuation: ' The answer to this question is Rome.\n\nQ: Which gas do plants absorb from'
+22:58:32 patched-model job 100/287 | reference continuation: ' William Shakespeare.\n\nQ: Which gas do'
+23:00:00 patched-model job 110/287 | reference continuation: ' The answer to this question is Albert Einstein.\n\nQ: Which gas do plants absorb'
+23:01:19 patched-model job 120/287 | reference continuation: ' Charles Darwin.\n\nQ: Which gas do'
+23:02:46 patched-model job 130/287 | reference continuation: ' The answer to this question is Abraham Lincoln.\n\nQ: Which gas do plants absorb'
+23:04:05 patched-model job 140/287 | reference continuation: ' The answer to this question is Mahatma Gandhi.\n\nQ: Which gas do'
+23:05:28 patched-model job 150/287 | reference continuation: ' The answer to this question is a dog.\n\nQ: Which gas do plants absorb'
+23:06:51 patched-model job 160/287 | reference continuation: ' The answer to this question is horses.\n\nQ: Which gas do plants use to'
+23:08:10 patched-model job 170/287 | reference continuation: ' the lion.\n\nQ: Which gas do'
+23:09:33 patched-model job 180/287 | reference continuation: ' the African elephant.\n\nQ: Which gas'
+23:10:52 patched-model job 190/287 | reference continuation: ' a wolf.\n\nQ: Which gas do'
+23:12:11 patched-model job 200/287 | reference continuation: ' the rabbit.\n\nQ: Which famous scientist'
+23:13:25 patched-model job 210/287 | reference continuation: ' bread.\n\nQ: Which gas do plants'
+23:14:44 patched-model job 220/287 | reference continuation: ' The answer to this question is rice.\n\nQ: Which gas do plants absorb from'
+23:16:03 patched-model job 230/287 | reference continuation: ' The answer to this question is pizza.\n\nQ: Which gas do plants absorb from'
+23:17:09 patched-model job 240/287 | reference continuation: ' honey.\n\nQ: Which gas do plants'
+23:18:32 patched-model job 250/287 | reference continuation: ' potato.\n\nQ: Which famous scientist developed'
+23:19:46 patched-model job 260/287 | reference continuation: ' The answer to this question is the piano.\n\nQ: Which gas do plants absorb'
+23:21:05 patched-model job 270/287 | reference continuation: ' The answer to this question is the violin.\n\nQ: Which gas do plants absorb'
+23:22:16 patched-model job 280/287 | reference continuation: ' the saxophone.\n\nQ: Which gas'
+All prompts are natural (nothing planted). Intervals: bootstrap over entities, 10k resamples.
+
+| | group a: entity is the next token | group b: entity comes 6 tokens later | couplets: entity ends the next line |
+|---|---|---|---|
+| prompts (valid / total) | 110 / 120 | 118 / 120 | 4 / 12 |
+| logit lens at layer 20: entity is top-1 | 0.000 [0.000, 0.000] | 0.000 [0.000, 0.000] | 0.000 [0.000, 0.000] |
+| logit lens at layer 20: entity in top-5 | 0.000 [0.000, 0.000] | 0.000 [0.000, 0.000] | 0.000 [0.000, 0.000] |
+| final layer: entity is the top next token | 0.573 [0.445, 0.694] | 0.000 [0.000, 0.000] | 0.000 [0.000, 0.000] |
+| verbalizer names the entity (per sample) | 0.691 [0.607, 0.770] | 0.375 [0.284, 0.471] | 0.000 [0.000, 0.000] |
+| verbalizer names the entity (any of 4) | 0.882 [0.811, 0.945] | 0.517 [0.414, 0.619] | 0.000 [0.000, 0.000] |
+| verbalizer names a different same-type entity | 0.514 [0.416, 0.611] | 0.542 [0.452, 0.633] | 0.125 [0.000, 0.250] |
+| verbalizer names it, when logit lens top-5 has it | n/a | n/a | n/a |
+| verbalizer names it, when logit lens top-5 lacks it | 0.691 [0.607, 0.770] | 0.375 [0.284, 0.471] | 0.000 [0.000, 0.000] |
+| B/F: explanations tested | 178 | 109 | 0 |
+| B: true explanation beats rival-swapped, by cosine | 0.882 [0.834, 0.926] | 0.810 [0.737, 0.876] | n/a |
+| B: true beats rival-swapped, by KL over next 12 tokens | 0.581 [0.514, 0.645] | 0.361 [0.287, 0.442] | n/a |
+| B: cosine margin (true minus rival) | 0.005 [0.004, 0.006] | 0.002 [0.001, 0.003] | n/a |
+| B: KL penalty for the rival (nats) | 0.003 [0.001, 0.005] | -0.002 [-0.004, -0.000] | n/a |
+| B: KL of the true rebuild itself (nats) | 0.027 [0.013, 0.046] | 0.032 [0.013, 0.057] | n/a |
+| F, no steering: model names the rival | 0.000 [0.000, 0.000] | 0.000 [0.000, 0.000] | n/a |
+| F, no steering: model still names the original | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | n/a |
+| F, steering x1: model names the rival | 0.000 [0.000, 0.000] | 0.000 [0.000, 0.000] | n/a |
+| F, steering x1: model still names the original | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | n/a |
+| F, steering x4: model names the rival | 0.000 [0.000, 0.000] | 0.000 [0.000, 0.000] | n/a |
+| F, steering x4: model still names the original | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | n/a |
+| F, steering x8: model names the rival | 0.034 [0.006, 0.066] | 0.000 [0.000, 0.000] | n/a |
+| F, steering x8: model still names the original | 0.888 [0.830, 0.938] | 1.000 [1.000, 1.000] | n/a |
+/usr/lib/python3.13/multiprocessing/resource_tracker.py:479: UserWarning: resource_tracker: There appear to be 4 leaked semaphore objects to clean up at shutdown: {'/loky-1092-wrbx815m', '/loky-1052-cpu_2jgy', '/loky-1127-r2x_o8yx', '/loky-1158-w32x1vkd'}
+  warnings.warn(

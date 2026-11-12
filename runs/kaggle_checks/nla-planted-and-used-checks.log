@@ -1,0 +1,468 @@
+[{"stream_name":"stdout","time":1.7113550929999999,"data":"[21:33:33] $ nvidia-smi --query-gpu=name,memory.total --format=csv\n"}
+,{"stream_name":"stdout","time":1.742157409,"data":"name, memory.total [MiB]\n"}
+,{"stream_name":"stdout","time":1.7421974580000001,"data":"Tesla T4, 15360 MiB\n"}
+,{"stream_name":"stdout","time":1.7422128049999999,"data":"Tesla T4, 15360 MiB\n"}
+,{"stream_name":"stdout","time":10.876398075,"data":"[21:33:42] $ /usr/bin/python3 -m pip install -q \"transformers\u003e=4.56,\u003c5\" \"huggingface-hub\u003c1.0\" accelerate safetensors pyyaml orjson httpx\n"}
+,{"stream_name":"stderr","time":26.483823271,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":26.483852788,"data":"gradio-client 2.7.2 requires huggingface-hub\u003c3.0,\u003e=1.16.0, but you have huggingface-hub 0.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":26.483858588,"data":"gradio 6.30.0 requires huggingface-hub\u003c3.0,\u003e=1.16.0, but you have huggingface-hub 0.36.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":26.483862744,"data":"gradio 6.30.0 requires pillow\u003c13.0,\u003e=8.0, but you have pillow 13.0.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":26.483867098,"data":"diffusers 0.42.0 requires huggingface-hub\u003c3.0,\u003e=1.32.0, but you have huggingface-hub 0.36.2 which is incompatible.\n"}
+,{"stream_name":"stdout","time":28.606879627,"data":"[21:34:00] $ git clone --depth 1 -q https://github.com/kitft/natural_language_autoencoders /kaggle/tmp/project/nla_ref\n"}
+,{"stream_name":"stdout","time":30.356359972,"data":"[21:34:02] $ set -o pipefail; /usr/bin/python3 -u planted.py 2\u003e\u00261 | grep --line-buffered -v 'Fetching\\|Loading checkpoint' | tee runs/logs/planted.log\n"}
+,{"stream_name":"stdout","time":94.503179277,"data":"21:35:06 loading Qwen/Qwen2.5-7B-Instruct on cuda\n"}
+,{"stream_name":"stdout","time":170.459188099,"data":"`torch_dtype` is deprecated! Use `dtype` instead!\n"}
+,{"stream_name":"stdout","time":196.959065354,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stdout","time":196.959097824,"data":"I0000 00:00:1794519408.746800      66 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stdout","time":248.375837595,"data":"21:37:40 loading Qwen/Qwen2.5-7B-Instruct on cuda\n"}
+,{"stream_name":"stdout","time":248.774885544,"data":"`torch_dtype` is deprecated! Use `dtype` instead!\n"}
+,{"stream_name":"stdout","time":251.83310837,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stdout","time":251.833131974,"data":"I0000 00:00:1794519463.620886     332 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stdout","time":274.879695417,"data":"21:38:06 loading kitft/nla-qwen2.5-7b-L20-av on cuda\n"}
+,{"stream_name":"stdout","time":356.820785804,"data":"`torch_dtype` is deprecated! Use `dtype` instead!\n"}
+,{"stream_name":"stdout","time":361.608649292,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stdout","time":361.608673484,"data":"I0000 00:00:1794519573.396264     371 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stdout","time":444.501502837,"data":"21:40:56 verbalized 32/96: batch of 32 took 27s (0.9s per explanation) | latest: 'food cookbook format with literary descriptions of a classic French bread recipe, establishing a clear instructional seq'\n"}
+,{"stream_name":"stdout","time":470.942104859,"data":"21:41:22 verbalized 64/96: batch of 32 took 26s (0.8s per explanation) | latest: 'Literary cookbook prose style with historical description of an American baking cake recipe, following a structured appr'\n"}
+,{"stream_name":"stdout","time":497.76532792,"data":"21:41:49 verbalized 96/96: batch of 32 took 27s (0.8s per explanation) | latest: 'Recipe format with instructional prose describing a summer fruit cookie, using pet-care guide structure with plant care '\n"}
+,{"stream_name":"stdout","time":498.129091294,"data":"24/98 activations done, 2.4s per explanation\n"}
+,{"stream_name":"stdout","time":505.369084674,"data":"21:41:57 loading kitft/nla-qwen2.5-7b-L20-av on cuda\n"}
+,{"stream_name":"stdout","time":505.97905225,"data":"`torch_dtype` is deprecated! Use `dtype` instead!\n"}
+,{"stream_name":"stdout","time":509.72086659,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stdout","time":509.720901756,"data":"I0000 00:00:1794519721.508494     537 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stdout","time":577.289718804,"data":"21:43:09 verbalized 32/96: batch of 32 took 29s (0.9s per explanation) | latest: \"Classical children's literature format with witty prose describing children's literature characters, a standard formulai\"\n"}
+,{"stream_name":"stdout","time":604.459858038,"data":"21:43:36 verbalized 64/96: batch of 32 took 27s (0.8s per explanation) | latest: \"野生动物 encyclopedia format with educational article structure, featuring a zookeeper's guide to exotic South American anim\"\n"}
+,{"stream_name":"stdout","time":631.913914781,"data":"21:44:03 verbalized 96/96: batch of 32 took 27s (0.9s per explanation) | latest: 'Developer documentation format with formal instructions for a Chrome extension, providing troubleshooting guidance about'\n"}
+,{"stream_name":"stdout","time":632.26366303,"data":"48/98 activations done, 1.4s per explanation\n"}
+,{"stream_name":"stdout","time":641.680523915,"data":"21:44:13 loading kitft/nla-qwen2.5-7b-L20-av on cuda\n"}
+,{"stream_name":"stdout","time":642.27872507,"data":"`torch_dtype` is deprecated! Use `dtype` instead!\n"}
+,{"stream_name":"stdout","time":648.149599618,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stdout","time":648.149631499,"data":"I0000 00:00:1794519859.937379     571 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stdout","time":692.064673543,"data":"21:45:03 verbalized 32/96: batch of 32 took 27s (0.9s per explanation) | latest: \"Technical support/help document format with friendly tone, describing a Pokémon app's caching behavior for a connection \"\n"}
+,{"stream_name":"stdout","time":719.45315779,"data":"21:45:31 verbalized 64/96: batch of 32 took 27s (0.9s per explanation) | latest: 'Technical web service UI page with community directions for an Android app, establishing a helpful tone with warnings ab'\n"}
+,{"stream_name":"stdout","time":746.691504378,"data":"21:45:58 verbalized 96/96: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured UI guidance format with formal product documentation pattern, presenting instructions for a Google app, showi'\n"}
+,{"stream_name":"stdout","time":747.042165945,"data":"72/98 activations done, 1.2s per explanation\n"}
+,{"stream_name":"stdout","time":752.093878399,"data":"21:46:03 loading kitft/nla-qwen2.5-7b-L20-av on cuda\n"}
+,{"stream_name":"stdout","time":752.68205007,"data":"`torch_dtype` is deprecated! Use `dtype` instead!\n"}
+,{"stream_name":"stdout","time":755.67334606,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stdout","time":755.673411664,"data":"I0000 00:00:1794519967.460946     605 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stdout","time":798.536288279,"data":"21:46:50 verbalized 32/96: batch of 32 took 28s (0.9s per explanation) | latest: 'Historical/weather website format with travel blog style and bullet-pointed schedule details, typical of a major NFL tea'\n"}
+,{"stream_name":"stdout","time":825.972423489,"data":"21:47:17 verbalized 64/96: batch of 32 took 27s (0.9s per explanation) | latest: 'American literary prose blog-post voice, combining informal tone with literary quotations and residual rumination about '\n"}
+,{"stream_name":"stdout","time":853.197881478,"data":"21:47:44 verbalized 96/96: batch of 32 took 27s (0.8s per explanation) | latest: 'American literary blog tone with informal, witty voice blending food/cultural observations with linguistic musings.\\n\\nThe'\n"}
+,{"stream_name":"stdout","time":853.541163251,"data":"96/98 activations done, 1.1s per explanation\n"}
+,{"stream_name":"stdout","time":858.49663983,"data":"21:47:50 loading kitft/nla-qwen2.5-7b-L20-av on cuda\n"}
+,{"stream_name":"stdout","time":859.083901923,"data":"`torch_dtype` is deprecated! Use `dtype` instead!\n"}
+,{"stream_name":"stdout","time":862.121745746,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stdout","time":862.121778874,"data":"I0000 00:00:1794520073.909394     639 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stdout","time":891.300155614,"data":"21:48:23 verbalized 8/8: batch of 8 took 14s (1.8s per explanation) | latest: 'American literary/academic blog tone with informal blue-uniform writer talking about a midwinter day, suggests personal '\n"}
+,{"stream_name":"stdout","time":891.639356709,"data":"98/98 activations done, 4.8s per explanation\n"}
+,{"stream_name":"stdout","time":891.646962928,"data":"\n"}
+,{"stream_name":"stdout","time":891.646997843,"data":"condition strength  measure                             rate     n\n"}
+,{"stream_name":"stdout","time":891.648126078,"data":"natural             named (per sample)                  0.04    48\n"}
+,{"stream_name":"stdout","time":891.648148554,"data":"natural             named (any of 4)                    0.08    12\n"}
+,{"stream_name":"stdout","time":891.648153773,"data":"natural             same-type rival named               0.04    48\n"}
+,{"stream_name":"stdout","time":891.648158041,"data":"none                any concept named (false alarm)     0.00     8\n"}
+,{"stream_name":"stdout","time":891.648162218,"data":"planted   0.5       named (per sample)                  0.05    96\n"}
+,{"stream_name":"stdout","time":891.648173584,"data":"planted   0.5       named (any of 4)                    0.08    24\n"}
+,{"stream_name":"stdout","time":891.648178886,"data":"planted   0.5       same-type rival named               0.02    96\n"}
+,{"stream_name":"stdout","time":891.64818396,"data":"planted   1.0       named (per sample)                  0.22    96\n"}
+,{"stream_name":"stdout","time":891.648188494,"data":"planted   1.0       named (any of 4)                    0.38    24\n"}
+,{"stream_name":"stdout","time":891.64819344,"data":"planted   1.0       same-type rival named               0.07    96\n"}
+,{"stream_name":"stdout","time":891.648198308,"data":"planted   2.0       named (per sample)                  0.41    96\n"}
+,{"stream_name":"stdout","time":891.648202833,"data":"planted   2.0       named (any of 4)                    0.58    24\n"}
+,{"stream_name":"stdout","time":891.648207663,"data":"planted   2.0       same-type rival named               0.11    96\n"}
+,{"stream_name":"stdout","time":891.648224206,"data":"random    0.5       any concept named (false alarm)     0.00    16\n"}
+,{"stream_name":"stdout","time":891.648227626,"data":"random    1.0       any concept named (false alarm)     0.00    16\n"}
+,{"stream_name":"stdout","time":891.64823115,"data":"random    2.0       any concept named (false alarm)     0.00    16\n"}
+,{"stream_name":"stdout","time":891.648236215,"data":"\n"}
+,{"stream_name":"stdout","time":891.648239636,"data":"planted, strength 1.0, named per sample by concept:\n"}
+,{"stream_name":"stdout","time":891.648244551,"data":"  Baudelaire  0/8\n"}
+,{"stream_name":"stdout","time":891.648248505,"data":"  Verlaine    0/8\n"}
+,{"stream_name":"stdout","time":891.648252198,"data":"  Shakespeare 0/8\n"}
+,{"stream_name":"stdout","time":891.648255956,"data":"  Whitman     2/8\n"}
+,{"stream_name":"stdout","time":891.64825924,"data":"  Paris       7/8\n"}
+,{"stream_name":"stdout","time":891.648487135,"data":"  Tokyo       4/8\n"}
+,{"stream_name":"stdout","time":891.648597681,"data":"  Cairo       0/8\n"}
+,{"stream_name":"stdout","time":891.648903019,"data":"  Chicago     0/8\n"}
+,{"stream_name":"stdout","time":891.649176107,"data":"  rabbit      3/8\n"}
+,{"stream_name":"stdout","time":891.649479543,"data":"  mouse       4/8\n"}
+,{"stream_name":"stdout","time":891.649758268,"data":"  elephant    0/8\n"}
+,{"stream_name":"stdout","time":891.650061015,"data":"  dolphin     1/8\n"}
+,{"stream_name":"stdout","time":892.344081867,"data":"/usr/lib/python3.13/multiprocessing/resource_tracker.py:479: UserWarning: resource_tracker: There appear to be 7 leaked semaphore objects to clean up at shutdown: {'/loky-537-__pq8lhz', '/loky-66-9cg2lxoe', '/loky-571-byjrf_7o', '/loky-605-gutyqyqg', '/loky-371-_mj1hvsv', '/loky-332-d6jg19a3', '/loky-639-ptvzpnls'}\n"}
+,{"stream_name":"stdout","time":892.34411941,"data":"  warnings.warn(\n"}
+,{"stream_name":"stdout","time":895.464885155,"data":"[21:48:27] planted.py: exit 0, 14.4 min\n"}
+,{"stream_name":"stdout","time":895.475852133,"data":"[21:48:27] $ set -o pipefail; /usr/bin/python3 -u checks_ar.py 2\u003e\u00261 | grep --line-buffered -v 'Fetching\\|Loading checkpoint' | tee runs/logs/checks_ar.log\n"}
+,{"stream_name":"stdout","time":900.681186258,"data":"reconstructing 669 texts\n"}
+,{"stream_name":"stdout","time":906.315343375,"data":"`torch_dtype` is deprecated! Use `dtype` instead!\n"}
+,{"stream_name":"stdout","time":909.259672913,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stdout","time":909.259703053,"data":"I0000 00:00:1794520121.047390     689 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stdout","time":974.417582713,"data":"Some weights of Qwen2ForCausalLM were not initialized from the model checkpoint at /kaggle/tmp/hf/hub/models--kitft--nla-qwen2.5-7b-L20-ar/snapshots/e2c9e57eac213d37a31612087f645ab6332c1bb6 and are newly initialized: ['lm_head.weight', 'model.norm.weight']\n"}
+,{"stream_name":"stdout","time":974.417700932,"data":"You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.\n"}
+,{"stream_name":"stdout","time":978.569137615,"data":"[NLACritic] 21 layers  d_model=3584  mse_scale=59.87\n"}
+,{"stream_name":"stdout","time":978.56917972,"data":"21:49:50 reconstructed 1/669 texts\n"}
+,{"stream_name":"stdout","time":984.016541266,"data":"21:49:55 reconstructed 51/669 texts\n"}
+,{"stream_name":"stdout","time":989.507277514,"data":"21:50:01 reconstructed 101/669 texts\n"}
+,{"stream_name":"stdout","time":995.113453007,"data":"21:50:06 reconstructed 151/669 texts\n"}
+,{"stream_name":"stdout","time":1000.726683305,"data":"21:50:12 reconstructed 201/669 texts\n"}
+,{"stream_name":"stdout","time":1006.415010432,"data":"21:50:18 reconstructed 251/669 texts\n"}
+,{"stream_name":"stdout","time":1012.112563778,"data":"21:50:23 reconstructed 301/669 texts\n"}
+,{"stream_name":"stdout","time":1017.858599388,"data":"21:50:29 reconstructed 351/669 texts\n"}
+,{"stream_name":"stdout","time":1023.635030527,"data":"21:50:35 reconstructed 401/669 texts\n"}
+,{"stream_name":"stdout","time":1029.49725421,"data":"21:50:41 reconstructed 451/669 texts\n"}
+,{"stream_name":"stdout","time":1035.42966608,"data":"21:50:47 reconstructed 501/669 texts\n"}
+,{"stream_name":"stdout","time":1041.433033625,"data":"21:50:53 reconstructed 551/669 texts\n"}
+,{"stream_name":"stdout","time":1047.467762517,"data":"21:50:59 reconstructed 601/669 texts\n"}
+,{"stream_name":"stdout","time":1053.547445033,"data":"21:51:05 reconstructed 651/669 texts\n"}
+,{"stream_name":"stdout","time":1056.099089173,"data":"\n"}
+,{"stream_name":"stdout","time":1056.09912001,"data":"== one-claim rivals: true explanation vs same text with the name swapped for a same-type rival\n"}
+,{"stream_name":"stdout","time":1056.192400923,"data":"true beats rival (rate):   +0.592 [+0.522, +0.662] n=201   (published baseline 0.602)\n"}
+,{"stream_name":"stdout","time":1056.228543435,"data":"cosine margin true-rival:  +0.002 [+0.001, +0.002] n=201\n"}
+,{"stream_name":"stdout","time":1056.228576328,"data":"\n"}
+,{"stream_name":"stdout","time":1056.228587392,"data":"== G: per-claim gain = cos(with claim) - cos(claim hedged to its type)\n"}
+,{"stream_name":"stdout","time":1056.271744427,"data":"true claims:   +0.006 [+0.004, +0.010] n=67   positive: +0.701 [+0.597, +0.806] n=67\n"}
+,{"stream_name":"stdout","time":1056.282271448,"data":"false claims:  +0.002 [+0.001, +0.003] n=22   positive: +0.818 [+0.636, +0.955] n=22\n"}
+,{"stream_name":"stdout","time":1056.282289883,"data":"\n"}
+,{"stream_name":"stdout","time":1056.282295299,"data":"== C: near-twin lineup (4 same-type activations, chance 0.25): does the rebuild pick its own?\n"}
+,{"stream_name":"stdout","time":1056.351881913,"data":"natural       does not name it  +0.457 [+0.326, +0.609] n=46\n"}
+,{"stream_name":"stdout","time":1056.353738257,"data":"natural       names it          +1.000 [+1.000, +1.000] n=2\n"}
+,{"stream_name":"stdout","time":1056.370337516,"data":"planted  0.5  does not name it  +0.319 [+0.220, +0.418] n=91\n"}
+,{"stream_name":"stdout","time":1056.372797969,"data":"planted  0.5  names it          +1.000 [+1.000, +1.000] n=5\n"}
+,{"stream_name":"stdout","time":1056.386574958,"data":"planted  1.0  does not name it  +0.520 [+0.413, +0.627] n=75\n"}
+,{"stream_name":"stdout","time":1056.391762679,"data":"planted  1.0  names it          +0.857 [+0.667, +1.000] n=21\n"}
+,{"stream_name":"stdout","time":1056.402758525,"data":"planted  2.0  does not name it  +0.614 [+0.491, +0.737] n=57\n"}
+,{"stream_name":"stdout","time":1056.410824118,"data":"planted  2.0  names it          +0.795 [+0.667, +0.923] n=39\n"}
+,{"stream_name":"stdout","time":1056.410836611,"data":"\n"}
+,{"stream_name":"stdout","time":1056.410841459,"data":"== E: consensus over the 4 samples of one activation: share of claims that are true\n"}
+,{"stream_name":"stdout","time":1056.422088483,"data":"claim made in 1 of 4 samples:  +0.438 [+0.188, +0.688] n=16\n"}
+,{"stream_name":"stdout","time":1056.425136534,"data":"claim made in 2 of 4 samples:  +0.750 [+0.375, +1.000] n=8\n"}
+,{"stream_name":"stdout","time":1056.428006395,"data":"claim made in 3 of 4 samples:  +0.571 [+0.143, +1.000] n=7\n"}
+,{"stream_name":"stdout","time":1056.431010929,"data":"claim made in 4 of 4 samples:  +1.000 [+1.000, +1.000] n=9\n"}
+,{"stream_name":"stdout","time":1057.088751576,"data":"/usr/lib/python3.13/multiprocessing/resource_tracker.py:479: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/loky-689-ga9vp2m7'}\n"}
+,{"stream_name":"stdout","time":1057.088779601,"data":"  warnings.warn(\n"}
+,{"stream_name":"stdout","time":1060.13978455,"data":"[21:51:11] checks_ar.py: exit 0, 2.7 min\n"}
+,{"stream_name":"stdout","time":1060.154066186,"data":"[21:51:11] $ set -o pipefail; /usr/bin/python3 -u checks_target.py 2\u003e\u00261 | grep --line-buffered -v 'Fetching\\|Loading checkpoint' | tee runs/logs/checks_target.log\n"}
+,{"stream_name":"stdout","time":1072.297936624,"data":"`torch_dtype` is deprecated! Use `dtype` instead!\n"}
+,{"stream_name":"stdout","time":1077.072170271,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stdout","time":1077.072216853,"data":"I0000 00:00:1794520288.859794     737 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stdout","time":1134.011716372,"data":"Some weights of Qwen2ForCausalLM were not initialized from the model checkpoint at /kaggle/tmp/hf/hub/models--kitft--nla-qwen2.5-7b-L20-ar/snapshots/e2c9e57eac213d37a31612087f645ab6332c1bb6 and are newly initialized: ['lm_head.weight', 'model.norm.weight']\n"}
+,{"stream_name":"stdout","time":1134.012219378,"data":"You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.\n"}
+,{"stream_name":"stdout","time":1138.012864151,"data":"[NLACritic] 21 layers  d_model=3584  mse_scale=59.87\n"}
+,{"stream_name":"stdout","time":1138.012895627,"data":"21:52:29 reconstructed 1/19 texts\n"}
+,{"stream_name":"stdout","time":1145.720801075,"data":"21:52:37 loading Qwen/Qwen2.5-7B-Instruct on cuda\n"}
+,{"stream_name":"stdout","time":1146.223825766,"data":"`torch_dtype` is deprecated! Use `dtype` instead!\n"}
+,{"stream_name":"stdout","time":1150.306617606,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stdout","time":1150.306646645,"data":"I0000 00:00:1794520362.094335     769 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stdout","time":1214.997053349,"data":"The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.\n"}
+,{"stream_name":"stdout","time":1218.589862023,"data":"21:53:50 patched-model job 0/120 | reference continuation: ' the problem should be resolved.\\nThis release includes a number of bug fixes and'\n"}
+,{"stream_name":"stdout","time":1249.63054191,"data":"21:54:21 patched-model job 10/120 | reference continuation: ' the stone or baking steel if you have one. Remove the dough from the basket, sl'\n"}
+,{"stream_name":"stdout","time":1282.914966226,"data":"21:54:54 patched-model job 20/120 | reference continuation: ' bake the loaf for 30 minutes. The result is a crusty, chewy, and delicious loaf'\n"}
+,{"stream_name":"stdout","time":1315.288067781,"data":"21:55:27 patched-model job 30/120 | reference continuation: ' try again. If the problem persists, please file a bug report.\u003c|endoftext|\u003e'\n"}
+,{"stream_name":"stdout","time":1346.7282598,"data":"21:55:58 patched-model job 40/120 | reference continuation: ' report the issue to us. We are always happy to help.\u003c|endoftext|\u003e'\n"}
+,{"stream_name":"stdout","time":1379.137393363,"data":"21:56:30 patched-model job 50/120 | reference continuation: ' the problem should be resolved.\\nThis release includes a number of bug fixes and'\n"}
+,{"stream_name":"stdout","time":1415.447092951,"data":"21:57:07 patched-model job 60/120 | reference continuation: ' the problem should be resolved.\\nThis release includes a number of bug fixes and'\n"}
+,{"stream_name":"stdout","time":1480.786024703,"data":"21:58:12 patched-model job 70/120 | reference continuation: ' the stone or baking steel if you have one. Remove the dough from the basket, sl'\n"}
+,{"stream_name":"stdout","time":1551.275330102,"data":"21:59:23 patched-model job 80/120 | reference continuation: ' bake the loaf for 30 minutes. The result is a crusty, chewy, and delicious loaf'\n"}
+,{"stream_name":"stdout","time":1618.752000818,"data":"22:00:30 patched-model job 90/120 | reference continuation: ' try again. If the problem persists, please file a bug report.\u003c|endoftext|\u003e'\n"}
+,{"stream_name":"stdout","time":1687.141809021,"data":"22:01:38 patched-model job 100/120 | reference continuation: ' bake the loaf for 30 minutes. The result is a crusty, chewy, and delicious loaf'\n"}
+,{"stream_name":"stdout","time":1758.774013438,"data":"22:02:50 patched-model job 110/120 | reference continuation: ' the stone or baking steel if you have one. Remove the dough from the basket and'\n"}
+,{"stream_name":"stdout","time":1822.231520603,"data":"\n"}
+,{"stream_name":"stdout","time":1822.231563741,"data":"== A: on natural text, is the mentioned concept top among its 4 same-type candidates? (chance 0.25)\n"}
+,{"stream_name":"stdout","time":1822.264363277,"data":"concept token   +0.833 [+0.667, +0.958] n=24\n"}
+,{"stream_name":"stdout","time":1822.269932685,"data":"1 token later   +0.542 [+0.333, +0.750] n=24\n"}
+,{"stream_name":"stdout","time":1822.275493839,"data":"2 tokens later  +0.500 [+0.292, +0.708] n=24\n"}
+,{"stream_name":"stdout","time":1822.281039701,"data":"last token      +0.500 [+0.292, +0.708] n=24\n"}
+,{"stream_name":"stdout","time":1822.281054498,"data":"\n"}
+,{"stream_name":"stdout","time":1822.281062987,"data":"== A: as a filter on the verbalizer's claims: share of claims that pass the check\n"}
+,{"stream_name":"stdout","time":1822.301320391,"data":"natural  false claim  +1.000 [+1.000, +1.000] n=2\n"}
+,{"stream_name":"stdout","time":1822.303173963,"data":"natural  true claim   +1.000 [+1.000, +1.000] n=2\n"}
+,{"stream_name":"stdout","time":1822.307912882,"data":"planted  false claim  +0.000 [+0.000, +0.000] n=20\n"}
+,{"stream_name":"stdout","time":1822.319905835,"data":"planted  true claim   +1.000 [+1.000, +1.000] n=65\n"}
+,{"stream_name":"stdout","time":1822.319919033,"data":"\n"}
+,{"stream_name":"stdout","time":1822.319923577,"data":"== B: true explanation vs rival-swapped one, judged by cosine and by KL over the next 12 tokens\n"}
+,{"stream_name":"stdout","time":1822.366603486,"data":"true wins by cosine:      +0.583 [+0.517, +0.650] n=180\n"}
+,{"stream_name":"stdout","time":1822.398003027,"data":"true wins by KL:          +0.483 [+0.411, +0.561] n=180\n"}
+,{"stream_name":"stdout","time":1822.433734562,"data":"cosine margin:            +0.001 [+0.001, +0.002] n=180   standardized 0.38\n"}
+,{"stream_name":"stdout","time":1822.46577638,"data":"KL penalty for the rival: -0.001 [-0.004, +0.001] n=180   standardized -0.09\n"}
+,{"stream_name":"stdout","time":1822.477517697,"data":"KL of the true rebuild itself: +0.237 [+0.201, +0.277] n=60\n"}
+,{"stream_name":"stdout","time":1822.477534874,"data":"\n"}
+,{"stream_name":"stdout","time":1822.477540142,"data":"== F: steer with reader(edited) - reader(original); output movement (KL) and what gets named\n"}
+,{"stream_name":"stdout","time":1822.4842576,"data":"KL moved, edit of a false claim  alpha=1.0: +0.001 [+0.000, +0.001] n=20\n"}
+,{"stream_name":"stdout","time":1822.489310933,"data":"KL moved, edit of a false claim  alpha=3.0: +0.006 [+0.003, +0.010] n=20\n"}
+,{"stream_name":"stdout","time":1822.49768192,"data":"KL moved, edit of a true claim   alpha=1.0: +0.002 [+0.001, +0.003] n=40\n"}
+,{"stream_name":"stdout","time":1822.506124754,"data":"KL moved, edit of a true claim   alpha=3.0: +0.015 [+0.010, +0.021] n=40\n"}
+,{"stream_name":"stdout","time":1822.514288983,"data":"true-claim edits, alpha=0.0: original still named        +0.000 [+0.000, +0.000] n=40\n"}
+,{"stream_name":"stdout","time":1822.523090005,"data":"true-claim edits, alpha=0.0: rival named after steering  +0.000 [+0.000, +0.000] n=40\n"}
+,{"stream_name":"stdout","time":1822.531597128,"data":"true-claim edits, alpha=1.0: original still named        +0.000 [+0.000, +0.000] n=40\n"}
+,{"stream_name":"stdout","time":1822.539786493,"data":"true-claim edits, alpha=1.0: rival named after steering  +0.000 [+0.000, +0.000] n=40\n"}
+,{"stream_name":"stdout","time":1822.547893544,"data":"true-claim edits, alpha=3.0: original still named        +0.000 [+0.000, +0.000] n=40\n"}
+,{"stream_name":"stdout","time":1822.556112884,"data":"true-claim edits, alpha=3.0: rival named after steering  +0.000 [+0.000, +0.000] n=40\n"}
+,{"stream_name":"stdout","time":1823.192115561,"data":"/usr/lib/python3.13/multiprocessing/resource_tracker.py:479: UserWarning: resource_tracker: There appear to be 2 leaked semaphore objects to clean up at shutdown: {'/loky-737-xj6wd1w2', '/loky-769-4bj3iwjt'}\n"}
+,{"stream_name":"stdout","time":1823.192152613,"data":"  warnings.warn(\n"}
+,{"stream_name":"stdout","time":1826.549145009,"data":"[22:03:58] checks_target.py: exit 0, 12.8 min\n"}
+,{"stream_name":"stdout","time":1826.608543758,"data":"[22:03:58] $ set -o pipefail; /usr/bin/python3 -u check_h.py 2\u003e\u00261 | grep --line-buffered -v 'Fetching\\|Loading checkpoint' | tee runs/logs/check_h.log\n"}
+,{"stream_name":"stdout","time":1836.986031332,"data":"22:04:08 loading kitft/nla-qwen2.5-7b-L20-av on cuda\n"}
+,{"stream_name":"stdout","time":1837.595054164,"data":"`torch_dtype` is deprecated! Use `dtype` instead!\n"}
+,{"stream_name":"stdout","time":1841.448138277,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stdout","time":1841.448185663,"data":"I0000 00:00:1794521053.235861     830 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stdout","time":1912.75025707,"data":"22:05:24 verbalized 32/200: batch of 32 took 28s (0.9s per explanation) | latest: 'Mathematics poem format with structured numbered steps for a numerical algorithm, following a clear pattern of describin'\n"}
+,{"stream_name":"stdout","time":1940.284787765,"data":"22:05:52 verbalized 64/200: batch of 32 took 27s (0.9s per explanation) | latest: 'Formal Wikipedia-style streaming format with NFL statistics format, following a pattern of listing baseball team informa'\n"}
+,{"stream_name":"stdout","time":1967.730317533,"data":"22:06:19 verbalized 96/200: batch of 32 took 27s (0.9s per explanation) | latest: \"College-level Mathematics textbook format with HTML code blocks displaying a software tool's interactive warnings, follo\"\n"}
+,{"stream_name":"stdout","time":1994.983565545,"data":"22:06:46 verbalized 128/200: batch of 32 took 27s (0.8s per explanation) | latest: 'American literary prose style with poetic index entries following a biographical format, referencing a classic American '\n"}
+,{"stream_name":"stdout","time":2022.395961413,"data":"22:07:14 verbalized 160/200: batch of 32 took 27s (0.9s per explanation) | latest: \"Technical documentation with a USS client application's warning notice, providing updated software versions and instruct\"\n"}
+,{"stream_name":"stdout","time":2049.584021393,"data":"22:07:41 verbalized 192/200: batch of 32 took 27s (0.8s per explanation) | latest: 'Technical wiki-style page for an Open Source Linux distribution, with USNO database interface documentation presenting u'\n"}
+,{"stream_name":"stdout","time":2063.178449246,"data":"22:07:54 verbalized 200/200: batch of 8 took 14s (1.7s per explanation) | latest: 'Animal fact sheet format with zookeeper platform features, describing a wildlife species with interactive content and be'\n"}
+,{"stream_name":"stdout","time":2063.528346493,"data":"\n"}
+,{"stream_name":"stdout","time":2063.528385428,"data":"== H: 25 planted activations (strength \u003e= 1) whose concept no first-pass sample named\n"}
+,{"stream_name":"stdout","time":2063.529928546,"data":"cosine with the planted concept vector: whole h 0.775, residual 0.863\n"}
+,{"stream_name":"stdout","time":2063.554046156,"data":"residual  concept named per sample: +0.070 [+0.020, +0.120] n=100\n"}
+,{"stream_name":"stdout","time":2063.559778269,"data":"residual  concept named in any of 4: +0.200 [+0.040, +0.360] n=25\n"}
+,{"stream_name":"stdout","time":2063.578304993,"data":"residual  a different concept named: +0.100 [+0.050, +0.160] n=100\n"}
+,{"stream_name":"stdout","time":2063.601842011,"data":"resample  concept named per sample: +0.070 [+0.020, +0.120] n=100\n"}
+,{"stream_name":"stdout","time":2063.607817254,"data":"resample  concept named in any of 4: +0.160 [+0.040, +0.320] n=25\n"}
+,{"stream_name":"stdout","time":2063.625931675,"data":"resample  a different concept named: +0.100 [+0.050, +0.160] n=100\n"}
+,{"stream_name":"stdout","time":2063.625945657,"data":"\n"}
+,{"stream_name":"stdout","time":2063.625950297,"data":"[Baudelaire @ 1.0] residual sample: Formal mathematical document structure with numbered ranks and equations for the Fourth Order of the Nobel Prize, following standard LaTeX formatting for an American Catholic religious text.\n"}
+,{"stream_name":"stdout","time":2063.625955317,"data":"\n"}
+,{"stream_name":"stdout","time":2063.625959438,"data":"The pattern \"The seventh number is calculated with a preliminary check then a second check\" mirrors the standard mathematical sequence, completing the familiar \"Alden L. Watson, then an auxiliary\" clause, sig\n"}
+,{"stream_name":"stdout","time":2063.625980037,"data":"\n"}
+,{"stream_name":"stdout","time":2063.62598626,"data":"[Verlaine @ 1.0] residual sample: American poetry format with structured notation details following a classical Catholic chant format, using numbered steps for a spiritual process involving the saints' RMM sequence.\n"}
+,{"stream_name":"stdout","time":2063.625992607,"data":"\n"}
+,{"stream_name":"stdout","time":2063.625996611,"data":"The phrase \"Initial stage uses a Krzysztof Penderecki, finding the inner candidate. Then, a fast determination of the full name, leaving only the name...\" is a standard pattern from the usual combined process of a L l\n"}
+,{"stream_name":"stdout","time":2063.626001424,"data":"\n"}
+,{"stream_name":"stdout","time":2063.626005404,"data":"[Shakespeare @ 1.0] residual sample: Structured math literature format with clear exposition of a classical service formula, utilizing numbered steps and bold prose to describe a legendary detective's process.\n"}
+,{"stream_name":"stdout","time":2063.62601007,"data":"\n"}
+,{"stream_name":"stdout","time":2063.626013817,"data":"The phrase \"Before each trial, the great detective always records a preliminary investigation and an optional mark\" mirrors standard detective biography conventions, directly completing the famous \"Kurtis Shaw's Plum\" phrase, \n"}
+,{"stream_name":"stdout","time":2064.320750066,"data":"/usr/lib/python3.13/multiprocessing/resource_tracker.py:479: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/loky-830-4mfi4gvm'}\n"}
+,{"stream_name":"stdout","time":2064.32078917,"data":"  warnings.warn(\n"}
+,{"stream_name":"stdout","time":2067.440579612,"data":"[22:07:59] check_h.py: exit 0, 4.0 min\n"}
+,{"stream_name":"stdout","time":2067.486303507,"data":"[22:07:59] $ set -o pipefail; /usr/bin/python3 -u used.py 2\u003e\u00261 | grep --line-buffered -v 'Fetching\\|Loading checkpoint' | tee runs/logs/used.log\n"}
+,{"stream_name":"stdout","time":2077.959928449,"data":"22:08:09 loading Qwen/Qwen2.5-7B-Instruct on cuda\n"}
+,{"stream_name":"stdout","time":2078.383311148,"data":"`torch_dtype` is deprecated! Use `dtype` instead!\n"}
+,{"stream_name":"stdout","time":2082.163669747,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stdout","time":2082.16370302,"data":"I0000 00:00:1794521293.951321     884 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stdout","time":2144.560473027,"data":"22:09:16 loading kitft/nla-qwen2.5-7b-L20-av on cuda\n"}
+,{"stream_name":"stdout","time":2145.183313199,"data":"`torch_dtype` is deprecated! Use `dtype` instead!\n"}
+,{"stream_name":"stdout","time":2148.194262116,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stdout","time":2148.194316063,"data":"I0000 00:00:1794521359.981882     923 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stdout","time":2216.084053056,"data":"22:10:27 verbalized 32/48: batch of 32 took 29s (0.9s per explanation) | latest: 'American English language format with a short riddle or trivia question structure (\"A city that is the largest in the Un'\n"}
+,{"stream_name":"stdout","time":2233.694750972,"data":"22:10:45 verbalized 48/48: batch of 16 took 18s (1.1s per explanation) | latest: 'Formal educational/cultural prose register with literary pattern: a sentence beginning \"when someone says dolphin is a s'\n"}
+,{"stream_name":"stdout","time":2244.026485205,"data":"`torch_dtype` is deprecated! Use `dtype` instead!\n"}
+,{"stream_name":"stdout","time":2249.6522369,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stdout","time":2249.652270132,"data":"I0000 00:00:1794521461.440058     958 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stdout","time":2296.901731444,"data":"Some weights of Qwen2ForCausalLM were not initialized from the model checkpoint at /kaggle/tmp/hf/hub/models--kitft--nla-qwen2.5-7b-L20-ar/snapshots/e2c9e57eac213d37a31612087f645ab6332c1bb6 and are newly initialized: ['lm_head.weight', 'model.norm.weight']\n"}
+,{"stream_name":"stdout","time":2296.901795187,"data":"You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.\n"}
+,{"stream_name":"stdout","time":2301.116555188,"data":"[NLACritic] 21 layers  d_model=3584  mse_scale=59.87\n"}
+,{"stream_name":"stdout","time":2301.116589472,"data":"22:11:52 reconstructed 1/162 texts\n"}
+,{"stream_name":"stdout","time":2306.567225975,"data":"22:11:58 reconstructed 51/162 texts\n"}
+,{"stream_name":"stdout","time":2312.077388919,"data":"22:12:03 reconstructed 101/162 texts\n"}
+,{"stream_name":"stdout","time":2317.668753821,"data":"22:12:09 reconstructed 151/162 texts\n"}
+,{"stream_name":"stdout","time":2326.462055209,"data":"22:12:18 loading Qwen/Qwen2.5-7B-Instruct on cuda\n"}
+,{"stream_name":"stdout","time":2326.972214335,"data":"`torch_dtype` is deprecated! Use `dtype` instead!\n"}
+,{"stream_name":"stdout","time":2331.41918331,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stdout","time":2331.419237946,"data":"I0000 00:00:1794521543.206746     990 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stdout","time":2385.421808353,"data":"The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.\n"}
+,{"stream_name":"stdout","time":2391.696887372,"data":"22:13:23 patched-model job 0/39 | reference continuation: ' Baudelaire. Fact two:'\n"}
+,{"stream_name":"stdout","time":2451.985617121,"data":"22:14:23 patched-model job 10/39 | reference continuation: ' Shakespeare. Fact two: the English playwright'\n"}
+,{"stream_name":"stdout","time":2512.453621513,"data":"22:15:24 patched-model job 20/39 | reference continuation: ' Cairo. Fact two: the capital city'\n"}
+,{"stream_name":"stdout","time":2573.094026224,"data":"22:16:24 patched-model job 30/39 | reference continuation: ' elephant. Fact two: the huge grey'\n"}
+,{"stream_name":"stdout","time":2624.974211448,"data":"\n"}
+,{"stream_name":"stdout","time":2624.974283549,"data":"== named: does the verbalizer name the word the model is about to say?\n"}
+,{"stream_name":"stdout","time":2624.985111759,"data":"per sample:   +0.792 [+0.667, +0.896] n=48\n"}
+,{"stream_name":"stdout","time":2624.989285965,"data":"any of 4:     +0.917 [+0.750, +1.000] n=12\n"}
+,{"stream_name":"stdout","time":2624.999885907,"data":"same-type rival named instead: +0.021 [+0.000, +0.062] n=48\n"}
+,{"stream_name":"stdout","time":2625.000033191,"data":"  Baudelaire  4/4   others named: []\n"}
+,{"stream_name":"stdout","time":2625.000249726,"data":"  Verlaine    4/4   others named: []\n"}
+,{"stream_name":"stdout","time":2625.000440764,"data":"  Shakespeare 4/4   others named: []\n"}
+,{"stream_name":"stdout","time":2625.000652441,"data":"  Whitman     4/4   others named: []\n"}
+,{"stream_name":"stdout","time":2625.000854859,"data":"  Paris       0/4   others named: []\n"}
+,{"stream_name":"stdout","time":2625.00107515,"data":"  Tokyo       4/4   others named: []\n"}
+,{"stream_name":"stdout","time":2625.001389546,"data":"  Cairo       1/4   others named: []\n"}
+,{"stream_name":"stdout","time":2625.002766724,"data":"  Chicago     1/4   others named: []\n"}
+,{"stream_name":"stdout","time":2625.002781976,"data":"  rabbit      4/4   others named: []\n"}
+,{"stream_name":"stdout","time":2625.002785946,"data":"  mouse       4/4   others named: ['rabbit']\n"}
+,{"stream_name":"stdout","time":2625.002789296,"data":"  elephant    4/4   others named: []\n"}
+,{"stream_name":"stdout","time":2625.002792823,"data":"  dolphin     4/4   others named: []\n"}
+,{"stream_name":"stdout","time":2625.002795945,"data":"\n"}
+,{"stream_name":"stdout","time":2625.002799175,"data":"== A: is the upcoming word top among its 4 same-type candidates in h? (chance 0.25)\n"}
+,{"stream_name":"stdout","time":2625.010614364,"data":"+0.583 [+0.333, +0.833] n=12\n"}
+,{"stream_name":"stdout","time":2625.010632985,"data":"\n"}
+,{"stream_name":"stdout","time":2625.010639406,"data":"== C: near-twin lineup over the 4 same-type prompts (chance 0.25)\n"}
+,{"stream_name":"stdout","time":2625.027767123,"data":"names it          +0.842 [+0.711, +0.947] n=38\n"}
+,{"stream_name":"stdout","time":2625.03120926,"data":"does not name it  +0.600 [+0.300, +0.900] n=10\n"}
+,{"stream_name":"stdout","time":2625.031247009,"data":"\n"}
+,{"stream_name":"stdout","time":2625.031252985,"data":"== B: true explanation vs rival-swapped one, by cosine and by KL over the next 12 tokens\n"}
+,{"stream_name":"stdout","time":2625.052078341,"data":"model's own continuation names the word: +0.895 [+0.789, +0.974] n=38\n"}
+,{"stream_name":"stdout","time":2625.073112595,"data":"true wins by cosine:      +0.789 [+0.719, +0.860] n=114\n"}
+,{"stream_name":"stdout","time":2625.093958513,"data":"true wins by KL:          +0.579 [+0.491, +0.667] n=114\n"}
+,{"stream_name":"stdout","time":2625.115061434,"data":"cosine margin:            +0.002 [+0.002, +0.003] n=114   standardized 0.72\n"}
+,{"stream_name":"stdout","time":2625.136226117,"data":"KL penalty for the rival: -0.003 [-0.004, -0.001] n=114   standardized -0.31\n"}
+,{"stream_name":"stdout","time":2625.144540021,"data":"KL of the true rebuild itself: +0.021 [+0.012, +0.031] n=38\n"}
+,{"stream_name":"stdout","time":2625.144552324,"data":"\n"}
+,{"stream_name":"stdout","time":2625.144556272,"data":"== F: steer h with reader(swapped) - reader(original); what does the model say next?\n"}
+,{"stream_name":"stdout","time":2625.15301444,"data":"alpha=1.0  original named +0.816 [+0.684, +0.921] n=38\n"}
+,{"stream_name":"stdout","time":2625.160926913,"data":"alpha=1.0  rival named    +0.000 [+0.000, +0.000] n=38\n"}
+,{"stream_name":"stdout","time":2625.169454908,"data":"alpha=4.0  original named +0.789 [+0.658, +0.921] n=38\n"}
+,{"stream_name":"stdout","time":2625.17728521,"data":"alpha=4.0  rival named    +0.000 [+0.000, +0.000] n=38\n"}
+,{"stream_name":"stdout","time":2625.185181452,"data":"alpha=8.0  original named +0.684 [+0.526, +0.816] n=38\n"}
+,{"stream_name":"stdout","time":2625.193592274,"data":"alpha=8.0  rival named    +0.026 [+0.000, +0.079] n=38\n"}
+,{"stream_name":"stdout","time":2625.843691066,"data":"/usr/lib/python3.13/multiprocessing/resource_tracker.py:479: UserWarning: resource_tracker: There appear to be 4 leaked semaphore objects to clean up at shutdown: {'/loky-990-mcgxkzcs', '/loky-958-vvp43ghv', '/loky-884-otb7b8qb', '/loky-923-cfqba88x'}\n"}
+,{"stream_name":"stdout","time":2625.843723523,"data":"  warnings.warn(\n"}
+,{"stream_name":"stdout","time":2626.220259495,"data":"[22:17:18] used.py: exit 0, 9.3 min\n"}
+,{"stream_name":"stdout","time":2626.298466408,"data":"[22:17:18] $ set -o pipefail; /usr/bin/python3 -u used2.py 2\u003e\u00261 | grep --line-buffered -v 'Fetching\\|Loading checkpoint' | tee runs/logs/used2.log\n"}
+,{"stream_name":"stdout","time":2637.191961765,"data":"22:17:28 loading Qwen/Qwen2.5-7B-Instruct on cuda\n"}
+,{"stream_name":"stdout","time":2637.683648855,"data":"`torch_dtype` is deprecated! Use `dtype` instead!\n"}
+,{"stream_name":"stdout","time":2640.798525839,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stdout","time":2640.798555777,"data":"I0000 00:00:1794521852.586283    1052 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stdout","time":2695.389181341,"data":"The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.\n"}
+,{"stream_name":"stdout","time":3005.903385577,"data":"22:23:37 loading kitft/nla-qwen2.5-7b-L20-av on cuda\n"}
+,{"stream_name":"stdout","time":3006.512361013,"data":"`torch_dtype` is deprecated! Use `dtype` instead!\n"}
+,{"stream_name":"stdout","time":3011.679865638,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stdout","time":3011.679911481,"data":"I0000 00:00:1794522223.467575    1092 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stdout","time":3102.775046767,"data":"22:25:14 verbalized 32/1008: batch of 32 took 27s (0.9s per explanation) | latest: \"Structured list format with numbered items explaining flags, with bullet points presenting facts about a country's natio\"\n"}
+,{"stream_name":"stdout","time":3129.601412336,"data":"22:25:41 verbalized 64/1008: batch of 32 took 27s (0.8s per explanation) | latest: \"Structured list format with English language facts pattern using numbered points about countries' largest by area, with \"\n"}
+,{"stream_name":"stdout","time":3156.652445925,"data":"22:26:08 verbalized 96/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured list format with numbered facts about \"The Flag,\" presenting image descriptions with bold heading and definin'\n"}
+,{"stream_name":"stdout","time":3183.145309305,"data":"22:26:34 verbalized 128/1008: batch of 32 took 26s (0.8s per explanation) | latest: 'Structured list format with numbered items using colored images, defining countries by their flag characteristics and sh'\n"}
+,{"stream_name":"stdout","time":3210.511931313,"data":"22:27:02 verbalized 160/1008: batch of 32 took 27s (0.9s per explanation) | latest: 'Structured list format with numbered questions about geographical facts, using quiz format with \"What is the\" pattern na'\n"}
+,{"stream_name":"stdout","time":3237.329828717,"data":"22:27:29 verbalized 192/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured educational format with numbered questions listing Olympic facts, presenting translated terms with formal def'\n"}
+,{"stream_name":"stdout","time":3264.12086538,"data":"22:27:55 verbalized 224/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured list format with numbered facts about the city of Pittsburgh, following a pattern of defining \"Capital\" from '\n"}
+,{"stream_name":"stdout","time":3291.501013595,"data":"22:28:23 verbalized 256/1008: batch of 32 took 27s (0.9s per explanation) | latest: 'Structured educational format with a numbered list pattern defining \"word\" with example sentences connecting to the word'\n"}
+,{"stream_name":"stdout","time":3318.483334091,"data":"22:28:50 verbalized 288/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured language format with bullet points listing countries ranked by area, following a pattern of factual trivia ab'\n"}
+,{"stream_name":"stdout","time":3345.501444436,"data":"22:29:17 verbalized 320/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured language format with numbered definitions listing facts about \"London,\" presenting factual details about \"the'\n"}
+,{"stream_name":"stdout","time":3372.492624871,"data":"22:29:44 verbalized 352/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured educational format with prompts and definitions listing historical terms, following a numbered list pattern w'\n"}
+,{"stream_name":"stdout","time":3399.308704404,"data":"22:30:11 verbalized 384/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured format with numbered questions showing famous works of \"born on January 11,\" establishing a pattern of canoni'\n"}
+,{"stream_name":"stdout","time":3426.112993426,"data":"22:30:37 verbalized 416/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured historical format with numbered questions listing facts about the American flag, pattern established with \"Th'\n"}
+,{"stream_name":"stdout","time":3453.110320697,"data":"22:31:04 verbalized 448/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured format with numbered questions and definitions, presenting historical facts about \"March 3,\" establishing pat'\n"}
+,{"stream_name":"stdout","time":3479.93704606,"data":"22:31:31 verbalized 480/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured list format with numbered trivia questions presenting factual language definitions, following a pattern of hi'\n"}
+,{"stream_name":"stdout","time":3506.937222535,"data":"22:31:58 verbalized 512/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured list format with numbered definitions using a pattern of \"Word meaning puzzle\" with examples illustrating der'\n"}
+,{"stream_name":"stdout","time":3533.93004534,"data":"22:32:25 verbalized 544/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured educational format with numbered definitions lists and image descriptions, following a pattern of animal fact'\n"}
+,{"stream_name":"stdout","time":3560.942251426,"data":"22:32:52 verbalized 576/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured list format with numbered definitions using \"A is\" pattern, presenting animal classification with specific ch'\n"}
+,{"stream_name":"stdout","time":3588.138282025,"data":"22:33:19 verbalized 608/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured list format with numbered facts about the American flag, using a quiz format with informational definitions a'\n"}
+,{"stream_name":"stdout","time":3615.520718733,"data":"22:33:47 verbalized 640/1008: batch of 32 took 27s (0.9s per explanation) | latest: 'Structured list format with numbered facts about a classic Disney character, presenting trivia facts about \"The Lion Kin'\n"}
+,{"stream_name":"stdout","time":3642.517182623,"data":"22:34:14 verbalized 672/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured list format with numbered definitions using a pattern of food terms with \"What does X mean?\" questions, combi'\n"}
+,{"stream_name":"stdout","time":3669.895723894,"data":"22:34:41 verbalized 704/1008: batch of 32 took 27s (0.9s per explanation) | latest: 'Structured list format with numbered entries using \"What does X mean?\" pattern, presenting vocabulary pairs with definit'\n"}
+,{"stream_name":"stdout","time":3697.286353063,"data":"22:35:09 verbalized 736/1008: batch of 32 took 27s (0.9s per explanation) | latest: 'Structured list format with numbered definitions and examples, establishing a pattern of food-related idioms using \"A is'\n"}
+,{"stream_name":"stdout","time":3724.679383378,"data":"22:35:36 verbalized 768/1008: batch of 32 took 27s (0.9s per explanation) | latest: 'Structured list format with definitions continuing a pattern of food-related word origins, using bullet points and examp'\n"}
+,{"stream_name":"stdout","time":3752.064593216,"data":"22:36:03 verbalized 800/1008: batch of 32 took 27s (0.9s per explanation) | latest: 'Structured definition format with numbered items listing meaning of \"big\" in English, with a pattern of examples showing'\n"}
+,{"stream_name":"stdout","time":3779.068036686,"data":"22:36:30 verbalized 832/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured list format with numbered facts about a famous singer, using bullet points to define iconic attributes and ac'\n"}
+,{"stream_name":"stdout","time":3806.042882815,"data":"22:36:57 verbalized 864/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured educational format with numbered list of facts about a famous person, following a dictionary entry format wit'\n"}
+,{"stream_name":"stdout","time":3833.431530797,"data":"22:37:25 verbalized 896/1008: batch of 32 took 27s (0.9s per explanation) | latest: 'Structured music theory format with numbered lists listing musical terms, using bullet points with definitions—the patte'\n"}
+,{"stream_name":"stdout","time":3860.237540723,"data":"22:37:52 verbalized 928/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured music trivia format with numbered entries featuring formal definitions and example sentences, continuing a li'\n"}
+,{"stream_name":"stdout","time":3887.445483909,"data":"22:38:19 verbalized 960/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured list format with encyclopedia style listing symbols from The Muppets, establishing pattern of trivia facts ab'\n"}
+,{"stream_name":"stdout","time":3914.653047032,"data":"22:38:46 verbalized 992/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Poetic verse format with rhyme and meter signals a playful or songlike enumeration of words, suggesting a literary or gr'\n"}
+,{"stream_name":"stdout","time":3932.09250392,"data":"22:39:03 verbalized 1008/1008: batch of 16 took 17s (1.1s per explanation) | latest: \"Poetic verse format with editor's riddle structure suggests a rhyme or wordplay collection, likely a children's book tit\"\n"}
+,{"stream_name":"stdout","time":3944.025814219,"data":"`torch_dtype` is deprecated! Use `dtype` instead!\n"}
+,{"stream_name":"stdout","time":3951.090202263,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stdout","time":3951.090242776,"data":"I0000 00:00:1794523162.877973    1127 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stdout","time":4017.476614355,"data":"Some weights of Qwen2ForCausalLM were not initialized from the model checkpoint at /kaggle/tmp/hf/hub/models--kitft--nla-qwen2.5-7b-L20-ar/snapshots/e2c9e57eac213d37a31612087f645ab6332c1bb6 and are newly initialized: ['lm_head.weight', 'model.norm.weight']\n"}
+,{"stream_name":"stdout","time":4017.476659013,"data":"You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.\n"}
+,{"stream_name":"stdout","time":4021.862747351,"data":"[NLACritic] 21 layers  d_model=3584  mse_scale=59.87\n"}
+,{"stream_name":"stdout","time":4021.862786306,"data":"22:40:33 reconstructed 1/1869 texts\n"}
+,{"stream_name":"stdout","time":4027.342395523,"data":"22:40:39 reconstructed 51/1869 texts\n"}
+,{"stream_name":"stdout","time":4032.854814601,"data":"22:40:44 reconstructed 101/1869 texts\n"}
+,{"stream_name":"stdout","time":4038.425518516,"data":"22:40:50 reconstructed 151/1869 texts\n"}
+,{"stream_name":"stdout","time":4044.045918866,"data":"22:40:55 reconstructed 201/1869 texts\n"}
+,{"stream_name":"stdout","time":4049.690992732,"data":"22:41:01 reconstructed 251/1869 texts\n"}
+,{"stream_name":"stdout","time":4055.368357702,"data":"22:41:07 reconstructed 301/1869 texts\n"}
+,{"stream_name":"stdout","time":4061.118312082,"data":"22:41:12 reconstructed 351/1869 texts\n"}
+,{"stream_name":"stdout","time":4066.952661108,"data":"22:41:18 reconstructed 401/1869 texts\n"}
+,{"stream_name":"stdout","time":4072.808364578,"data":"22:41:24 reconstructed 451/1869 texts\n"}
+,{"stream_name":"stdout","time":4078.743619205,"data":"22:41:30 reconstructed 501/1869 texts\n"}
+,{"stream_name":"stdout","time":4084.793328812,"data":"22:41:36 reconstructed 551/1869 texts\n"}
+,{"stream_name":"stdout","time":4090.841581523,"data":"22:41:42 reconstructed 601/1869 texts\n"}
+,{"stream_name":"stdout","time":4096.931857986,"data":"22:41:48 reconstructed 651/1869 texts\n"}
+,{"stream_name":"stdout","time":4103.043711644,"data":"22:41:54 reconstructed 701/1869 texts\n"}
+,{"stream_name":"stdout","time":4109.241363485,"data":"22:42:01 reconstructed 751/1869 texts\n"}
+,{"stream_name":"stdout","time":4115.472587323,"data":"22:42:07 reconstructed 801/1869 texts\n"}
+,{"stream_name":"stdout","time":4121.609548488,"data":"22:42:13 reconstructed 851/1869 texts\n"}
+,{"stream_name":"stdout","time":4127.802244256,"data":"22:42:19 reconstructed 901/1869 texts\n"}
+,{"stream_name":"stdout","time":4134.00212893,"data":"22:42:25 reconstructed 951/1869 texts\n"}
+,{"stream_name":"stdout","time":4140.279927247,"data":"22:42:32 reconstructed 1001/1869 texts\n"}
+,{"stream_name":"stdout","time":4146.632116877,"data":"22:42:38 reconstructed 1051/1869 texts\n"}
+,{"stream_name":"stdout","time":4153.008616745,"data":"22:42:44 reconstructed 1101/1869 texts\n"}
+,{"stream_name":"stdout","time":4159.444615088,"data":"22:42:51 reconstructed 1151/1869 texts\n"}
+,{"stream_name":"stdout","time":4165.884489005,"data":"22:42:57 reconstructed 1201/1869 texts\n"}
+,{"stream_name":"stdout","time":4172.428642495,"data":"22:43:04 reconstructed 1251/1869 texts\n"}
+,{"stream_name":"stdout","time":4179.026782562,"data":"22:43:10 reconstructed 1301/1869 texts\n"}
+,{"stream_name":"stdout","time":4185.625813084,"data":"22:43:17 reconstructed 1351/1869 texts\n"}
+,{"stream_name":"stdout","time":4192.192572345,"data":"22:43:23 reconstructed 1401/1869 texts\n"}
+,{"stream_name":"stdout","time":4198.77796907,"data":"22:43:30 reconstructed 1451/1869 texts\n"}
+,{"stream_name":"stdout","time":4205.318916207,"data":"22:43:37 reconstructed 1501/1869 texts\n"}
+,{"stream_name":"stdout","time":4211.863123388,"data":"22:43:43 reconstructed 1551/1869 texts\n"}
+,{"stream_name":"stdout","time":4218.451882003,"data":"22:43:50 reconstructed 1601/1869 texts\n"}
+,{"stream_name":"stdout","time":4225.014173956,"data":"22:43:56 reconstructed 1651/1869 texts\n"}
+,{"stream_name":"stdout","time":4231.619953781,"data":"22:44:03 reconstructed 1701/1869 texts\n"}
+,{"stream_name":"stdout","time":4238.217296843,"data":"22:44:10 reconstructed 1751/1869 texts\n"}
+,{"stream_name":"stdout","time":4244.812216137,"data":"22:44:16 reconstructed 1801/1869 texts\n"}
+,{"stream_name":"stdout","time":4251.43783067,"data":"22:44:23 reconstructed 1851/1869 texts\n"}
+,{"stream_name":"stdout","time":4263.446438568,"data":"22:44:35 loading Qwen/Qwen2.5-7B-Instruct on cuda\n"}
+,{"stream_name":"stdout","time":4263.954503121,"data":"`torch_dtype` is deprecated! Use `dtype` instead!\n"}
+,{"stream_name":"stdout","time":4269.699052017,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stdout","time":4269.699096477,"data":"I0000 00:00:1794523481.486704    1158 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n"}
+,{"stream_name":"stdout","time":4324.779314992,"data":"The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.\n"}
+,{"stream_name":"stdout","time":4335.324057739,"data":"22:45:47 patched-model job 0/287 | reference continuation: ' The answer to this question is France.\\n\\nQ: Which gas do plants absorb from'\n"}
+,{"stream_name":"stdout","time":4396.224254585,"data":"22:46:48 patched-model job 10/287 | reference continuation: ' Egypt.\\n\\nQ: Which gas do plants'\n"}
+,{"stream_name":"stdout","time":4474.624164904,"data":"22:48:06 patched-model job 20/287 | reference continuation: ' The answer to this question is Canada.\\n\\nQ: Which gas do plants absorb from'\n"}
+,{"stream_name":"stdout","time":4553.295641033,"data":"22:49:25 patched-model job 30/287 | reference continuation: ' The answer to this question is Germany.\\n\\nQ: Which gas do plants absorb from'\n"}
+,{"stream_name":"stdout","time":4623.576763318,"data":"22:50:35 patched-model job 40/287 | reference continuation: ' Mexico.\\n\\nQ: Which gas do plants'\n"}
+,{"stream_name":"stdout","time":4706.59370248,"data":"22:51:58 patched-model job 50/287 | reference continuation: ' Paris.\\n\\nQ: Which gas do plants'\n"}
+,{"stream_name":"stdout","time":4785.590675263,"data":"22:53:17 patched-model job 60/287 | reference continuation: ' Tokyo.\\n\\nQ: Which gas do plants'\n"}
+,{"stream_name":"stdout","time":4868.774010778,"data":"22:54:40 patched-model job 70/287 | reference continuation: ' London.\\n\\nQ: Which gas do plants'\n"}
+,{"stream_name":"stdout","time":4943.470419939,"data":"22:55:55 patched-model job 80/287 | reference continuation: ' The answer to this question is Toronto.\\n\\nQ: Which is the smallest country in'\n"}
+,{"stream_name":"stdout","time":5022.179638663,"data":"22:57:13 patched-model job 90/287 | reference continuation: ' The answer to this question is Rome.\\n\\nQ: Which gas do plants absorb from'\n"}
+,{"stream_name":"stdout","time":5100.914112789,"data":"22:58:32 patched-model job 100/287 | reference continuation: ' William Shakespeare.\\n\\nQ: Which gas do'\n"}
+,{"stream_name":"stdout","time":5188.361109604,"data":"23:00:00 patched-model job 110/287 | reference continuation: ' The answer to this question is Albert Einstein.\\n\\nQ: Which gas do plants absorb'\n"}
+,{"stream_name":"stdout","time":5267.312185789,"data":"23:01:19 patched-model job 120/287 | reference continuation: ' Charles Darwin.\\n\\nQ: Which gas do'\n"}
+,{"stream_name":"stdout","time":5354.767780013,"data":"23:02:46 patched-model job 130/287 | reference continuation: ' The answer to this question is Abraham Lincoln.\\n\\nQ: Which gas do plants absorb'\n"}
+,{"stream_name":"stdout","time":5433.816039131,"data":"23:04:05 patched-model job 140/287 | reference continuation: ' The answer to this question is Mahatma Gandhi.\\n\\nQ: Which gas do'\n"}
+,{"stream_name":"stdout","time":5517.087021281,"data":"23:05:28 patched-model job 150/287 | reference continuation: ' The answer to this question is a dog.\\n\\nQ: Which gas do plants absorb'\n"}
+,{"stream_name":"stdout","time":5600.108735536,"data":"23:06:51 patched-model job 160/287 | reference continuation: ' The answer to this question is horses.\\n\\nQ: Which gas do plants use to'\n"}
+,{"stream_name":"stdout","time":5678.854098034,"data":"23:08:10 patched-model job 170/287 | reference continuation: ' the lion.\\n\\nQ: Which gas do'\n"}
+,{"stream_name":"stdout","time":5761.802677839,"data":"23:09:33 patched-model job 180/287 | reference continuation: ' the African elephant.\\n\\nQ: Which gas'\n"}
+,{"stream_name":"stdout","time":5840.580147437,"data":"23:10:52 patched-model job 190/287 | reference continuation: ' a wolf.\\n\\nQ: Which gas do'\n"}
+,{"stream_name":"stdout","time":5919.393572492,"data":"23:12:11 patched-model job 200/287 | reference continuation: ' the rabbit.\\n\\nQ: Which famous scientist'\n"}
+,{"stream_name":"stdout","time":5993.998040449,"data":"23:13:25 patched-model job 210/287 | reference continuation: ' bread.\\n\\nQ: Which gas do plants'\n"}
+,{"stream_name":"stdout","time":6072.830572723,"data":"23:14:44 patched-model job 220/287 | reference continuation: ' The answer to this question is rice.\\n\\nQ: Which gas do plants absorb from'\n"}
+,{"stream_name":"stdout","time":6151.594912744,"data":"23:16:03 patched-model job 230/287 | reference continuation: ' The answer to this question is pizza.\\n\\nQ: Which gas do plants absorb from'\n"}
+,{"stream_name":"stdout","time":6217.653683776,"data":"23:17:09 patched-model job 240/287 | reference continuation: ' honey.\\n\\nQ: Which gas do plants'\n"}
+,{"stream_name":"stdout","time":6300.66371483,"data":"23:18:32 patched-model job 250/287 | reference continuation: ' potato.\\n\\nQ: Which famous scientist developed'\n"}
+,{"stream_name":"stdout","time":6375.168452189,"data":"23:19:46 patched-model job 260/287 | reference continuation: ' The answer to this question is the piano.\\n\\nQ: Which gas do plants absorb'\n"}
+,{"stream_name":"stdout","time":6453.956127637,"data":"23:21:05 patched-model job 270/287 | reference continuation: ' The answer to this question is the violin.\\n\\nQ: Which gas do plants absorb'\n"}
+,{"stream_name":"stdout","time":6524.235037132,"data":"23:22:16 patched-model job 280/287 | reference continuation: ' the saxophone.\\n\\nQ: Which gas'\n"}
+,{"stream_name":"stdout","time":6568.900859695,"data":"All prompts are natural (nothing planted). Intervals: bootstrap over entities, 10k resamples.\n"}
+,{"stream_name":"stdout","time":6568.900900464,"data":"\n"}
+,{"stream_name":"stdout","time":6568.90090686,"data":"| | group a: entity is the next token | group b: entity comes 6 tokens later | couplets: entity ends the next line |\n"}
+,{"stream_name":"stdout","time":6568.900912026,"data":"|---|---|---|---|\n"}
+,{"stream_name":"stdout","time":6568.900928177,"data":"| prompts (valid / total) | 110 / 120 | 118 / 120 | 4 / 12 |\n"}
+,{"stream_name":"stdout","time":6568.900931821,"data":"| logit lens at layer 20: entity is top-1 | 0.000 [0.000, 0.000] | 0.000 [0.000, 0.000] | 0.000 [0.000, 0.000] |\n"}
+,{"stream_name":"stdout","time":6568.900935452,"data":"| logit lens at layer 20: entity in top-5 | 0.000 [0.000, 0.000] | 0.000 [0.000, 0.000] | 0.000 [0.000, 0.000] |\n"}
+,{"stream_name":"stdout","time":6568.900938967,"data":"| final layer: entity is the top next token | 0.573 [0.445, 0.694] | 0.000 [0.000, 0.000] | 0.000 [0.000, 0.000] |\n"}
+,{"stream_name":"stdout","time":6568.900947274,"data":"| verbalizer names the entity (per sample) | 0.691 [0.607, 0.770] | 0.375 [0.284, 0.471] | 0.000 [0.000, 0.000] |\n"}
+,{"stream_name":"stdout","time":6568.900950244,"data":"| verbalizer names the entity (any of 4) | 0.882 [0.811, 0.945] | 0.517 [0.414, 0.619] | 0.000 [0.000, 0.000] |\n"}
+,{"stream_name":"stdout","time":6568.900952601,"data":"| verbalizer names a different same-type entity | 0.514 [0.416, 0.611] | 0.542 [0.452, 0.633] | 0.125 [0.000, 0.250] |\n"}
+,{"stream_name":"stdout","time":6568.900955927,"data":"| verbalizer names it, when logit lens top-5 has it | n/a | n/a | n/a |\n"}
+,{"stream_name":"stdout","time":6568.90097156,"data":"| verbalizer names it, when logit lens top-5 lacks it | 0.691 [0.607, 0.770] | 0.375 [0.284, 0.471] | 0.000 [0.000, 0.000] |\n"}
+,{"stream_name":"stdout","time":6568.90099397,"data":"| B/F: explanations tested | 178 | 109 | 0 |\n"}
+,{"stream_name":"stdout","time":6568.900998829,"data":"| B: true explanation beats rival-swapped, by cosine | 0.882 [0.834, 0.926] | 0.810 [0.737, 0.876] | n/a |\n"}
+,{"stream_name":"stdout","time":6568.901002693,"data":"| B: true beats rival-swapped, by KL over next 12 tokens | 0.581 [0.514, 0.645] | 0.361 [0.287, 0.442] | n/a |\n"}
+,{"stream_name":"stdout","time":6568.901006483,"data":"| B: cosine margin (true minus rival) | 0.005 [0.004, 0.006] | 0.002 [0.001, 0.003] | n/a |\n"}
+,{"stream_name":"stdout","time":6568.901009908,"data":"| B: KL penalty for the rival (nats) | 0.003 [0.001, 0.005] | -0.002 [-0.004, -0.000] | n/a |\n"}
+,{"stream_name":"stdout","time":6568.901013502,"data":"| B: KL of the true rebuild itself (nats) | 0.027 [0.013, 0.046] | 0.032 [0.013, 0.057] | n/a |\n"}
+,{"stream_name":"stdout","time":6568.901016509,"data":"| F, no steering: model names the rival | 0.000 [0.000, 0.000] | 0.000 [0.000, 0.000] | n/a |\n"}
+,{"stream_name":"stdout","time":6568.901020085,"data":"| F, no steering: model still names the original | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | n/a |\n"}
+,{"stream_name":"stdout","time":6568.901023122,"data":"| F, steering x1: model names the rival | 0.000 [0.000, 0.000] | 0.000 [0.000, 0.000] | n/a |\n"}
+,{"stream_name":"stdout","time":6568.901028101,"data":"| F, steering x1: model still names the original | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | n/a |\n"}
+,{"stream_name":"stdout","time":6568.901032267,"data":"| F, steering x4: model names the rival | 0.000 [0.000, 0.000] | 0.000 [0.000, 0.000] | n/a |\n"}
+,{"stream_name":"stdout","time":6568.901035694,"data":"| F, steering x4: model still names the original | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | n/a |\n"}
+,{"stream_name":"stdout","time":6568.901039405,"data":"| F, steering x8: model names the rival | 0.034 [0.006, 0.066] | 0.000 [0.000, 0.000] | n/a |\n"}
+,{"stream_name":"stdout","time":6568.901043097,"data":"| F, steering x8: model still names the original | 0.888 [0.830, 0.938] | 1.000 [1.000, 1.000] | n/a |\n"}
+,{"stream_name":"stdout","time":6569.64936301,"data":"/usr/lib/python3.13/multiprocessing/resource_tracker.py:479: UserWarning: resource_tracker: There appear to be 4 leaked semaphore objects to clean up at shutdown: {'/loky-1092-wrbx815m', '/loky-1052-cpu_2jgy', '/loky-1127-r2x_o8yx', '/loky-1158-w32x1vkd'}\n"}
+,{"stream_name":"stdout","time":6569.649421645,"data":"  warnings.warn(\n"}
+,{"stream_name":"stdout","time":6572.980096916,"data":"[23:23:04] used2.py: exit 0, 65.8 min\n"}
+,{"stream_name":"stdout","time":6573.5530761,"data":"[23:23:05] summary: planted.py exit 0, 14.4 min; checks_ar.py exit 0, 2.7 min; checks_target.py exit 0, 12.8 min; check_h.py exit 0, 4.0 min; used.py exit 0, 9.3 min; used2.py exit 0, 65.8 min\n"}
+,{"stream_name":"stderr","time":6576.32838576,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":6576.328423436,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":6576.655469267,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":6576.655495007,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":6577.608570498,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":6578.296957189,"data":"[NbConvertApp] Writing 287324 bytes to __results__.html\n"}
+]

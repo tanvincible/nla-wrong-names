@@ -1,0 +1,171 @@
+21:35:06 loading Qwen/Qwen2.5-7B-Instruct on cuda
+21:37:40 loading Qwen/Qwen2.5-7B-Instruct on cuda
+21:38:06 loading kitft/nla-qwen2.5-7b-L20-av on cuda
+21:40:56 verbalized 32/96: batch of 32 took 27s (0.9s per explanation) | latest: 'food cookbook format with literary descriptions of a classic French bread recipe, establishing a clear instructional seq'
+21:41:22 verbalized 64/96: batch of 32 took 26s (0.8s per explanation) | latest: 'Literary cookbook prose style with historical description of an American baking cake recipe, following a structured appr'
+21:41:49 verbalized 96/96: batch of 32 took 27s (0.8s per explanation) | latest: 'Recipe format with instructional prose describing a summer fruit cookie, using pet-care guide structure with plant care '
+21:41:57 loading kitft/nla-qwen2.5-7b-L20-av on cuda
+21:43:09 verbalized 32/96: batch of 32 took 29s (0.9s per explanation) | latest: "Classical children's literature format with witty prose describing children's literature characters, a standard formulai"
+21:43:36 verbalized 64/96: batch of 32 took 27s (0.8s per explanation) | latest: "野生动物 encyclopedia format with educational article structure, featuring a zookeeper's guide to exotic South American anim"
+21:44:03 verbalized 96/96: batch of 32 took 27s (0.9s per explanation) | latest: 'Developer documentation format with formal instructions for a Chrome extension, providing troubleshooting guidance about'
+21:44:13 loading kitft/nla-qwen2.5-7b-L20-av on cuda
+21:45:03 verbalized 32/96: batch of 32 took 27s (0.9s per explanation) | latest: "Technical support/help document format with friendly tone, describing a Pokémon app's caching behavior for a connection "
+21:45:31 verbalized 64/96: batch of 32 took 27s (0.9s per explanation) | latest: 'Technical web service UI page with community directions for an Android app, establishing a helpful tone with warnings ab'
+21:45:58 verbalized 96/96: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured UI guidance format with formal product documentation pattern, presenting instructions for a Google app, showi'
+21:46:03 loading kitft/nla-qwen2.5-7b-L20-av on cuda
+21:46:50 verbalized 32/96: batch of 32 took 28s (0.9s per explanation) | latest: 'Historical/weather website format with travel blog style and bullet-pointed schedule details, typical of a major NFL tea'
+21:47:17 verbalized 64/96: batch of 32 took 27s (0.9s per explanation) | latest: 'American literary prose blog-post voice, combining informal tone with literary quotations and residual rumination about '
+21:47:44 verbalized 96/96: batch of 32 took 27s (0.8s per explanation) | latest: 'American literary blog tone with informal, witty voice blending food/cultural observations with linguistic musings.\n\nThe'
+21:47:50 loading kitft/nla-qwen2.5-7b-L20-av on cuda
+21:48:23 verbalized 8/8: batch of 8 took 14s (1.8s per explanation) | latest: 'American literary/academic blog tone with informal blue-uniform writer talking about a midwinter day, suggests personal '
+21:49:50 reconstructed 1/669 texts
+21:49:55 reconstructed 51/669 texts
+21:50:01 reconstructed 101/669 texts
+21:50:06 reconstructed 151/669 texts
+21:50:12 reconstructed 201/669 texts
+21:50:18 reconstructed 251/669 texts
+21:50:23 reconstructed 301/669 texts
+21:50:29 reconstructed 351/669 texts
+21:50:35 reconstructed 401/669 texts
+21:50:41 reconstructed 451/669 texts
+21:50:47 reconstructed 501/669 texts
+21:50:53 reconstructed 551/669 texts
+21:50:59 reconstructed 601/669 texts
+21:51:05 reconstructed 651/669 texts
+21:52:29 reconstructed 1/19 texts
+21:52:37 loading Qwen/Qwen2.5-7B-Instruct on cuda
+21:53:50 patched-model job 0/120 | reference continuation: ' the problem should be resolved.\nThis release includes a number of bug fixes and'
+21:54:21 patched-model job 10/120 | reference continuation: ' the stone or baking steel if you have one. Remove the dough from the basket, sl'
+21:54:54 patched-model job 20/120 | reference continuation: ' bake the loaf for 30 minutes. The result is a crusty, chewy, and delicious loaf'
+21:55:27 patched-model job 30/120 | reference continuation: ' try again. If the problem persists, please file a bug report.<|endoftext|>'
+21:55:58 patched-model job 40/120 | reference continuation: ' report the issue to us. We are always happy to help.<|endoftext|>'
+21:56:30 patched-model job 50/120 | reference continuation: ' the problem should be resolved.\nThis release includes a number of bug fixes and'
+21:57:07 patched-model job 60/120 | reference continuation: ' the problem should be resolved.\nThis release includes a number of bug fixes and'
+21:58:12 patched-model job 70/120 | reference continuation: ' the stone or baking steel if you have one. Remove the dough from the basket, sl'
+21:59:23 patched-model job 80/120 | reference continuation: ' bake the loaf for 30 minutes. The result is a crusty, chewy, and delicious loaf'
+22:00:30 patched-model job 90/120 | reference continuation: ' try again. If the problem persists, please file a bug report.<|endoftext|>'
+22:01:38 patched-model job 100/120 | reference continuation: ' bake the loaf for 30 minutes. The result is a crusty, chewy, and delicious loaf'
+22:02:50 patched-model job 110/120 | reference continuation: ' the stone or baking steel if you have one. Remove the dough from the basket and'
+22:04:08 loading kitft/nla-qwen2.5-7b-L20-av on cuda
+22:05:24 verbalized 32/200: batch of 32 took 28s (0.9s per explanation) | latest: 'Mathematics poem format with structured numbered steps for a numerical algorithm, following a clear pattern of describin'
+22:05:52 verbalized 64/200: batch of 32 took 27s (0.9s per explanation) | latest: 'Formal Wikipedia-style streaming format with NFL statistics format, following a pattern of listing baseball team informa'
+22:06:19 verbalized 96/200: batch of 32 took 27s (0.9s per explanation) | latest: "College-level Mathematics textbook format with HTML code blocks displaying a software tool's interactive warnings, follo"
+22:06:46 verbalized 128/200: batch of 32 took 27s (0.8s per explanation) | latest: 'American literary prose style with poetic index entries following a biographical format, referencing a classic American '
+22:07:14 verbalized 160/200: batch of 32 took 27s (0.9s per explanation) | latest: "Technical documentation with a USS client application's warning notice, providing updated software versions and instruct"
+22:07:41 verbalized 192/200: batch of 32 took 27s (0.8s per explanation) | latest: 'Technical wiki-style page for an Open Source Linux distribution, with USNO database interface documentation presenting u'
+22:07:54 verbalized 200/200: batch of 8 took 14s (1.7s per explanation) | latest: 'Animal fact sheet format with zookeeper platform features, describing a wildlife species with interactive content and be'
+22:08:09 loading Qwen/Qwen2.5-7B-Instruct on cuda
+22:09:16 loading kitft/nla-qwen2.5-7b-L20-av on cuda
+22:10:27 verbalized 32/48: batch of 32 took 29s (0.9s per explanation) | latest: 'American English language format with a short riddle or trivia question structure ("A city that is the largest in the Un'
+22:10:45 verbalized 48/48: batch of 16 took 18s (1.1s per explanation) | latest: 'Formal educational/cultural prose register with literary pattern: a sentence beginning "when someone says dolphin is a s'
+22:11:52 reconstructed 1/162 texts
+22:11:58 reconstructed 51/162 texts
+22:12:03 reconstructed 101/162 texts
+22:12:09 reconstructed 151/162 texts
+22:12:18 loading Qwen/Qwen2.5-7B-Instruct on cuda
+22:13:23 patched-model job 0/39 | reference continuation: ' Baudelaire. Fact two:'
+22:14:23 patched-model job 10/39 | reference continuation: ' Shakespeare. Fact two: the English playwright'
+22:15:24 patched-model job 20/39 | reference continuation: ' Cairo. Fact two: the capital city'
+22:16:24 patched-model job 30/39 | reference continuation: ' elephant. Fact two: the huge grey'
+22:17:28 loading Qwen/Qwen2.5-7B-Instruct on cuda
+22:23:37 loading kitft/nla-qwen2.5-7b-L20-av on cuda
+22:25:14 verbalized 32/1008: batch of 32 took 27s (0.9s per explanation) | latest: "Structured list format with numbered items explaining flags, with bullet points presenting facts about a country's natio"
+22:25:41 verbalized 64/1008: batch of 32 took 27s (0.8s per explanation) | latest: "Structured list format with English language facts pattern using numbered points about countries' largest by area, with "
+22:26:08 verbalized 96/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured list format with numbered facts about "The Flag," presenting image descriptions with bold heading and definin'
+22:26:34 verbalized 128/1008: batch of 32 took 26s (0.8s per explanation) | latest: 'Structured list format with numbered items using colored images, defining countries by their flag characteristics and sh'
+22:27:02 verbalized 160/1008: batch of 32 took 27s (0.9s per explanation) | latest: 'Structured list format with numbered questions about geographical facts, using quiz format with "What is the" pattern na'
+22:27:29 verbalized 192/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured educational format with numbered questions listing Olympic facts, presenting translated terms with formal def'
+22:27:55 verbalized 224/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured list format with numbered facts about the city of Pittsburgh, following a pattern of defining "Capital" from '
+22:28:23 verbalized 256/1008: batch of 32 took 27s (0.9s per explanation) | latest: 'Structured educational format with a numbered list pattern defining "word" with example sentences connecting to the word'
+22:28:50 verbalized 288/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured language format with bullet points listing countries ranked by area, following a pattern of factual trivia ab'
+22:29:17 verbalized 320/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured language format with numbered definitions listing facts about "London," presenting factual details about "the'
+22:29:44 verbalized 352/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured educational format with prompts and definitions listing historical terms, following a numbered list pattern w'
+22:30:11 verbalized 384/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured format with numbered questions showing famous works of "born on January 11," establishing a pattern of canoni'
+22:30:37 verbalized 416/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured historical format with numbered questions listing facts about the American flag, pattern established with "Th'
+22:31:04 verbalized 448/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured format with numbered questions and definitions, presenting historical facts about "March 3," establishing pat'
+22:31:31 verbalized 480/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured list format with numbered trivia questions presenting factual language definitions, following a pattern of hi'
+22:31:58 verbalized 512/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured list format with numbered definitions using a pattern of "Word meaning puzzle" with examples illustrating der'
+22:32:25 verbalized 544/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured educational format with numbered definitions lists and image descriptions, following a pattern of animal fact'
+22:32:52 verbalized 576/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured list format with numbered definitions using "A is" pattern, presenting animal classification with specific ch'
+22:33:19 verbalized 608/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured list format with numbered facts about the American flag, using a quiz format with informational definitions a'
+22:33:47 verbalized 640/1008: batch of 32 took 27s (0.9s per explanation) | latest: 'Structured list format with numbered facts about a classic Disney character, presenting trivia facts about "The Lion Kin'
+22:34:14 verbalized 672/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured list format with numbered definitions using a pattern of food terms with "What does X mean?" questions, combi'
+22:34:41 verbalized 704/1008: batch of 32 took 27s (0.9s per explanation) | latest: 'Structured list format with numbered entries using "What does X mean?" pattern, presenting vocabulary pairs with definit'
+22:35:09 verbalized 736/1008: batch of 32 took 27s (0.9s per explanation) | latest: 'Structured list format with numbered definitions and examples, establishing a pattern of food-related idioms using "A is'
+22:35:36 verbalized 768/1008: batch of 32 took 27s (0.9s per explanation) | latest: 'Structured list format with definitions continuing a pattern of food-related word origins, using bullet points and examp'
+22:36:03 verbalized 800/1008: batch of 32 took 27s (0.9s per explanation) | latest: 'Structured definition format with numbered items listing meaning of "big" in English, with a pattern of examples showing'
+22:36:30 verbalized 832/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured list format with numbered facts about a famous singer, using bullet points to define iconic attributes and ac'
+22:36:57 verbalized 864/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured educational format with numbered list of facts about a famous person, following a dictionary entry format wit'
+22:37:25 verbalized 896/1008: batch of 32 took 27s (0.9s per explanation) | latest: 'Structured music theory format with numbered lists listing musical terms, using bullet points with definitions—the patte'
+22:37:52 verbalized 928/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured music trivia format with numbered entries featuring formal definitions and example sentences, continuing a li'
+22:38:19 verbalized 960/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Structured list format with encyclopedia style listing symbols from The Muppets, establishing pattern of trivia facts ab'
+22:38:46 verbalized 992/1008: batch of 32 took 27s (0.8s per explanation) | latest: 'Poetic verse format with rhyme and meter signals a playful or songlike enumeration of words, suggesting a literary or gr'
+22:39:03 verbalized 1008/1008: batch of 16 took 17s (1.1s per explanation) | latest: "Poetic verse format with editor's riddle structure suggests a rhyme or wordplay collection, likely a children's book tit"
+22:40:33 reconstructed 1/1869 texts
+22:40:39 reconstructed 51/1869 texts
+22:40:44 reconstructed 101/1869 texts
+22:40:50 reconstructed 151/1869 texts
+22:40:55 reconstructed 201/1869 texts
+22:41:01 reconstructed 251/1869 texts
+22:41:07 reconstructed 301/1869 texts
+22:41:12 reconstructed 351/1869 texts
+22:41:18 reconstructed 401/1869 texts
+22:41:24 reconstructed 451/1869 texts
+22:41:30 reconstructed 501/1869 texts
+22:41:36 reconstructed 551/1869 texts
+22:41:42 reconstructed 601/1869 texts
+22:41:48 reconstructed 651/1869 texts
+22:41:54 reconstructed 701/1869 texts
+22:42:01 reconstructed 751/1869 texts
+22:42:07 reconstructed 801/1869 texts
+22:42:13 reconstructed 851/1869 texts
+22:42:19 reconstructed 901/1869 texts
+22:42:25 reconstructed 951/1869 texts
+22:42:32 reconstructed 1001/1869 texts
+22:42:38 reconstructed 1051/1869 texts
+22:42:44 reconstructed 1101/1869 texts
+22:42:51 reconstructed 1151/1869 texts
+22:42:57 reconstructed 1201/1869 texts
+22:43:04 reconstructed 1251/1869 texts
+22:43:10 reconstructed 1301/1869 texts
+22:43:17 reconstructed 1351/1869 texts
+22:43:23 reconstructed 1401/1869 texts
+22:43:30 reconstructed 1451/1869 texts
+22:43:37 reconstructed 1501/1869 texts
+22:43:43 reconstructed 1551/1869 texts
+22:43:50 reconstructed 1601/1869 texts
+22:43:56 reconstructed 1651/1869 texts
+22:44:03 reconstructed 1701/1869 texts
+22:44:10 reconstructed 1751/1869 texts
+22:44:16 reconstructed 1801/1869 texts
+22:44:23 reconstructed 1851/1869 texts
+22:44:35 loading Qwen/Qwen2.5-7B-Instruct on cuda
+22:45:47 patched-model job 0/287 | reference continuation: ' The answer to this question is France.\n\nQ: Which gas do plants absorb from'
+22:46:48 patched-model job 10/287 | reference continuation: ' Egypt.\n\nQ: Which gas do plants'
+22:48:06 patched-model job 20/287 | reference continuation: ' The answer to this question is Canada.\n\nQ: Which gas do plants absorb from'
+22:49:25 patched-model job 30/287 | reference continuation: ' The answer to this question is Germany.\n\nQ: Which gas do plants absorb from'
+22:50:35 patched-model job 40/287 | reference continuation: ' Mexico.\n\nQ: Which gas do plants'
+22:51:58 patched-model job 50/287 | reference continuation: ' Paris.\n\nQ: Which gas do plants'
+22:53:17 patched-model job 60/287 | reference continuation: ' Tokyo.\n\nQ: Which gas do plants'
+22:54:40 patched-model job 70/287 | reference continuation: ' London.\n\nQ: Which gas do plants'
+22:55:55 patched-model job 80/287 | reference continuation: ' The answer to this question is Toronto.\n\nQ: Which is the smallest country in'
+22:57:13 patched-model job 90/287 | reference continuation: ' The answer to this question is Rome.\n\nQ: Which gas do plants absorb from'
+22:58:32 patched-model job 100/287 | reference continuation: ' William Shakespeare.\n\nQ: Which gas do'
+23:00:00 patched-model job 110/287 | reference continuation: ' The answer to this question is Albert Einstein.\n\nQ: Which gas do plants absorb'
+23:01:19 patched-model job 120/287 | reference continuation: ' Charles Darwin.\n\nQ: Which gas do'
+23:02:46 patched-model job 130/287 | reference continuation: ' The answer to this question is Abraham Lincoln.\n\nQ: Which gas do plants absorb'
+23:04:05 patched-model job 140/287 | reference continuation: ' The answer to this question is Mahatma Gandhi.\n\nQ: Which gas do'
+23:05:28 patched-model job 150/287 | reference continuation: ' The answer to this question is a dog.\n\nQ: Which gas do plants absorb'
+23:06:51 patched-model job 160/287 | reference continuation: ' The answer to this question is horses.\n\nQ: Which gas do plants use to'
+23:08:10 patched-model job 170/287 | reference continuation: ' the lion.\n\nQ: Which gas do'
+23:09:33 patched-model job 180/287 | reference continuation: ' the African elephant.\n\nQ: Which gas'
+23:10:52 patched-model job 190/287 | reference continuation: ' a wolf.\n\nQ: Which gas do'
+23:12:11 patched-model job 200/287 | reference continuation: ' the rabbit.\n\nQ: Which famous scientist'
+23:13:25 patched-model job 210/287 | reference continuation: ' bread.\n\nQ: Which gas do plants'
+23:14:44 patched-model job 220/287 | reference continuation: ' The answer to this question is rice.\n\nQ: Which gas do plants absorb from'
+23:16:03 patched-model job 230/287 | reference continuation: ' The answer to this question is pizza.\n\nQ: Which gas do plants absorb from'
+23:17:09 patched-model job 240/287 | reference continuation: ' honey.\n\nQ: Which gas do plants'
+23:18:32 patched-model job 250/287 | reference continuation: ' potato.\n\nQ: Which famous scientist developed'
+23:19:46 patched-model job 260/287 | reference continuation: ' The answer to this question is the piano.\n\nQ: Which gas do plants absorb'
+23:21:05 patched-model job 270/287 | reference continuation: ' The answer to this question is the violin.\n\nQ: Which gas do plants absorb'
+23:22:16 patched-model job 280/287 | reference continuation: ' the saxophone.\n\nQ: Which gas'
