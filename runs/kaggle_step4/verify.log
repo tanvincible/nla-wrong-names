@@ -1,0 +1,67 @@
+20:45:59 loading Qwen/Qwen2.5-7B-Instruct on cuda
+Fetching 14 files:   0%|          | 0/14 [00:00<?, ?it/s]Fetching 14 files:   7%|▋         | 1/14 [00:00<00:03,  3.84it/s]Fetching 14 files:  50%|█████     | 7/14 [01:03<01:06,  9.51s/it]Fetching 14 files: 100%|██████████| 14/14 [01:03<00:00,  4.56s/it]
+`torch_dtype` is deprecated! Use `dtype` instead!
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1794516446.597639      65 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:05<00:15,  5.17s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:13<00:13,  6.75s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:21<00:07,  7.31s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:35<00:00, 10.00s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:35<00:00,  8.78s/it]
+20:48:23 neutral passages: 24 kept after round 1
+Fetching 18 files:   0%|          | 0/18 [00:00<?, ?it/s]Fetching 18 files:   6%|▌         | 1/18 [00:00<00:04,  3.97it/s]Fetching 18 files:  11%|█         | 2/18 [00:01<00:10,  1.59it/s]Fetching 18 files:  50%|█████     | 9/18 [00:40<00:43,  4.85s/it]Fetching 18 files: 100%|██████████| 18/18 [00:40<00:00,  2.23s/it]
+20:49:10 loading Qwen/Qwen2.5-7B-Instruct on cuda
+Fetching 14 files:   0%|          | 0/14 [00:00<?, ?it/s]Fetching 14 files: 100%|██████████| 14/14 [00:00<00:00, 8119.50it/s]
+`torch_dtype` is deprecated! Use `dtype` instead!
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1794516570.911342     232 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:04<00:14,  4.70s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:10<00:10,  5.13s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:16<00:05,  5.47s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:23<00:00,  6.13s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:23<00:00,  5.79s/it]
+20:49:59 extract 0/50 sequences
+20:50:02 extract 40/50 sequences
+20:50:09 loading kitft/nla-qwen2.5-7b-L20-av on cuda
+Fetching 18 files:   0%|          | 0/18 [00:00<?, ?it/s]Fetching 18 files:   6%|▌         | 1/18 [00:00<00:04,  4.12it/s]Fetching 18 files:  50%|█████     | 9/18 [01:04<01:06,  7.41s/it]Fetching 18 files: 100%|██████████| 18/18 [01:04<00:00,  3.59s/it]
+`torch_dtype` is deprecated! Use `dtype` instead!
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1794516692.480125     353 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:08<00:24,  8.24s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:27<00:29, 14.61s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:44<00:15, 15.79s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:49<00:00, 11.38s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:49<00:00, 12.28s/it]
+20:52:52 explained 32/400: batch of 32 took 28s | latest: 'Structured promotional/legal format with formal tone establishing benefits of mindfulness and organized learning, sugges'
+20:53:19 explained 64/400: batch of 32 took 27s | latest: 'Structured narrative format with casual descriptive language suggesting a fictional event scenario, implying a news even'
+20:53:47 explained 96/400: batch of 32 took 27s | latest: 'Structured prose poem with formal descriptive tone around daily household routines during quarantine, implying a heading'
+20:54:14 explained 128/400: batch of 32 took 27s | latest: 'Formal instructional or advisory tone with structured guidance, implying a bulleted list of financial preparation steps '
+20:54:41 explained 160/400: batch of 32 took 27s | latest: 'Structured narrative format with descriptive scenario setup ("A protest over food scarcity leads to energy disruptions")'
+20:55:09 explained 192/400: batch of 32 took 27s | latest: 'Encyclopedic/educational format with scientific term definition structure, suggesting a biology or plant disease article'
+20:55:36 explained 224/400: batch of 32 took 27s | latest: 'Wikipedia article format with biographical/professional baseball statistic details about Bill Perkins, listing career st'
+20:56:03 explained 256/400: batch of 32 took 27s | latest: 'Wikipedia article format with encyclopedic description of a film, listing plot details about the 1985 television series.'
+20:56:30 explained 288/400: batch of 32 took 27s | latest: 'Historical/Wikipedia article format with British Railways biography entry for the steamship HMS Royal Marine, describing'
+20:56:57 explained 320/400: batch of 32 took 27s | latest: "Historical/Wikipedia article format with scholarly details about an Indian political figure, describing a ruler's milita"
+20:57:24 explained 352/400: batch of 32 took 27s | latest: 'German-language historical description with structured prose about medieval German rural life, explaining archaeological'
+20:57:51 explained 384/400: batch of 32 took 27s | latest: "Book excerpt format with historical/genre description of a romance novel's publishing career, establishing biographical "
+20:58:09 explained 400/400: batch of 16 took 18s | latest: 'Encyclopedic reference format with Wikipedia-style headline structure ("American television producer"), implying biograp'
+Fetching 18 files:   0%|          | 0/18 [00:00<?, ?it/s]Fetching 18 files: 100%|██████████| 18/18 [00:00<00:00, 46488.59it/s]
+`torch_dtype` is deprecated! Use `dtype` instead!
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1794517102.799767     495 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:19<00:39, 19.51s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:39<00:19, 19.61s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:43<00:00, 12.60s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:43<00:00, 14.48s/it]
+Some weights of Qwen2ForCausalLM were not initialized from the model checkpoint at /kaggle/tmp/hf/hub/models--kitft--nla-qwen2.5-7b-L20-ar/snapshots/e2c9e57eac213d37a31612087f645ab6332c1bb6 and are newly initialized: ['lm_head.weight', 'model.norm.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+[NLACritic] 21 layers  d_model=3584  mse_scale=59.87
+20:59:33 scored 1/400
+20:59:39 scored 51/400
+20:59:46 scored 101/400
+20:59:52 scored 151/400
+20:59:59 scored 201/400
+21:00:05 scored 251/400
+21:00:12 scored 301/400
+21:00:20 scored 351/400
+
+== kaggle recipe: 20 passages x 8 samples, read positions 84-135
+mean cosine  0.908 ± 0.003 (SE over passages; min passage 0.883, max 0.935)   Kaggle 0.907
+mean fve_nrm 0.750   Kaggle 0.747
+mean |h|     111.3   Kaggle 111.3
+parse failures 0.0%, CJK 2.5%   Kaggle (all conditions) 0.0%, 3.9%
+
+== wikipedia: 30 passages x 8 samples, read positions 79-79
+mean cosine  0.893 ± 0.007 (SE over passages; min passage 0.803, max 0.953)   Kaggle 0.907
+mean fve_nrm 0.707   Kaggle 0.747
+mean |h|     112.9   Kaggle 111.3
+parse failures 0.0%, CJK 7.9%   Kaggle (all conditions) 0.0%, 3.9%
+
+== verdict on the Kaggle recipe: PASS (needs cosine >= 0.89 and |h| within 3% of 111.3)
+/usr/lib/python3.13/multiprocessing/resource_tracker.py:479: UserWarning: resource_tracker: There appear to be 4 leaked semaphore objects to clean up at shutdown: {'/loky-65-liypob03', '/loky-495-05r33hlu', '/loky-353-4apmflih', '/loky-232-b9ndyw99'}
+  warnings.warn(
