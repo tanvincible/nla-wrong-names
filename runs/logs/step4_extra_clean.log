@@ -1,0 +1,123 @@
+All natural text. 540 test passages, 8640 explanations, 4 per activation. Name detector: clean.
+
+### A. What the verbalizer names (three exclusive bins)
+
+| tokens after entity | names the true entity | names only wrong same-type entities | names neither | counts |
+|---|---|---|---|---|
+| 0 | 1.000 [0.999, 1.000] | 0.000 [0.000, 0.001] | 0.000 [0.000, 0.000] | 2159 / 1 / 0 |
+| 1 | 0.537 [0.483, 0.592] | 0.251 [0.215, 0.289] | 0.211 [0.171, 0.255] | 1161 / 543 / 456 |
+| 4 | 0.217 [0.182, 0.252] | 0.235 [0.198, 0.272] | 0.548 [0.503, 0.593] | 469 / 507 / 1184 |
+| 16 | 0.075 [0.054, 0.098] | 0.200 [0.167, 0.236] | 0.725 [0.685, 0.763] | 161 / 432 / 1567 |
+
+### B. Non-exclusive rate: explanations with at least one wrong same-type name
+
+Counted whether or not the true entity is also named.
+
+| tokens after entity | at least one wrong name | names the true entity | both | wrong names per explanation |
+|---|---|---|---|---|
+| 0 | 0.453 [0.407, 0.499] | 1.000 [0.999, 1.000] | 0.452 [0.407, 0.498] | 0.72 |
+| 1 | 0.543 [0.495, 0.592] | 0.537 [0.483, 0.592] | 0.292 [0.254, 0.331] | 1.10 |
+| 4 | 0.326 [0.281, 0.373] | 0.217 [0.182, 0.252] | 0.092 [0.070, 0.115] | 0.52 |
+| 16 | 0.225 [0.190, 0.263] | 0.075 [0.054, 0.098] | 0.025 [0.017, 0.035] | 0.33 |
+
+### C. Fair probe comparison: the probe on its most confident passages
+
+The probe is scored on its most confident N% of the same 540 passages, N being the share of explanations in which the verbalizer names anything of the right type. Confidence = the probe's top predicted probability.
+
+| tokens after entity | N (verbalizer names something) | probe, all 540 passages | probe, most confident N% | verbalizer precision when it names |
+|---|---|---|---|---|
+| 0 | 100.0% | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] (n=540) | 1.000 [0.999, 1.000] (n=2160) |
+| 1 | 78.9% | 0.622 [0.572, 0.670] | 0.692 [0.641, 0.740] (n=426) | 0.681 [0.631, 0.729] (n=1704) |
+| 4 | 45.2% | 0.431 [0.374, 0.489] | 0.508 [0.415, 0.609] (n=244) | 0.481 [0.417, 0.544] (n=976) |
+| 16 | 27.5% | 0.354 [0.294, 0.415] | 0.527 [0.424, 0.634] (n=148) | 0.272 [0.204, 0.342] (n=593) |
+
+### D. Consensus: precision of a name by how many of the 4 samples give it
+
+| tokens after entity | in 1 of 4 | in 2 of 4 | in 3 of 4 | in 4 of 4 | AUC of the agreement count |
+|---|---|---|---|---|---|
+| 0 | 0.000 [0.000, 0.000] (n=717) | 0.000 [0.000, 0.000] (n=148) | 0.013 [0.000, 0.038] (n=78) | 0.875 [0.848, 0.903] (n=616) | 0.962 [0.954, 0.970] |
+| 1 | 0.052 [0.038, 0.068] (n=1113) | 0.142 [0.101, 0.184] (n=240) | 0.203 [0.141, 0.273] (n=182) | 0.664 [0.597, 0.730] (n=348) | 0.835 [0.802, 0.865] |
+| 4 | 0.078 [0.059, 0.100] (n=667) | 0.200 [0.115, 0.300] (n=115) | 0.393 [0.289, 0.507] (n=84) | 0.624 [0.530, 0.717] (n=109) | 0.770 [0.736, 0.802] |
+| 16 | 0.061 [0.041, 0.085] (n=478) | 0.193 [0.114, 0.284] (n=83) | 0.390 [0.214, 0.579] (n=41) | 0.448 [0.269, 0.621] (n=29) | 0.724 [0.658, 0.784] |
+| 1, 4 and 16 pooled | 0.062 [0.050, 0.075] (n=2258) | 0.167 [0.127, 0.211] (n=438) | 0.280 [0.220, 0.348] (n=307) | 0.642 [0.577, 0.705] (n=486) | 0.803 [0.776, 0.827] |
+
+### E. Filter trade-off: keep only names given by at least k of the 4 samples
+
+| tokens after entity | k | wrong names removed | true names kept | precision after filtering | names left |
+|---|---|---|---|---|---|
+| 0 | no filter | 0% | 100% | 0.346 [0.320, 0.375] | 1559 |
+| 0 | 2 | 0.704 [0.666, 0.740] | 1.000 [1.000, 1.000] | 0.641 [0.605, 0.681] | 842 |
+| 0 | 3 | 0.849 [0.825, 0.872] | 1.000 [1.000, 1.000] | 0.778 [0.745, 0.813] | 694 |
+| 0 | 4 | 0.924 [0.908, 0.940] | 0.998 [0.994, 1.000] | 0.875 [0.848, 0.903] | 616 |
+| 1 | no filter | 0% | 100% | 0.191 [0.167, 0.218] | 1883 |
+| 1 | 2 | 0.693 [0.654, 0.730] | 0.839 [0.798, 0.876] | 0.392 [0.344, 0.443] | 770 |
+| 1 | 3 | 0.828 [0.800, 0.855] | 0.744 [0.697, 0.790] | 0.506 [0.450, 0.563] | 530 |
+| 1 | 4 | 0.923 [0.907, 0.939] | 0.642 [0.579, 0.701] | 0.664 [0.597, 0.730] | 348 |
+| 4 | no filter | 0% | 100% | 0.181 [0.150, 0.217] | 975 |
+| 4 | 2 | 0.770 [0.727, 0.811] | 0.705 [0.642, 0.765] | 0.403 [0.335, 0.477] | 308 |
+| 4 | 3 | 0.885 [0.857, 0.911] | 0.574 [0.521, 0.630] | 0.523 [0.447, 0.605] | 193 |
+| 4 | 4 | 0.949 [0.932, 0.964] | 0.386 [0.327, 0.444] | 0.624 [0.530, 0.717] | 109 |
+| 16 | no filter | 0% | 100% | 0.117 [0.087, 0.154] | 631 |
+| 16 | 2 | 0.806 [0.759, 0.848] | 0.608 [0.494, 0.716] | 0.294 [0.213, 0.381] | 153 |
+| 16 | 3 | 0.926 [0.895, 0.953] | 0.392 [0.272, 0.506] | 0.414 [0.279, 0.554] | 70 |
+| 16 | 4 | 0.971 [0.956, 0.984] | 0.176 [0.101, 0.247] | 0.448 [0.269, 0.621] | 29 |
+| 1, 4 and 16 pooled | no filter | 0% | 100% | 0.175 [0.151, 0.201] | 3489 |
+| 1, 4 and 16 pooled | 2 | 0.736 [0.699, 0.773] | 0.772 [0.735, 0.806] | 0.383 [0.335, 0.434] | 1231 |
+| 1, 4 and 16 pooled | 3 | 0.863 [0.839, 0.886] | 0.652 [0.616, 0.689] | 0.502 [0.446, 0.562] | 793 |
+| 1, 4 and 16 pooled | 4 | 0.940 [0.927, 0.952] | 0.511 [0.463, 0.559] | 0.642 [0.577, 0.705] | 486 |
+
+### F. Where names sit: describing the context vs predicting the continuation
+
+Each explanation is cut at the cue that introduces its predicted continuation ("strongly expecting ..."). Shares are of all explanations at that distance.
+
+| tokens after entity | true name, context part | true name, continuation part | wrong name, context part | wrong name, continuation part | wrong names (context / continuation) |
+|---|---|---|---|---|---|
+| 0 | 1.000 [0.999, 1.000] | 0.111 [0.081, 0.146] | 0.358 [0.322, 0.394] | 0.179 [0.145, 0.215] | 1120 / 487 |
+| 1 | 0.531 [0.475, 0.586] | 0.078 [0.059, 0.098] | 0.517 [0.470, 0.564] | 0.153 [0.125, 0.182] | 1993 / 495 |
+| 4 | 0.205 [0.170, 0.240] | 0.032 [0.020, 0.045] | 0.302 [0.260, 0.346] | 0.077 [0.060, 0.095] | 952 / 211 |
+| 16 | 0.067 [0.047, 0.088] | 0.014 [0.007, 0.021] | 0.208 [0.174, 0.244] | 0.048 [0.035, 0.062] | 629 / 122 |
+
+87 of 8640 explanations have no continuation cue and count as context only.
+
+### G. What the wrong names are, at 4 and 16 tokens after the entity
+
+| tokens after entity | wrong names in total | one of our listed entities | same-type entity outside our list | most common |
+|---|---|---|---|---|
+| 4 | 1116 | 261 (23%) | 855 (77%) | guitar (27), dog (25), piano (21), lion (20), drum (17), Canada (15), wolf (14), London (11), Nehru (10), horse (10), United States (9), England (9) |
+| 16 | 722 | 128 (18%) | 594 (82%) | Toronto (12), piano (12), guitar (11), Italy (10), America (9), serpent (8), eggs (8), dog (7), Turkey (6), Britain (6), lion (6), beer (6) |
+
+#### 15 random wrong-name explanations, 4 tokens after the entity
+
+1. **True entity:** potato (food). **Wrong names given:** citrus
+2. **True entity:** Mozart (person). **Wrong names given:** Rosenberg
+3. **True entity:** pasta (food). **Wrong names given:** beef stew, chicken broth, condiment, pepper pot, pudding
+4. **True entity:** violin (instrument). **Wrong names given:** piano
+5. **True entity:** Lincoln (person). **Wrong names given:** Harding, Wilson
+6. **True entity:** Brazil (country). **Wrong names given:** Guyana
+7. **True entity:** Sydney (city). **Wrong names given:** Kuala Lumpur, Melbourne
+8. **True entity:** clarinet (instrument). **Wrong names given:** drum
+9. **True entity:** Picasso (person). **Wrong names given:** Gogh
+10. **True entity:** Picasso (person). **Wrong names given:** Kooning, Rothko
+11. **True entity:** Darwin (person). **Wrong names given:** O'Connor
+12. **True entity:** flute (instrument). **Wrong names given:** guitar
+13. **True entity:** pizza (food). **Wrong names given:** beer
+14. **True entity:** potato (food). **Wrong names given:** chicken, muffin
+15. **True entity:** Napoleon (person). **Wrong names given:** Bismarck, Schluter
+
+#### 15 random wrong-name explanations, 16 tokens after the entity
+
+1. **True entity:** Picasso (person). **Wrong names given:** SuperStar
+2. **True entity:** Mozart (person). **Wrong names given:** Brosnahan, Johnson, Kirsten, Paulson
+3. **True entity:** elephant (animal). **Wrong names given:** arctic fox, fox
+4. **True entity:** Sydney (city). **Wrong names given:** Toronto
+5. **True entity:** Beethoven (person). **Wrong names given:** Kubrick
+6. **True entity:** Tokyo (city). **Wrong names given:** Harbin
+7. **True entity:** Napoleon (person). **Wrong names given:** Gera
+8. **True entity:** potato (food). **Wrong names given:** candy bar
+9. **True entity:** Italy (country). **Wrong names given:** England
+10. **True entity:** rabbit (animal). **Wrong names given:** stag
+11. **True entity:** cello (instrument). **Wrong names given:** pipe organ, viol
+12. **True entity:** Shakespeare (person). **Wrong names given:** Virgil
+13. **True entity:** horse (animal). **Wrong names given:** lion, serpent
+14. **True entity:** chocolate (food). **Wrong names given:** coloring
+15. **True entity:** cello (instrument). **Wrong names given:** flute
