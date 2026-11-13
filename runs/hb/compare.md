@@ -1,0 +1,19 @@
+Natural text. Each checkpoint minus the released verbalizer on the same 540 held-out passages, 4 samples each. Intervals: bootstrap over entities (10k). An interval that excludes 0 is a real difference.
+
+| checkpoint | tokens after entity | wrong names per explanation, released | difference | relative | true-name rate, released | difference |
+|---|---|---|---|---|---|---|
+| full-recon-round2 | 0 | 0.719 | -0.021 [-0.052, +0.010] | -3.0% | 100.0% | +0.0% [+0.0%, +0.1%] |
+| full-recon-round2 | 1 | 1.097 | -0.045 [-0.088, -0.001] | -4.1% | 53.8% | -0.0% [-1.4%, +1.3%] |
+| full-recon-round2 | 4 | 0.517 | +0.025 [-0.009, +0.056] | +4.7% | 21.7% | -0.1% [-1.4%, +1.2%] |
+| full-recon-round2 | 16 | 0.334 | +0.008 [-0.019, +0.033] | +2.4% | 7.5% | +0.3% [-1.0%, +1.8%] |
+| full-recon-round2 | all four | 0.667 | -0.008 [-0.028, +0.011] | -1.3% | 45.7% | +0.0% [-0.5%, +0.6%] |
+| full-holdback-round2 | 0 | 0.719 | -0.051 [-0.088, -0.014] | -7.2% | 100.0% | +0.0% [+0.0%, +0.1%] |
+| full-holdback-round2 | 1 | 1.097 | -0.091 [-0.130, -0.054] | -8.3% | 53.8% | -0.9% [-2.6%, +0.6%] |
+| full-holdback-round2 | 4 | 0.517 | -0.055 [-0.088, -0.022] | -10.7% | 21.7% | -0.6% [-2.1%, +1.0%] |
+| full-holdback-round2 | 16 | 0.334 | -0.025 [-0.062, +0.006] | -7.6% | 7.5% | +0.6% [-0.5%, +1.9%] |
+| full-holdback-round2 | all four | 0.667 | -0.056 [-0.080, -0.031] | -8.4% | 45.7% | -0.2% [-0.8%, +0.4%] |
+| full-lineup-round2 | 0 | 0.719 | -0.001 [-0.037, +0.036] | -0.1% | 100.0% | +0.0% [+0.0%, +0.0%] |
+| full-lineup-round2 | 1 | 1.097 | -0.015 [-0.057, +0.027] | -1.4% | 53.8% | -1.0% [-2.5%, +0.5%] |
+| full-lineup-round2 | 4 | 0.517 | +0.006 [-0.025, +0.038] | +1.3% | 21.7% | -0.8% [-2.4%, +0.7%] |
+| full-lineup-round2 | 16 | 0.334 | -0.004 [-0.029, +0.021] | -1.2% | 7.5% | +0.5% [-0.6%, +1.8%] |
+| full-lineup-round2 | all four | 0.667 | -0.003 [-0.022, +0.015] | -0.5% | 45.7% | -0.3% [-0.9%, +0.2%] |
