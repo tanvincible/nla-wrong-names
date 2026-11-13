@@ -7,7 +7,7 @@ verbalizer is rewarded for and checks that its behaviour changes the way the exp
 
 \section{Training Loop}
 
-The loop is the simplest form of reward-driven training. For each activation $h_i$, the current verbalizer
+The loop is the simplest form of reward-driven training (Figure~\ref{fig:loop}). For each activation $h_i$, the current verbalizer
 samples $K=8$ explanations. A score picks the best one,
 \begin{equation}
 z_i^{*} = \arg\max_{k}\; \mathrm{score}(h_i, z_{i,k}),
@@ -15,6 +15,31 @@ z_i^{*} = \arg\max_{k}\; \mathrm{score}(h_i, z_{i,k}),
 and a low-rank adapter (LoRA~\cite{hu2022lora}) on the verbalizer is trained to make the chosen explanations
 more likely, $\min_\theta -\sum_i \log V_\theta(z_i^{*} \mid h_i)$. The next round samples from the updated
 verbalizer. The target model and the reconstructor stay frozen.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[font=\small,
+  box/.style={draw, rounded corners=3pt, minimum height=1.0cm, minimum width=3.1cm, align=center},
+  data/.style={align=center},
+  arr/.style={-{Stealth[length=2.2mm]}, thick}]
+\node[data] (h) {activation\\$h_i$};
+\node[box, right=0.7cm of h] (av) {Verbalizer\\+ adapter};
+\node[data, right=0.8cm of av] (zs) {8 sampled\\explanations};
+\node[box, right=0.8cm of zs] (sc) {Score\\each sample};
+\node[data, below=1.1cm of sc] (best) {best one, $z_i^{*}$};
+\node[box] (tr) at (av |- best) {Train adapter\\to write $z_i^{*}$};
+\draw[arr] (h) -- (av);
+\draw[arr] (av) -- (zs);
+\draw[arr] (zs) -- (sc);
+\draw[arr] (sc) -- (best);
+\draw[arr] (best) -- (tr);
+\draw[arr] (tr) -- node[left, font=\footnotesize]{next round} (av);
+\node[font=\footnotesize\itshape, above=0.12cm of sc, align=center] {the only step that\\differs between runs};
+\end{tikzpicture}
+\caption[One round of the training loop]{One round of the training loop. The target model and the
+reconstructor are frozen; only the adapter on the verbalizer is trained.}
+\label{fig:loop}
+\end{figure}
 
 Each run uses 2{,}000 activations drawn from the 4{,}200 non-test passages at distances 0, 1, 4 and 16, and
 runs three rounds. The first round's samples come from the released verbalizer and are shared by every run,

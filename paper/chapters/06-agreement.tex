@@ -43,8 +43,35 @@ samples give it, with the number of names in brackets. Natural text; 95\% interv
 
 \section{Filter}
 
-This suggests a filter that needs no training: keep a name only if $c(n) \ge m$ for some threshold $m$. Table~\ref{tab:filter} shows the trade-off in the terms of retrieval, treating the names as
+This suggests a filter that needs no training: keep a name only if $c(n) \ge m$ for some threshold $m$.
+Figure~\ref{fig:filter} works through one activation. Table~\ref{tab:filter} shows the trade-off in the terms of retrieval, treating the names as
 retrieved items.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[font=\footnotesize,
+  samp/.style={draw=black!45, rounded corners=2pt, minimum height=0.58cm, text width=4.2cm, align=left, inner sep=4pt},
+  arr/.style={-{Stealth[length=2.2mm]}, thick}]
+\foreach \k/\t in {1/{lion, dolphin, horse}, 2/{lion}, 3/{lion, elephant}, 4/{lion, elephant}}
+  \node[samp] at (0,0.8-0.8*\k) {$z_\k$:\enspace \t};
+\node[text=black!65] at (0,0.62) {four samples, one activation};
+\draw[arr] (2.55,-1.2) -- node[above]{count} (4.05,-1.2);
+\foreach \k/\n/\c/\col/\v in {1/lion/4/cblue/{kept (true)}, 2/elephant/2/corange/{kept (wrong)},
+                              3/dolphin/1/corange/{dropped (wrong)}, 4/horse/1/corange/{dropped (wrong)}} {
+  \node[anchor=east] at (5.9,0.8-0.8*\k) {\n};
+  \fill[\col] (6.1,0.62-0.8*\k) rectangle (6.1+0.8*\c,0.98-0.8*\k);
+  \node[anchor=west] at (10.2,0.8-0.8*\k) {\v};}
+\draw[dashed] (7.3,0.4) -- (7.3,-2.8);
+\draw[black!45] (6.1,-2.8) -- (9.3,-2.8);
+\foreach \c in {1,2,3,4} \node[text=black!65, font=\scriptsize] at (6.1+0.8*\c,-3.0) {\c};
+\node[text=black!65, font=\scriptsize] at (7.7,-3.32) {samples that give the name};
+\node[text=black!65] at (7.3,0.62) {keep if $c(n) \ge 2$};
+\end{tikzpicture}
+\caption[The agreement filter on one activation]{The agreement filter on one activation: a passage that
+mentions a lion, read one token later. The true name is in all four samples and is kept. Two wrong names
+appear once each and are dropped. One wrong name that two samples agree on gets through.}
+\label{fig:filter}
+\end{figure}
 
 \begin{table}[t]
 \centering

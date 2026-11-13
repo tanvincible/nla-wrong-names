@@ -61,6 +61,40 @@ nine test passages per entity, chosen by a seeded shuffle before any explanation
 0, 1, 4 and 16. That is 540 passages and 2{,}160 activations. For each activation the verbalizer wrote four
 explanations, sampled independently at temperature~1, for 8{,}640 explanations in total. Four samples per
 activation is what later makes it possible to ask whether the samples agree.
+Figure~\ref{fig:distances} shows the positions on the passage from Chapter~\ref{ch:intro}, and what its
+sixteen explanations name.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[x=1.1cm, y=1cm, font=\footnotesize]
+% #1 column, #2 row, #3 how many of the four samples, #4 colour
+\newcommand{\tally}[4]{\foreach \j in {1,2,3,4}{%
+  \ifnum\j>#3 \draw[black!40, line width=0.4pt] (#1,#2) ++(\j*0.2cm-0.5cm,0) circle (0.065cm);%
+  \else \fill[#4] (#1,#2) ++(\j*0.2cm-0.5cm,0) circle (0.075cm);\fi}}
+\fill[cblue!18] (-1.5,-0.31) rectangle (0.5,0.31);
+\foreach \k/\t in {-1/c, 0/ello, 1/son, 2/atas, 3/of, 4/Antonio, 5/V, 6/ival, 7/di, 8/with, 10/as}
+  \node[draw=black!45, minimum width=1.1cm, minimum height=0.62cm, inner sep=0pt, font=\scriptsize\ttfamily]
+    at (\k,0) {\t};
+\node at (9,0) {$\cdots$};
+\node[font=\scriptsize, text=black!65] at (-0.5,0.55) {entity};
+\foreach \x/\d in {0/0, 1/1, 4/4, 10/16} {\fill (\x,-0.62) circle (0.085cm); \node at (\x,-0.98) {\d};}
+\foreach \x/\d in {2/2, 8/8} {\draw (\x,-0.62) circle (0.085cm); \node[text=black!60] at (\x,-0.98) {\d};}
+\node[anchor=east] at (-0.6,-0.98) {distance};
+\draw[black!25] (-2.3,-1.3) -- (10.5,-1.3);
+\node[anchor=east] at (-0.6,-1.65) {\emph{cello} (true)};
+\node[anchor=east] at (-0.6,-2.1) {\emph{piano}};
+\node[anchor=east] at (-0.6,-2.55) {\emph{violin}};
+\foreach \x/\a/\b/\c in {0/4/4/0, 1/0/4/2, 4/0/0/0, 10/2/4/2}
+  {\tally{\x}{-1.65}{\a}{cblue} \tally{\x}{-2.1}{\b}{corange} \tally{\x}{-2.55}{\c}{corange}}
+\end{tikzpicture}
+\caption[Where activations are read, and what one passage's explanations name]{Where activations are read,
+on the passage from Chapter~\ref{ch:intro} (tokens 9 to 15 are omitted). Distance~0 is the entity's last
+token. Explanations were generated at the filled positions; the hollow ones are used only by the probe. Each
+row of dots shows how many of the four sampled explanations name that instrument: \emph{cello} is in the
+passage, \emph{piano} and \emph{violin} are not. This is one passage; Chapter~\ref{ch:fading} gives the rates
+over all 540.}
+\label{fig:distances}
+\end{figure}
 
 \section{Name Detector}
 
