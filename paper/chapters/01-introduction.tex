@@ -39,15 +39,18 @@ Wrong specifics in NLA explanations are a known problem, and several groups have
 
 \begin{itemize}
 \item \emph{The NLA authors} report it themselves~\cite{frasertaliente2026nla}: explanations are usually right
-about the theme and can be wrong about the detail, and a claim that recurs across neighbouring tokens is more
-likely to be true.
-\item \emph{Audits.} Dingeto~\cite{dingeto2026recap} finds that on the released Qwen2.5-7B verbalizer only
-about 2\% of specific claims are ones the reconstruction depends on. Denamgana\"i~\cite{denamganai2026monitorability}
-finds that a true account beats a rival differing in one claim only 60\% of the time.
-\item \emph{Fixes by retraining.} Flow-NLA~\cite{lek2026flownla} replaces point reconstruction with a model of
-all the activations an explanation is compatible with. Hong et al.~\cite{hong2026grounding} add a grounding
-reward for names, numbers and quotations. Dingeto's RECAP~\cite{dingeto2026recap} trains the target model
-itself so that chosen content stays readable.
+about the theme and can be wrong about the detail, deleting a true claim hurts reconstruction more than
+deleting a false one, and a claim that recurs across neighbouring tokens is more likely to be true.
+\item \emph{Audits.} Lek et al.~\cite{lek2026flownla} check explanations against the source text with a judge
+model and report high rates of unsupported content in the released NLAs. Dingeto~\cite{dingeto2026recap}
+edits one claim at a time and finds that only about 2\% of specific claims are ones the reconstruction
+depends on. Denamgana\"i~\cite{denamganai2026monitorability} finds that a true account beats a rival
+differing in one claim only 60\% of the time.
+\item \emph{Fixes.} Flow-NLA~\cite{lek2026flownla} replaces point reconstruction with a model of all the
+activations an explanation is compatible with. Hong et al.~\cite{hong2026grounding} add a grounding reward
+for names, numbers and quotations. Dingeto~\cite{dingeto2026recap} reports that grounding and truth rewards
+on the verbalizer improved their own proxy but not an independent audit, and instead trains the target model
+so that chosen content stays readable.
 \item \emph{Neighbouring tools.} Other ways of turning activations into text include the logit
 lens~\cite{nostalgebraist2020logitlens}, Patchscopes~\cite{ghandeharioun2024patchscopes} and
 SelfIE~\cite{chen2024selfie}; sparse autoencoders are the main
@@ -55,6 +58,12 @@ alternative~\cite{bricken2023monosemanticity,cunningham2023sparse}. Linear probe
 what an activation holds, and agreement between samples is a standard signal for invented content in
 ordinary generation~\cite{manakul2023selfcheckgpt,wang2023selfconsistency}.
 \end{itemize}
+
+Two things stand out in this work. Every audit judges an explanation from outside: against the source text,
+a judge model, a probe or the reconstructor. None asks what the verbalizer
+itself knows about its claims, through the spread of its samples or the probabilities of its own tokens. And
+none follows a specific as the model reads on, to see where the loss happens. Those are the two gaps this
+report works in.
 
 \section{Question}
 
@@ -72,31 +81,33 @@ training objective, more training on that objective should not remove them, and 
 
 \section{Contributions}
 
-Working with the released Qwen2.5-7B NLA and 6{,}000 Wikipedia passages about 60 entities, this report adds
-four things to the work above. As far as I know each is new. None of them retrains an NLA from scratch or
-needs the source text at inference.
+Working with the released Qwen2.5-7B NLA and 6{,}000 Wikipedia passages about 60 entities, this report makes
+four contributions. The first and third are, as far as I can tell from the work above, new. The second and
+fourth confirm earlier findings on this model and extend them. None retrains an NLA from scratch or needs the
+source text at inference.
 
 \begin{enumerate}
 \item \textbf{A fade curve with a ceiling.} Names are tracked token by token after the entity, next to a probe
-on the same activations, which separates what the verbalizer drops from what the model no longer holds.
-Sixteen tokens after the entity the explanation names it 7.5\% of the time while the probe still reads it
-35\% of the time, and between a fifth and a half of all explanations contain a wrong name of the same type
-(Chapter~\ref{ch:fading}).
+on the same activations of the unmodified model, which separates what the verbalizer drops from what the
+model no longer holds. Sixteen tokens after the entity the explanation names it 7.5\% of the time while the
+probe still reads it 35\% of the time, and between a fifth and a half of all explanations contain a wrong
+name of the same type (Chapter~\ref{ch:fading}).
 
-\item \textbf{A price for each kind of name.} Sharpening Dingeto's 2\% finding, an edit test prices wrong and
-true names separately. A wrong name is worth about 0.002 of reconstruction score. The true name is worth
-0.21 at the entity's token and 0.016 one token later (Chapter~\ref{ch:incentives}).
+\item \textbf{A price for each kind of name.} An edit test confirms on names what the delete-a-claim and
+one-claim audits found, and adds two things: wrong and true names are priced separately, and the true name's
+price is followed over distance. A wrong name is worth about 0.002 of reconstruction score. The true name is
+worth 0.21 at the entity's token and 0.016 one token later (Chapter~\ref{ch:incentives}).
 
-\item \textbf{Agreement as a filter, and where it comes from.} The NLA authors' observation about neighbouring
-tokens is applied to repeated samples of one activation and measured. A name in one of four samples is right
-6\% of the time; a name in all four, 64\%. Keeping names that two samples agree on removes 74\% of the wrong
-names and keeps 77\% of the true ones, with no training and no labels. Most of this signal is token-level
-confidence that a single explanation already carries (Chapter~\ref{ch:agreement}).
+\item \textbf{The verbalizer's own uncertainty as the check.} A name in one of four samples of the same
+activation is right 6\% of the time; a name in all four, 64\%. Keeping names that two samples agree on removes
+74\% of the wrong names and keeps 77\% of the true ones, with no training, no labels and no source text. Most
+of this signal is already in the token probabilities of a single explanation
+(Chapter~\ref{ch:agreement}).
 
 \item \textbf{Rewards as tests.} Small fine-tunes of the released verbalizer check the incentive account. More
-reconstruction leaves wrong names untouched. A cost on names the other samples do not support cuts them by
-5 to 8\% on held-out passages, in two independent runs, without losing true names. Rewarding the true name
-does not bring it back (Chapter~\ref{ch:finetuning}).
+reconstruction leaves wrong names untouched. A cost built only from sample agreement cuts them by 5 to 8\%
+in two independent runs, measured against the passage and not against the reward's own signal. Rewarding the
+true name does not bring it back, in line with Dingeto's result (Chapter~\ref{ch:finetuning}).
 \end{enumerate}
 
 Along the way I found that the usage example published with the models reads activations one layer too early,
