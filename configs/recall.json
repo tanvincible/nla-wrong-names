@@ -1,0 +1,8 @@
+{
+ "arm": "recall",
+ "lam": 0.01,
+ "beta": 0.05,
+ "holdout": 2,
+ "agreement_ref": "released",
+ "name_types": "all"
+}

@@ -8,6 +8,8 @@ The score is the experiment; three arms (config files in configs/):
   recon     cosine(h, AR(z))
   holdback  cosine - lam * (names in z that fewer than 2 reference samples also give)
   lineup    AR(z) must pick h out of 4 near-twins; score = log-softmax of cosine / tau over the 4
+  recall    holdback + beta if z names the entity that is really in the passage (supervised by the passage
+            text, unlike the other arms); --holdout N keeps N entities per type out of training
 
 Defaults that differ from the first written spec (each has a flag to switch back):
   agreement_ref=released  agreement is counted against samples from the frozen released verbalizer, so it
@@ -40,7 +42,7 @@ from nla_inference import NLACritic, inject_at_marked_positions, load_nla_config
 DEFAULT = dict(arm="recon", n_train=2000, k=8, rounds=3, seed=0, dists=[0, 1, 4, 16], lam=0.01, tau=1.0,
                agreement_ref="released", name_types="all", negatives="twins",
                lr=1e-4, lora_r=16, lora_alpha=32, lora_dropout=0.05, train_batch=8, gen_batch=32, ar_batch=32,
-               max_new_tokens=200, epochs=1, tag="")
+               max_new_tokens=200, epochs=1, beta=0.05, holdout=0, tag="")
 HB = RUNS / "hb"
 
 
@@ -208,10 +210,13 @@ def score_round(cfg, data, samples, recs, ref):
                      [samples[j][o] for o in range(K) if o != s]
             support = Counter(n for o in others for n in names_of(o, it["type"], cfg["name_types"]))
             unsup[j, s] = sum(support[n] < 2 for n in names_of(z, it["type"], cfg["name_types"]))
+    truth = [[claims(z, it["text"], it["entity"]) for z in samples[j]] for j, it in enumerate(data["items"])]
     if cfg["arm"] == "recon":
         score = c.clone()
     elif cfg["arm"] == "holdback":
         score = c - cfg["lam"] * unsup
+    elif cfg["arm"] == "recall":  # supervised: the passage text says which entity is really there
+        score = c - cfg["lam"] * unsup + cfg["beta"] * torch.tensor([[float(t) for t, _ in row] for row in truth])
     elif cfg["arm"] == "lineup":
         if cfg["negatives"] == "twins":
             cand = torch.cat([data["h"][:, None], data["twins"]], 1)  # [N, 4, d]
@@ -227,7 +232,6 @@ def score_round(cfg, data, samples, recs, ref):
     else:
         raise ValueError(cfg["arm"])
     best = score.argmax(1)
-    truth = [[claims(z, it["text"], it["entity"]) for z in samples[j]] for j, it in enumerate(data["items"])]
     pick = lambda fn: sum(fn(truth[j][best[j]]) for j in range(N)) / N
     allm = lambda fn: sum(fn(t) for row in truth for t in row) / (N * K)
     stats = {
@@ -277,7 +281,14 @@ def main(argv=None):
         return r
 
     data, key = timed("data", lambda: build_data(cfg))
-    N, K = cfg["n_train"], cfg["k"]
+    K, keep = cfg["k"], list(range(cfg["n_train"]))
+    if cfg["holdout"]:  # some entities never appear in training, so the eval can tell reading from memorising
+        held = sorted(e for t in ENTITIES for e in random.Random(f"{cfg['seed']}-{t}").sample(ENTITIES[t], cfg["holdout"]))
+        (out / "holdout.json").write_text(json.dumps(held))
+        keep = [j for j, it in enumerate(data["items"]) if it["entity"] not in held]
+        data = {"items": [data["items"][j] for j in keep], "h": data["h"][keep], "twins": data["twins"][keep]}
+        log(f"held out of training: {', '.join(held)} -> {len(keep)} activations left")
+    N = len(keep)
     adapter, ref, history = None, None, []
     for r in range(cfg["rounds"]):
         # round 0 samples the released verbalizer, identically for every arm, so it is shared between arms
@@ -294,6 +305,8 @@ def main(argv=None):
             torch.save(timed(f"round{r}_reconstruct", lambda: reconstruct_batch([z for row in samples for z in row], cfg["ar_batch"])), rf)
         recs = torch.load(rf)
         if r == 0:
+            if len(samples) != N:  # the shared round 0 covers every activation; drop the held-out entities' rows
+                samples, recs = [samples[j] for j in keep], recs.view(len(samples), K, -1)[keep].reshape(N * K, -1)
             ref = samples
         score, best, stats = timed(f"round{r}_score", lambda: score_round(cfg, data, samples, recs, ref))
         kept = [samples[j][best[j]] for j in range(N)]
