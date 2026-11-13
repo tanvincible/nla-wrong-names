@@ -23,3 +23,5 @@ runs/hb_pod/shared/
 runs/hb_pod/last_mirror.txt
 runs/kaggle_step4/live-*.jsonl
 runs/pods.txt
+# download bookkeeping written by fetch_artifacts.py
+.cache/
