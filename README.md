@@ -46,7 +46,7 @@ uv venv && source .venv/bin/activate
 uv pip install -r requirements.txt
 python -c "import nltk; nltk.download('wordnet')"
 git clone --depth 1 https://github.com/kitft/natural_language_autoencoders nla_ref
-python fetch_artifacts.py        # about 650 MB; set HF_TOKEN while the Hugging Face repos are private
+python fetch_artifacts.py        # about 650 MB
 ```
 
 ## Reproducing the results

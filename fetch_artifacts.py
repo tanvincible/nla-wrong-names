@@ -3,7 +3,7 @@
     python fetch_artifacts.py             activations, caches, training samples and the fine-tuned adapters
     python fetch_artifacts.py --adapters  only the adapters (about 40 MB each)
 
-They live in two Hugging Face repos. While those are private, set HF_TOKEN to a token that can read them.
+They live in two public Hugging Face repos.
 """
 import argparse
 import shutil
