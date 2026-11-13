@@ -1,27 +1,3 @@
-\chapter{Related Work}
-\label{ch:related}
-
-\textbf{Explaining activations in language.} NLAs~\cite{frasertaliente2026nla} train a dedicated model to
-verbalise activations and score it by reconstruction. Earlier methods get text out of activations without
-training an explainer: the logit lens~\cite{nostalgebraist2020logitlens} decodes an activation with the
-model's own output layer, and Patchscopes~\cite{ghandeharioun2024patchscopes} and
-SelfIE~\cite{chen2024selfie} patch an activation into a prompt and let the model describe it. All of these
-produce fluent text, and all raise the question studied here: which parts of that text does the activation
-actually support?
-
-\textbf{Sparse autoencoders} are the other unsupervised route to explaining
-activations~\cite{bricken2023monosemanticity,cunningham2023sparse}. They decompose an activation into
-features whose meaning is then labelled. An NLA skips the features and writes the description directly,
-which is more readable and, as this report shows, harder to check.
-
-\textbf{Probing.} Linear probes~\cite{alain2016probes} are the standard way to ask whether information is
-present in an activation. I use one as the yardstick for what the verbalizer could have said.
-
-\textbf{Agreement as a hallucination signal.} That a model's samples agree on what it knows and disagree on
-what it invents is well established for ordinary text
-generation~\cite{manakul2023selfcheckgpt,wang2023selfconsistency}. This report finds the same signal in a
-model whose input is an activation instead of a prompt, and traces most of it to token-level confidence.
-
 \chapter{Conclusion}
 \label{ch:conclusion}
 

@@ -33,6 +33,30 @@ This report is about that failure. I call the cello a \emph{specific}: a named e
 text. The gist (classical music, a recording, sonatas) survives the round trip through language. The
 specific often does not, and what replaces it is a confident wrong name of the same kind.
 
+\section{Prior Work}
+
+Three lines of earlier work meet in this report.
+
+\textbf{Turning activations into text.} The logit lens~\cite{nostalgebraist2020logitlens} decodes an activation
+with the model's own output layer. Patchscopes~\cite{ghandeharioun2024patchscopes} and
+SelfIE~\cite{chen2024selfie} patch an activation into a prompt and let the model describe it. NLAs go a step
+further and train a dedicated explainer, scored by whether its text allows the activation to be
+rebuilt~\cite{frasertaliente2026nla}. Sparse autoencoders are the other unsupervised
+route~\cite{bricken2023monosemanticity,cunningham2023sparse}: they split an activation into features that are
+labelled afterwards, which is less readable than a paragraph but easier to check.
+
+\textbf{Testing what an activation holds.} Linear probes~\cite{alain2016probes} are the standard way to ask
+whether a piece of information is present in an activation. They need labels, but they give an answer that
+does not depend on anyone's prose.
+
+\textbf{Catching invented content.} For ordinary text generation it is well established that a model's samples
+agree on what it knows and scatter on what it makes up~\cite{manakul2023selfcheckgpt,wang2023selfconsistency}.
+
+What these leave open is how to tell, inside one fluent explanation of an activation, which statements the
+activation supports. This report takes the narrowest version of that problem, named entities, and uses all
+three lines on it: a probe as the yardstick, the reconstruction objective as the suspect, and agreement
+between samples as the check.
+
 \section{Question}
 
 I ask one narrow question and try to answer it carefully:
