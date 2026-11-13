@@ -8,9 +8,8 @@ code, and a decoder that rebuilds the input from the code~\cite{hinton2006reduci
 encoder what the code should mean. The only pressure is that the decoder has to succeed, so the code ends up
 holding whatever the decoder needs most.
 
-That last sentence is the key to this whole report. An autoencoder keeps what helps reconstruction and is
-indifferent to everything else. If two different inputs can be rebuilt almost equally well from the same
-code, the encoder has no reason to tell them apart.
+So an autoencoder keeps what helps reconstruction and is indifferent to everything else. That is the key to
+this report.
 
 \section{NLA Design}
 
@@ -77,11 +76,9 @@ ordinary regression on whatever the verbalizer writes. In this last stage the ve
 \end{equation}
 and nothing else. Whatever does not move $s$ is invisible to training.
 
-The explanations the released verbalizer writes have a steady three-part shape, visible in the example in
-Chapter~\ref{ch:intro}. The first paragraph gives the genre and topic of the text. The second quotes or
-paraphrases the sentence being read. The third describes the final token and lists what is expected next. I
-use this shape later, to ask whether wrong names sit in the part that describes the context or the part that
-predicts the continuation.
+The released verbalizer's explanations have a steady three-part shape, visible in the example in
+Chapter~\ref{ch:intro}: the genre and topic of the text, then the sentence being read, then the final token
+and what is expected next.
 
 \section{Specifics}
 
@@ -103,11 +100,10 @@ W(z) = N(z) \setminus \bigl(P \cup \{e\}\bigr).
 \label{eq:wrong}
 \end{equation}
 
-The third option is not a failure. If the activation no longer holds the entity, the faithful thing to say
-is nothing. The failure this report studies is the second one, because a wrong name is indistinguishable from
-a true one to anyone reading the explanation without the passage in front of them.
+The third option is not a failure: if the activation no longer holds the entity, saying nothing is
+faithful. This report studies the second, because a wrong name looks exactly like a true one to a reader
+who does not have the passage.
 
-Specifics are the natural place to look for trouble. The gist of a passage (music, a biography, a list of
-recordings) is shared by thousands of training examples and moves the activation a long way, so the
-reconstructor depends on it and the verbalizer learns to report it. Which instrument it was moves the
-activation much less. Chapter~\ref{ch:incentives} measures exactly how much less.
+Specifics are the natural place to look for trouble. The gist of a passage moves the activation a long way,
+so the reconstructor depends on it. Which instrument it was moves the activation much less;
+Chapter~\ref{ch:incentives} measures how much less.

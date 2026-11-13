@@ -57,8 +57,8 @@ Requiring two of four removes 74\% of the wrong names and keeps 77\% of the true
 precision from 17.5\% to 38\%. Requiring all four reaches 64\% precision but keeps only half the true names.
 Two of four is the setting I carry forward: it removes most of the damage for a modest loss.
 
-The cost is compute. Four explanations instead of one is four times the generation. The filter also only
-removes names; it cannot recover a true name the verbalizer never wrote.
+The filter costs four generations instead of one, and it only removes names: it cannot recover a true name
+the verbalizer never wrote.
 
 \section{Verifiers}
 
@@ -86,5 +86,37 @@ at one token), but they need dozens of labelled passages for every entity one wa
 directions from four tokens on (0.77 against 0.76, and 0.72 against 0.70).
 \end{itemize}
 
-For a method whose selling point is that it is unsupervised, agreement is the natural check: it is nearly as
-good as the supervised one and works for any name, not just the entities someone trained a probe for.
+Agreement is the natural check for an unsupervised method: nearly as good as the supervised one, and it
+works for any name.
+
+\section{Confidence}
+
+Why does agreement work? The simplest account is that it estimates something the verbalizer already knows:
+the probability it assigns to the name. A name it writes in one sample of four is one it considers unlikely.
+If that is the whole story, sampling is unnecessary, because the probability is available from a single
+explanation: every time the verbalizer wrote a name, it gave that name's tokens a probability.
+
+To test this I ran the 8{,}640 existing explanations back through the verbalizer and recorded the probability
+of each name at its first mention. Table~\ref{tab:confidence} compares that single number with the agreement
+count as a way of telling true names from wrong ones.
+
+\begin{table}[t]
+\centering
+\small
+\input{tables/confidence}
+\caption[One explanation's own confidence against agreement between four]{One explanation's own
+confidence against agreement between four (AUC, 95\% intervals; natural text). Each unit is one name in one
+explanation. The name-probability column compares only names with the same number of tokens, because true
+names are shorter than wrong ones and a raw product of token probabilities would separate them for that
+reason alone; scored that way, random numbers give 0.50.}
+\label{tab:confidence}
+\end{table}
+
+The account is mostly right. Away from the entity, one explanation's confidence reaches an AUC of 0.77 where
+agreement between four reaches 0.82. Used as a filter that keeps the same 84\% of true names, the raw name
+probability removes 57\% of wrong names where agreement removes 68\%. So most of what agreement measures is the verbalizer's
+own uncertainty, which is computed anyway while the explanation is generated.
+
+Sampling still adds something, because a token probability is conditioned on the exact sentence written so
+far while four samples average over different phrasings. But an NLA could flag its own doubtful names at no
+extra cost.

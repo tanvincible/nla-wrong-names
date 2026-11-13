@@ -52,7 +52,7 @@ earlier pilot run of the released models, written separately and run on differen
 mean cosine of 0.907 between original and rebuilt activations. Repeating that run's recipe, the pipeline
 used here gives 0.908, and explains 75.0\% of the variance, in line with the roughly 75\% the authors report
 for this model. Getting there required fixing an off-by-one in which layer is read, described in
-Appendix~B. On Wikipedia passages the mean cosine is 0.893, a little lower.
+Appendix~\ref{app:layer}. On Wikipedia passages the mean cosine is 0.893, a little lower.
 
 \section{Explanations}
 
@@ -115,6 +115,5 @@ free text. I return to this when comparing the two.
 Passages about the same entity are not independent, so every interval in this report is a 95\% bootstrap
 interval that resamples the 60 entities, with 10{,}000 resamples~\cite{efron1979bootstrap}. When two
 conditions are compared on the same passages, I bootstrap the per-entity difference, which is much tighter
-than comparing two separate intervals. All sampling uses fixed seeds, and every result is labelled as coming
-from \emph{natural} text (real passages) or from \emph{planted} concepts (vectors I added by hand). Chapters
-\ref{ch:fading} to \ref{ch:agreement} use natural text only.
+than comparing two separate intervals. All sampling uses fixed seeds, and every result in this report is on natural text: real passages, with nothing
+added to the activations.

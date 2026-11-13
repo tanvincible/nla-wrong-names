@@ -1,0 +1,96 @@
+\chapter{Reproducibility}
+\label{app:repro}
+
+The code, the explanations and the result tables are in the GitHub repository; the fine-tuned adapters, the
+activations and the cached reconstructions are on Hugging Face (links in Chapter~\ref{ch:intro}).
+\texttt{fetch\_artifacts.py} downloads the large files into place.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}ll@{}}
+\toprule
+Result & Command \\
+\midrule
+Chapter~\ref{ch:fading}: fade curve, probe, names & \texttt{python fade2.py} \\
+Chapters~\ref{ch:fading}, \ref{ch:agreement}: positions, agreement, filter & \texttt{python step4\_extra.py} \\
+Chapter~\ref{ch:incentives}: edit test & \texttt{python task1\_edits.py} \\
+Chapter~\ref{ch:agreement}: confidence & \texttt{python conf.py} \\
+Chapter~\ref{ch:finetuning}: training & \texttt{python hb.py configs/holdback.json} \\
+Chapter~\ref{ch:finetuning}: evaluation & \texttt{python hb\_eval.py <adapter>} \\
+Chapter~\ref{ch:finetuning}: paired comparison & \texttt{python hb\_compare.py <names>} \\
+Every table and figure here & \texttt{python paper/build\_assets.py} \\
+\bottomrule
+\end{tabular}
+\caption{Which script produces which result.}
+\end{table}
+
+All but training and evaluation run on a laptop from the saved files. Fine-tuning used a LoRA of rank 16 on
+the attention projections, learning rate $10^{-4}$, batch size 8 and one pass over the 2{,}000 chosen
+explanations per round; each run took about 100 minutes on one 48\,GB GPU. Seeds are fixed throughout.
+
+\chapter{Layer Indexing}
+\label{app:layer}
+
+The NLA for Qwen2.5-7B is trained on ``layer 20'', meaning the output of transformer block 20. In the
+Hugging Face convention \texttt{hidden\_states[0]} is the embedding output, so the output of block 20 is
+\texttt{hidden\_states[21]}. The usage example published with the models reads \texttt{hidden\_states[20]},
+one block early.
+
+Nothing fails when this happens. The explanations still read sensibly, because neighbouring layers are
+similar. Only the numbers give it away: on the same passages, reading one block early gave a mean cosine of
+0.846 and an activation norm of 95.7, against 0.893 and 112.7 at the right layer, and the reference norm
+for this layer is 111.3. I found the error when the first check against a known reconstruction quality came
+out low, and all results in this report use the corrected layer.
+
+\chapter{Full Tables}
+\label{app:tables}
+
+\begin{table}[h]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\input{tables/filter-full}
+\caption[The agreement filter at each distance]{The agreement filter at each distance (\%, 95\% intervals;
+natural text). The pooled rows are Table~\ref{tab:filter}.}
+\end{table}
+
+\begin{table}[h]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\input{tables/holdback-full}
+\caption[Hold back at each distance]{Hold back against the released verbalizer at each distance. Natural
+text, held-out passages; 95\% intervals from a paired bootstrap over entities.}
+\end{table}
+
+\chapter{Examples}
+\label{app:examples}
+
+Four more explanations from the released verbalizer, with the relevant part of each passage. True names are
+in bold; wrong names are bold and underlined.
+
+\begin{sample}{One token after \emph{eagle}: a wrong animal}
+Passage: \ldots Superimposed on the cross is a silver crowned \true{eagle} for all grades.\\[2pt]
+Explanation: \ldots Final token ``for'' ends an incomplete clause (``a black \wrong{lion} for''), part of a
+listing of insignia details (``A gold \wrong{lion} crest with a crown for'') \ldots
+\end{sample}
+
+\begin{sample}{One token after \emph{bread}: a wrong food}
+Passage: \ldots Guilmon possesses a taste for \true{bread}, often being distracted by the thought of food.\\[2pt]
+Explanation: \ldots ``Momo has a strong craving for food, particularly sweets and ice cream \ldots\ He also has
+a fondness for \wrong{carrots}'' \ldots\ Final token ``\wrong{sugar},'' ends an incomplete clause \ldots
+\end{sample}
+
+\begin{sample}{Four tokens after \emph{wolf}: no name, which is the faithful answer}
+Passage: \ldots the seahorse and the ship refer to Belfast's significant maritime history. The \true{wolf} may
+be a tribute to the city's founder \ldots\\[2pt]
+Explanation: \ldots ``\ldots may include a reference to the state of New York or a tribute''
+suggests a third possible meaning or origin story \ldots
+\end{sample}
+
+\begin{sample}{Sixteen tokens after \emph{Shakespeare}: the name survives}
+Passage: \ldots a line by William \true{Shakespeare} penned in 1594 in Love's Labour's Lost, Act IV\\[2pt]
+Explanation: \ldots ``As a fact the \true{Shakespeare}'s play `Titanium' refers to his famous passage in
+Act IV'' references a specific quote \ldots
+\end{sample}

@@ -38,6 +38,9 @@
 \titlespacing*{\chapter}{0pt}{-12pt}{16pt}
 \setlist{itemsep=2pt,topsep=4pt}
 \graphicspath{{figs/}}
+% keep floats with their text instead of on pages of their own
+\renewcommand{\topfraction}{0.9}\renewcommand{\bottomfraction}{0.8}\renewcommand{\textfraction}{0.08}
+\renewcommand{\floatpagefraction}{0.85}\setcounter{topnumber}{3}\setcounter{totalnumber}{4}
 
 % a passage or explanation quoted from the data
 \newenvironment{sample}[1]{\par\smallskip\noindent\begin{minipage}{\linewidth}\small\textbf{#1}\par\vspace{2pt}%
@@ -65,8 +68,13 @@
 \input{chapters/04-fading}
 \input{chapters/05-incentives}
 \input{chapters/06-agreement}
+\input{chapters/07-finetuning}
+\input{chapters/08-closing}
 
 \bibliographystyle{plainnat}
 \bibliography{refs}
+
+\appendix
+\input{chapters/appendix}
 
 \end{document}

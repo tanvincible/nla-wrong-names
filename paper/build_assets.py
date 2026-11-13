@@ -18,7 +18,7 @@ ROOT = Path(__file__).resolve().parent.parent
 RUNS, TABLES, FIGS = ROOT / "runs", Path(__file__).parent / "tables", Path(__file__).parent / "figs"
 BLUE, ORANGE, AQUA = "#2a78d6", "#eb6834", "#1baf7a"  # fixed order; checked for colour-blind separation
 INK, MUTED, GRID = "#0b0b0b", "#52514e", "#e1e0d9"
-CELL = re.compile(r"(-?[\d.]+)%? \[(-?[\d.]+)%?, (-?[\d.]+)%?\]")
+CELL = re.compile(r"([+-]?[\d.]+)%? \[([+-]?[\d.]+)%?, ([+-]?[\d.]+)%?\]")
 
 
 def md_table(path, heading):
@@ -195,11 +195,76 @@ def agreement():
     save(fig, "consensus")
 
 
+def confidence():
+    T = md_table("fade2/conf.md", "| tokens after entity | names (true / wrong)")
+    write("confidence", ["Tokens after entity", "One explanation: name probability", "One explanation: first token",
+                         "Four explanations: agreement"],
+          [[r[0].replace(" pooled", ""), num(r[2], 2), num(r[3], 2), num(r[4], 2)] for r in T], "llll")
+
+
+# ------------------------------------------------------------------ chapter 7: fine-tuning
+ARMS = [("Reconstruction", "full-recon-round2", "hb/compare.md"), ("Lineup", "full-lineup-round2", "hb/compare.md"),
+        ("Hold back", "full-holdback-round2", "hb/compare.md"), ("Keep the specific", "full-recall-round2", "hb/compare-holdout.md")]
+
+
+def signed(cell, scale=1, digits=3):
+    v, lo, hi = (scale * x for x in ci(cell))
+    m = lambda x: f"{x:+.{digits}f}".replace("-", "$-$").replace("+", "$+$")
+    return f"{m(v)} {{\\scriptsize[{m(lo)}, {m(hi)}]}}"
+
+
+def finetuning():
+    rows = {}
+    for label, name, path in ARMS:
+        for r in md_table(path, "| checkpoint"):
+            rows[(label, r[0], r[1])] = r
+    allfour = {label: rows[(label, name, "all four")] for label, name, _ in ARMS}
+    write("arms", ["Score", "Change in wrong names per explanation", "Relative", "Change in true-name rate (points)"],
+          [[label, signed(r[3]), r[4].replace("%", "\\%").replace("-", "$-$").replace("+", "$+$"), signed(r[6], digits=1)]
+           for label, r in allfour.items()], "llrl")
+    held = rows[("Keep the specific", "full-recall-round2 (entities held out of training)", "all four")]
+    seen = rows[("Keep the specific", "full-recall-round2 (entities trained on)", "all four")]
+    write("keep", ["Entities", "Change in true-name rate (points)", "Change in wrong names per explanation"],
+          [["Trained on (48)", signed(seen[6], digits=1), signed(seen[3])], ["Held out of training (12)", signed(held[6], digits=1), signed(held[3])]], "lll")
+
+    ev = lambda name: json.loads((RUNS / "hb_pod" / "eval" / f"{name}-p540.json").read_text())["per_distance"]
+    rel, hb = ev("released"), ev("full-holdback-round2")
+    c3 = lambda v: f"{v[0]:.3f} {{\\scriptsize[{v[1]:.3f}, {v[2]:.3f}]}}"
+    write("combine", ["Tokens after entity", "Released", "Hold back", "Released, filtered", "Hold back, filtered"],
+          [[d, c3(rel[d]["wrong"]), c3(hb[d]["wrong"]), c3(rel[d]["f_wrong"]), c3(hb[d]["f_wrong"])] for d in ["0", "1", "4", "16"]], "cllll")
+    write("holdback-full", ["Tokens after entity", "Wrong names, released", "Change", "Relative", "True-name rate, released",
+                            "Change (points)"],
+          [[d, f"{float(r[2]):.3f}", signed(r[3]), r[4].replace("%", "\\%").replace("-", "$-$").replace("+", "$+$"),
+            r[5].replace("%", "\\%"), signed(r[6], digits=1)]
+           for d in ["0", "1", "4", "16"] for r in [rows[("Hold back", "full-holdback-round2", d)]]], "ccllcl")
+
+    fig, axes = plt.subplots(1, 2, figsize=(6.4, 2.3), sharey=True)
+    labels = [a[0] for a in ARMS][::-1]
+    for ax, col, title, zero in ((axes[0], 3, "Change in wrong names per explanation", 0), (axes[1], 6, "Change in true-name rate (points)", 0)):
+        vals = [ci(allfour[label][col]) for label in labels]
+        for y, (v, lo, hi) in enumerate(vals):
+            ax.plot([lo, hi], [y, y], color=BLUE, linewidth=2, solid_capstyle="round")
+            ax.plot([v], [y], "o", color=BLUE, markersize=6)
+        ax.axvline(zero, color=MUTED, linewidth=0.8, linestyle=":")
+        ax.set_yticks(range(len(labels)), labels)
+        ax.set_ylim(-0.6, len(labels) - 0.4)
+        for sp in ("top", "right", "left"):
+            ax.spines[sp].set_visible(False)
+        ax.spines["bottom"].set_color("#c3c2b7")
+        ax.tick_params(colors=MUTED, labelsize=8.5, length=0)
+        ax.tick_params(axis="y", colors=INK, labelsize=9)
+        ax.xaxis.grid(True, color=GRID, linewidth=0.6)
+        ax.set_axisbelow(True)
+        ax.set_xlabel(title, color=MUTED, fontsize=8.5)
+    fig.subplots_adjust(wspace=0.08)
+    save(fig, "arms")
+
+
 if __name__ == "__main__":
     TABLES.mkdir(exist_ok=True)
     FIGS.mkdir(exist_ok=True)
     plt.rcParams.update({"font.family": "serif", "font.size": 9, "pdf.fonttype": 42})
-    for build in (fading, incentives, agreement):
+    for build in (fading, incentives, agreement, confidence, finetuning):
         build()
     print("tables:", sorted(p.name for p in TABLES.glob("*.tex")))
     print("figures:", sorted(p.name for p in FIGS.glob("*.pdf")))

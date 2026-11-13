@@ -64,15 +64,17 @@ the entity's token and 0.016 one token later (Chapter~\ref{ch:incentives}).
 \item \textbf{Agreement between samples separates right from wrong.} A name that appears in only one of four
 sampled explanations is right 6\% of the time; a name that appears in all four is right 64\% of the time.
 Keeping only names that at least two samples agree on removes 74\% of the wrong names and keeps 77\% of the
-true ones, with no training and no access to labels (Chapter~\ref{ch:agreement}).
+true ones, with no training and no labels. Most of this signal is the verbalizer's own token-level
+confidence, which a single explanation already carries (Chapter~\ref{ch:agreement}).
 
-\item \textbf{Fine-tuning on that signal helps, a little.} Rewarding explanations whose names the other
-samples support cuts wrong names by about 8\% on held-out passages without losing true names. Rewarding
-reconstruction alone, or a contrastive version of it, changes nothing.
+\item \textbf{Changing the reward changes the behaviour, as predicted.} Fine-tuning on more reconstruction
+leaves wrong names untouched. Adding a cost on names the other samples do not support cuts them by 8\% on
+held-out passages without losing true names. Rewarding the true name does not bring it back
+(Chapter~\ref{ch:finetuning}).
 \end{enumerate}
 
 Along the way I found that the usage example published with the models reads activations one layer too early,
-which silently lowers reconstruction quality; Appendix~B documents the bug and the check that confirmed the
+which silently lowers reconstruction quality; Appendix~\ref{app:layer} documents the bug and the check that confirmed the
 fix. Every table in this report is
 generated from saved outputs by one command.
 

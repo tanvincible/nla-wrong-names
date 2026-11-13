@@ -12,9 +12,10 @@ tokens after an entity, the explanation names it 7.5\% of the time while a linea
 of the time, and 22\% of explanations contain a wrong name of the same type. Second, the training objective
 barely notices: editing a wrong name out changes the reconstruction cosine by about 0.002. Third, agreement
 between sampled explanations separates true names from wrong ones; keeping only names that two of four
-samples share removes 74\% of wrong names and keeps 77\% of true ones, with no training. Fourth, fine-tuning
-the verbalizer to prefer names its other samples support cuts wrong names by a further 8\% on held-out
-passages, while fine-tuning on reconstruction alone changes nothing.
+samples share removes 74\% of wrong names and keeps 77\% of true ones, with no training, and most of that
+signal is already present in one explanation's token probabilities. Fourth, the explanation survives
+intervention: fine-tuning on reconstruction alone changes nothing, a cost on unsupported names cuts wrong
+names by 8\% on held-out passages, and rewarding the true name does not bring it back.
 
-The practical advice is simple: do not trust a name in a single NLA explanation, sample several and keep
-what they agree on.
+The practical advice is simple: trust the gist of an NLA explanation, and do not trust a name unless
+several samples agree on it.

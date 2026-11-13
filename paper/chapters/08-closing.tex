@@ -1,0 +1,70 @@
+\chapter{Related Work}
+\label{ch:related}
+
+\textbf{Explaining activations in language.} NLAs~\cite{frasertaliente2026nla} train a dedicated model to
+verbalise activations and score it by reconstruction. Earlier methods get text out of activations without
+training an explainer: the logit lens~\cite{nostalgebraist2020logitlens} decodes an activation with the
+model's own output layer, and Patchscopes~\cite{ghandeharioun2024patchscopes} and
+SelfIE~\cite{chen2024selfie} patch an activation into a prompt and let the model describe it. All of these
+produce fluent text, and all raise the question studied here: which parts of that text does the activation
+actually support?
+
+\textbf{Sparse autoencoders} are the other unsupervised route to explaining
+activations~\cite{bricken2023monosemanticity,cunningham2023sparse}. They decompose an activation into
+features whose meaning is then labelled. An NLA skips the features and writes the description directly,
+which is more readable and, as this report shows, harder to check.
+
+\textbf{Probing.} Linear probes~\cite{alain2016probes} are the standard way to ask whether information is
+present in an activation. I use one as the yardstick for what the verbalizer could have said.
+
+\textbf{Agreement as a hallucination signal.} That a model's samples agree on what it knows and disagree on
+what it invents is well established for ordinary text
+generation~\cite{manakul2023selfcheckgpt,wang2023selfconsistency}. This report finds the same signal in a
+model whose input is an activation instead of a prompt, and traces most of it to token-level confidence.
+
+\chapter{Conclusion}
+\label{ch:conclusion}
+
+\section{Takeaways}
+
+An NLA explanation should be read as two things of different reliability. The gist is what the
+reconstruction objective pays for, and it is usually right. A specific name is something the objective
+hardly prices at all once the model has moved past the token, so the verbalizer supplies one that fits the
+gist. Far from the entity, a name in an explanation is wrong about three times in four.
+
+The verbalizer does, however, know which of its names are shaky. Its own token probabilities separate true
+names from wrong ones, and agreement between a few samples does so a little better. Training on that signal
+removes some wrong names; training on reconstruction removes none; and no reward tried here brings a lost
+specific back.
+
+For someone using an NLA today, the advice is short: trust the gist, and do not trust a name unless several
+samples agree on it.
+
+\section{Limitations}
+\label{ch:limitations}
+
+\textbf{One model, one layer.} Everything is measured on the released NLA for Qwen2.5-7B at layer~20. The
+argument about incentives is general, but the numbers are not, and NLAs for larger models may fade more
+slowly.
+
+\textbf{Sixty entities.} The entities are common ones, on Wikipedia text. Rare entities, numbers, dates and
+other kinds of specific are untested.
+
+\textbf{The name detector.} Its accuracy has not been measured on a labelled sample, only inspected by hand
+on 30 cases. Every comparison uses the same detector, so differences between conditions are safer than
+absolute rates.
+
+\textbf{The probe.} It is a floor on what the activation holds, and it chooses among ten known answers while
+the verbalizer writes free text. The gap between them is therefore an estimate, not a measurement, of what
+the verbalizer leaves unsaid.
+
+\textbf{Small training runs.} Each fine-tuning run uses 2{,}000 activations and a few hundred gradient steps.
+A longer run, or true policy-gradient training as the authors used, might move the verbalizer further than
+the 8\% seen here.
+
+\section{Next Steps}
+
+The cleanest follow-up is to put the cost on wrong names into the original training, not a small fine-tune
+after it: add the agreement penalty to the reward during the authors' reinforcement-learning stage and see
+whether the fade in Chapter~\ref{ch:fading} narrows towards the probe. The second is to expose the
+confidence the verbalizer already has, by marking low-probability names in the explanation itself.
