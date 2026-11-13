@@ -30,7 +30,7 @@ FIRST = [5, 17, 29, 38, 11, 23]
 CFG = dict(per_entity=PER_ENTITY, before=50, after=16, max_before=250, neutral=30, neutral_tokens=80,
            source="wikimedia/wikipedia 20231101.en",
            shards=FIRST if PER_ENTITY == 30 else FIRST + [i for i in range(41) if i not in FIRST], entities=ENTITIES)
-OUT = Path(__file__).parent / "runs" / "fade"
+OUT = Path(__file__).parent / "runs" / "passages"
 PATH = OUT / f"passages-{cfg_hash(CFG)}.json"
 ANY = re.compile(r"\b(" + "|".join(f for e in TYPE for f in forms(e)) + r")\b", re.I)
 

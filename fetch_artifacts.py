@@ -31,7 +31,7 @@ if __name__ == "__main__":
         except Exception as e:  # an arm that was never uploaded should not stop the others
             print(f"adapter {name}: not available ({type(e).__name__})")
             continue
-        dst = root / "runs" / "hb_pod" / run / "adapter" / "adapter_model.safetensors"
+        dst = root / "runs" / "finetune" / run / "adapter" / "adapter_model.safetensors"
         dst.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(src, dst)
         print(f"adapter {name} -> {dst}")

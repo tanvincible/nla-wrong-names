@@ -92,14 +92,14 @@ def save(fig, name):
 
 # ------------------------------------------------------------------ chapter 4: fading
 def fading():
-    fade = md_table("fade2/section.md", "### Steps 2 and 3")
+    fade = md_table("analysis/fade_curve.md", "### Steps 2 and 3")
     write("fade", ["Tokens after entity", "Concept-vector readout", "Trained probe"],
           [[r[0], pct(r[1]), pct(r[2])] for r in fade], "cll")
 
-    A = {r[0]: r for r in md_table("fade2/extra-clean.md", "### A.")}
-    B = {r[0]: r for r in md_table("fade2/extra-clean.md", "### B.")}
-    C = {r[0]: r for r in md_table("fade2/extra-clean.md", "### C.")}
-    F = {r[0]: r for r in md_table("fade2/extra-clean.md", "### F.")}
+    A = {r[0]: r for r in md_table("analysis/name_analysis.md", "### A.")}
+    B = {r[0]: r for r in md_table("analysis/name_analysis.md", "### B.")}
+    C = {r[0]: r for r in md_table("analysis/name_analysis.md", "### C.")}
+    F = {r[0]: r for r in md_table("analysis/name_analysis.md", "### F.")}
     ds = ["0", "1", "4", "16"]
     write("names", ["Tokens after entity", "Probe reads it", "Names the true entity", "At least one wrong name",
                     "Only wrong names", "Wrong names per explanation"],
@@ -134,7 +134,7 @@ def fading():
 
 # ------------------------------------------------------------------ chapter 5: incentives
 def incentives():
-    T = md_table("fade2/task1.md", "| tokens after entity | n |")
+    T = md_table("analysis/edit_test.md", "| tokens after entity | n |")
     rows = [[r[0].replace("0 and 1 pooled", "0 and 1"), f"{int(r[1]):,}".replace(",", "{,}"), num(r[2]), num(r[3]), num(r[4]),
              pct(r[5]), pct(r[6])] for r in T]
     write("edit", ["Tokens after entity", "$n$", "Original", "Wrong names removed", "True name removed",
@@ -158,13 +158,13 @@ def incentives():
 
 # ------------------------------------------------------------------ chapter 6: agreement
 def agreement():
-    D = {r[0]: r for r in md_table("fade2/extra-clean.md", "### D.")}
+    D = {r[0]: r for r in md_table("analysis/name_analysis.md", "### D.")}
     order = ["0", "1", "4", "16", "1, 4 and 16 pooled"]
     cell = lambda c: f"{pct(c)} ({n_of(c)})"
     write("consensus", ["Tokens after entity", "1 of 4", "2 of 4", "3 of 4", "4 of 4"],
           [[d.replace(" pooled", ""), *[cell(D[d][k]) for k in (1, 2, 3, 4)]] for d in order], "lllll")
 
-    E = md_table("fade2/extra-clean.md", "### E.")
+    E = md_table("analysis/name_analysis.md", "### E.")
     pooled = [r for r in E if r[0].startswith("1, 4 and 16")]
     def frow(r):
         first = r[1] == "no filter"
@@ -175,7 +175,7 @@ def agreement():
     write("filter-full", ["Tokens after entity", "Keep a name if given by", "Wrong names removed", "True names kept", "Precision",
                           "Names left"], [[r[0].replace(" pooled", "")] + frow(r) for r in E], "llllll")
 
-    V = md_table("fade2/section.md", "### Step 4: can a verifier")
+    V = md_table("analysis/fade_curve.md", "### Step 4: can a verifier")
     auc = {(r[0], r[1]): r[6] for r in V}
     write("verifiers", ["Tokens after entity", "Concept vectors", "Probe directions", "Agreement count"],
           [[d, num(auc[(d, "readout A")], 2), num(auc[(d, "trained probe")], 2), num(D[d][5], 2)] for d in ["0", "1", "4", "16"]], "clll")
@@ -196,15 +196,15 @@ def agreement():
 
 
 def confidence():
-    T = md_table("fade2/conf.md", "| tokens after entity | names (true / wrong)")
+    T = md_table("analysis/confidence.md", "| tokens after entity | names (true / wrong)")
     write("confidence", ["Tokens after entity", "One explanation: name probability", "One explanation: first token",
                          "Four explanations: agreement"],
           [[r[0].replace(" pooled", ""), num(r[2], 2), num(r[3], 2), num(r[4], 2)] for r in T], "llll")
 
 
 # ------------------------------------------------------------------ chapter 7: fine-tuning
-ARMS = [("Reconstruction", "full-recon-round2", "hb/compare.md"), ("Lineup", "full-lineup-round2", "hb/compare.md"),
-        ("Hold back", "full-holdback-round2", "hb/compare.md"), ("Keep the specific", "full-recall-round2", "hb/compare-holdout.md")]
+ARMS = [("Reconstruction", "full-recon-round2", "finetune/compare.md"), ("Lineup", "full-lineup-round2", "finetune/compare.md"),
+        ("Hold back", "full-holdback-round2", "finetune/compare.md"), ("Keep the specific", "full-recall-round2", "finetune/compare-holdout.md")]
 
 
 def signed(cell, scale=1, digits=3):
@@ -227,7 +227,7 @@ def finetuning():
     write("keep", ["Entities", "Change in true-name rate (points)", "Change in wrong names per explanation"],
           [["Trained on (48)", signed(seen[6], digits=1), signed(seen[3])], ["Held out of training (12)", signed(held[6], digits=1), signed(held[3])]], "lll")
 
-    ev = lambda name: json.loads((RUNS / "hb_pod" / "eval" / f"{name}-p540.json").read_text())["per_distance"]
+    ev = lambda name: json.loads((RUNS / "finetune" / "eval" / f"{name}-p540.json").read_text())["per_distance"]
     rel, hb = ev("released"), ev("full-holdback-round2")
     c3 = lambda v: f"{v[0]:.3f} {{\\scriptsize[{v[1]:.3f}, {v[2]:.3f}]}}"
     write("combine", ["Tokens after entity", "Released", "Hold back", "Released, filtered", "Hold back, filtered"],

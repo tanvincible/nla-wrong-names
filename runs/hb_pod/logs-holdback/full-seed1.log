@@ -1,361 +1,0 @@
-12:55:49 arm holdback: 2000 activations x K=8 x 3 round(s) -> /workspace/project/runs/hb/seed1-holdback
-Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 1335.95it/s]
-Fetching 18 files:   0%|          | 0/18 [00:00<?, ?it/s]Fetching 18 files: 100%|██████████| 18/18 [00:00<00:00, 1333.64it/s]
-12:56:10 loading Qwen/Qwen2.5-7B-Instruct on cuda
-Fetching 14 files:   0%|          | 0/14 [00:00<?, ?it/s]Fetching 14 files: 100%|██████████| 14/14 [00:00<00:00, 1953.24it/s]
-`torch_dtype` is deprecated! Use `dtype` instead!
-Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:02,  1.48it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.51it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:03<00:01,  1.16s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.06it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.08it/s]
-12:56:15 extract 0/6000 sequences
-12:56:17 extract 200/6000 sequences
-12:56:19 extract 400/6000 sequences
-12:56:21 extract 600/6000 sequences
-12:56:23 extract 800/6000 sequences
-12:56:25 extract 1000/6000 sequences
-12:56:27 extract 1200/6000 sequences
-12:56:29 extract 1400/6000 sequences
-12:56:31 extract 1600/6000 sequences
-12:56:33 extract 1800/6000 sequences
-12:56:35 extract 2000/6000 sequences
-12:56:37 extract 2200/6000 sequences
-12:56:39 extract 2400/6000 sequences
-12:56:42 extract 2600/6000 sequences
-12:56:44 extract 2800/6000 sequences
-12:56:47 extract 3000/6000 sequences
-12:56:49 extract 3200/6000 sequences
-12:56:52 extract 3400/6000 sequences
-12:56:55 extract 3600/6000 sequences
-12:56:58 extract 3800/6000 sequences
-12:57:01 extract 4000/6000 sequences
-12:57:04 extract 4200/6000 sequences
-12:57:07 extract 4400/6000 sequences
-12:57:10 extract 4600/6000 sequences
-12:57:14 extract 4800/6000 sequences
-12:57:17 extract 5000/6000 sequences
-12:57:21 extract 5200/6000 sequences
-12:57:25 extract 5400/6000 sequences
-12:57:30 extract 5600/6000 sequences
-12:57:34 extract 5800/6000 sequences
-12:57:42 twins: mean cosine with the original 0.900 (min 0.382, max 1.000)
-12:57:42 stage data: 113.7s
-12:58:00 loading kitft/nla-qwen2.5-7b-L20-av on cuda
-Fetching 18 files:   0%|          | 0/18 [00:00<?, ?it/s]Fetching 18 files: 100%|██████████| 18/18 [00:00<00:00, 1799.36it/s]
-`torch_dtype` is deprecated! Use `dtype` instead!
-Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:02,  1.05it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.03it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:02<00:00,  1.10it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  1.58it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  1.34it/s]
-12:58:15 verbalized 128/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'HistoricalRussian description of a Soviet mountain resort establishment ("Banya"), listing conditions and activities of '
-12:58:25 verbalized 256/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'British musical encyclopedia format with scholarly tone discussing piano performance practice, establishing a biographic'
-12:58:35 verbalized 384/16000: batch of 128 took 9s (0.1s per explanation) | latest: "Film-article biography format with a detailed retrospective on an actor's comic-book score work, discussing Silver Age D"
-12:58:45 verbalized 512/16000: batch of 128 took 10s (0.1s per explanation) | latest: "British music biographical text detailing jazz singer George Melly's career, with chronological account of his performan"
-12:58:55 verbalized 640/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'American film biography format with literary credentials establishing a memoir title, suggesting structured celebratory '
-12:59:06 verbalized 768/16000: batch of 128 took 10s (0.1s per explanation) | latest: "Canadian sports historical football statistics article detailing hockey player Ed McKeever's early career, listing appoi"
-12:59:16 verbalized 896/16000: batch of 128 took 10s (0.1s per explanation) | latest: "British newspaper architecture article tone with historical/property details describing a property's restoration work, l"
-12:59:26 verbalized 1024/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Scientific/Chemistry paper format with technical description of fungal quatrait methodology, establishing experimental c'
-12:59:36 verbalized 1152/16000: batch of 128 took 10s (0.1s per explanation) | latest: "Sports article format with English-language football history structure detailing Croatian First League's early seasons a"
-12:59:46 verbalized 1280/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Scientific/educational travel article with English-language wildlife biology tone describing Costa Rican national parks,'
-12:59:56 verbalized 1408/16000: batch of 128 took 10s (0.1s per explanation) | latest: "British newspaper magazine column format with witty reviewing tone, describing a UK pop-star's No. 1 single via memorabl"
-13:00:06 verbalized 1536/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Newspaper music criticism format with citations ("Vincent Canfora\'s profile of Dorati") describing a performer\'s concert'
-13:00:16 verbalized 1664/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'British NHS hospital/medical centre promotional/official description format with a UK based care facility listing servic'
-13:00:27 verbalized 1792/16000: batch of 128 took 10s (0.1s per explanation) | latest: "Narrative format: a historical comic strip entry listing teen fan reactions, with dialogue detailing a kid's misbehavior"
-13:00:37 verbalized 1920/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Biological species description with scientific ornithological format, detailing habitat and physical characteristics of '
-13:00:47 verbalized 2048/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Historical/encyclopedic travel/real estate listing format with formal Wikipedia-style prose establishes factual narrativ'
-13:00:57 verbalized 2176/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'British Wikipedia article format with structured image caption description, establishing artistic context about Victoria'
-13:01:07 verbalized 2304/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Indian news headline format with witty sarcasm and political context around Bollywood stars, listing alleged corruption '
-13:01:18 verbalized 2432/16000: batch of 128 took 10s (0.1s per explanation) | latest: "Historical/sporting news format with UK athletics results listing, UK Cycling's world rankings structure referencing a s"
-13:01:28 verbalized 2560/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Wikipedia-style article format with "Clause 3" structure, suggesting a historical military article describing the US Arm'
-13:01:38 verbalized 2688/16000: batch of 128 took 10s (0.1s per explanation) | latest: "Wikipedia/formatted baseball statistics format with historical context establishing a player's MLB debut details, refere"
-13:01:48 verbalized 2816/16000: batch of 128 took 10s (0.1s per explanation) | latest: "American music critic column format with cultural appreciation tone, featuring a discography note about Satin Sparrow's "
-13:01:58 verbalized 2944/16000: batch of 128 took 10s (0.1s per explanation) | latest: "Student/academic webpage format with informal tone describing a high school team's athletic culture and activities, list"
-13:02:08 verbalized 3072/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Pop culture entertainment format with numbered list structure ("A violent superhero film"), suggesting a film synopsis o'
-13:02:18 verbalized 3200/16000: batch of 128 took 10s (0.1s per explanation) | latest: "Spanish/Catalan art historical imagery page with numbered sequential images describing a Pope's funeral feast symbolism,"
-13:02:29 verbalized 3328/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Geographic/Scientific description format with numbered list of plant species found in the Clackamas valley, detailing hi'
-13:02:39 verbalized 3456/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'South African architectural history/heritage photo description with artistic language detailing a unique whisky distille'
-13:02:49 verbalized 3584/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'Historical military/technical article describing British Army SMLE rifle manufacturing facts, establishing a factual ton'
-13:02:59 verbalized 3712/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Biographical article format with music reference article about Ray Charles, detailing his career and participation in ja'
-13:03:09 verbalized 3840/16000: batch of 128 took 9s (0.1s per explanation) | latest: "Indian cinema biography format with factual listings of actor Himansu Rai's early films and career milestones.\n\nThe sent"
-13:03:19 verbalized 3968/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Wikipedia article format with biographical sports statistics listing performances for Dutch middle-distance runner Istvá'
-13:03:30 verbalized 4096/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Indian language Wikipedia article listing historical figures with patriotic significance, blending religious with politi'
-13:03:40 verbalized 4224/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'German historical biography with literary distinction, describing clerical military figures of the Hitler era in vivid p'
-13:03:50 verbalized 4352/16000: batch of 128 took 9s (0.1s per explanation) | latest: "Japanese wiki article format with structured comic style listing character's visual design inspirations for an anime, de"
-13:04:00 verbalized 4480/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'British historical descriptive text about a UK canal, with details about a Victorianera canal and railway site near Chor'
-13:04:11 verbalized 4608/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'American literary crime fiction novel excerpt structure establishes an author defending himself against angry prosecutio'
-13:04:21 verbalized 4736/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Canadian music blog format with descriptive promotional piece listing album details about Toronto indie rock band The Cu'
-13:04:31 verbalized 4864/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'American travel/outdoor tourism brochure format establishes local natural attractions with descriptive prose about Flori'
-13:04:41 verbalized 4992/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'British heraldic or armorial description format with catalogue numbering, medieval attributed plate descriptions followi'
-13:04:51 verbalized 5120/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Wikipedia-style biographical article format with Canadian parliamentary politics context, suggesting a structured histor'
-13:05:01 verbalized 5248/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Historical encyclopedic article on Arab-Islamic medical medicine, establishing connections between Jewish scholars and m'
-13:05:12 verbalized 5376/16000: batch of 128 took 9s (0.1s per explanation) | latest: "Australiansports article format with wiki-style writeup detailing a football player's career events, specifically focusi"
-13:05:22 verbalized 5504/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'British historical/architectural article with expert culinary descriptions, using evocative Victorian style blending foo'
-13:05:32 verbalized 5632/16000: batch of 128 took 10s (0.1s per explanation) | latest: "Literary quotation with formal Victorian British tone, presenting a political figure's letters to Dickens, blending wit "
-13:05:43 verbalized 5760/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Historical/educational narrative format with numbered facts and dated quotes from US history, establishing an economics '
-13:05:53 verbalized 5888/16000: batch of 128 took 10s (0.1s per explanation) | latest: "Historical music article format with casual tone and trivia format, listing Beatles' guitar hits chronologically with pe"
-13:06:04 verbalized 6016/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Historical article format with Wikipedia-style entry describing a folk song, listing song titles and sources for the Ame'
-13:06:14 verbalized 6144/16000: batch of 128 took 9s (0.1s per explanation) | latest: "Historical biography format with literary reference quoting a famous author's memoir, suggesting a book description or a"
-13:06:24 verbalized 6272/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Wiki fan fiction article listing character traits and plot details about Miley Stewart from the show "High School Musica'
-13:06:34 verbalized 6400/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Historical/cultural article format with English language description of a Mexican mining town, establishing facts about '
-13:06:45 verbalized 6528/16000: batch of 128 took 10s (0.1s per explanation) | latest: "Children's story format with a classic cartoon tale, describing characters in an animated scene with scenic imagery and "
-13:06:55 verbalized 6656/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'Botanical species entry with taxonomic description format, listing characteristics of an Egyptian orchid species in scie'
-13:07:06 verbalized 6784/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Biological/field guide format with taxonomic details describing a bird species (Psittacus) including habitat and behavio'
-13:07:16 verbalized 6912/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Fanfic/writing description format establishes narrative about universe and character, with numbered chapters suggesting '
-13:07:26 verbalized 7040/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Wikipedia article format with biographical details about an African American actress, establishing facts about her famil'
-13:07:36 verbalized 7168/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'American historical/scientific article tone with archaeological discovery narrative, describing prehistoric site finds i'
-13:07:46 verbalized 7296/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Educational/African wildlife article format with scientific description of dog-like nocturnal marsupial, listing physica'
-13:07:57 verbalized 7424/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Wiki article format with humorous character description listing unique superpower traits, using numbered items to define'
-13:08:07 verbalized 7552/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Classical music biography format with German-language concert program notes, listing works under a Brahms compact cycle '
-13:08:17 verbalized 7680/16000: batch of 128 took 10s (0.1s per explanation) | latest: "Narrative momentum: A novel excerpt establishes a thriller context detailing a military veteran's disappearance, with a "
-13:08:27 verbalized 7808/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Baseball encyclopedia article format with numbered statistics listing career records for John McGee, detailing his playi'
-13:08:37 verbalized 7936/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Australian pop culture article tone with nostalgic retro imagery describing a celebrity wedding, mixing news footage wit'
-13:08:47 verbalized 8064/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Old-fashioned British literary quotation with whimsical, quoted verse structure ("The psyche of a gipsy") describing a w'
-13:08:57 verbalized 8192/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'American rock music encyclopedia article detailing a concert film featuring The Beach Boys\' "God Save the Queen," with f'
-13:09:08 verbalized 8320/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Old Victorian English literature book, with quotations about vegetarianism and health, presenting an argumentative testi'
-13:09:18 verbalized 8448/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'Wiki article format with biographical details providing music history context about Cheap Trick\'s "Uncle Tom\'s Cabin" si'
-13:09:28 verbalized 8576/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'Narrative establishes a fantasy heroic character with mystical abilities and combat skills, implying a unique backstory '
-13:09:38 verbalized 8704/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'Structured historical article format with a Wikipedia or encyclopedia entry pattern, detailing a landmark military monum'
-13:09:49 verbalized 8832/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Contemporary American composer/singing artist biography format with cultural/literary programming credentials establishi'
-13:09:59 verbalized 8960/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Scientific species-description format with German insect taxonomy, listing structural features of a butterfly species wi'
-13:10:09 verbalized 9088/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'British botanical species page format with taxonomic details, describing a butterfly species (Centris hyallina) using st'
-13:10:19 verbalized 9216/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'Wikipedia article format with numbered bullet points describing fiction character traits, mixing literary references and'
-13:10:29 verbalized 9344/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'Historical/encyclopedic article format with biographical details about Saudi military figure Saleh Al-Saud, establishing'
-13:10:39 verbalized 9472/16000: batch of 128 took 9s (0.1s per explanation) | latest: "Biographical/encyclopedic tone establishes a historical entry about a music figure, suggesting a classical performer's b"
-13:10:50 verbalized 9600/16000: batch of 128 took 10s (0.1s per explanation) | latest: "Wiki article format with film synopsis presenting a Japanese actor's award, establishing British film context with a fil"
-13:11:00 verbalized 9728/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Historical/educational prose style with indigenous music context, suggesting a Sri Lankan or South Asian radio broadcast'
-13:11:10 verbalized 9856/16000: batch of 128 took 10s (0.1s per explanation) | latest: "Historical reference book entry style, with detailed account of a Cincinnati department store's business history; factua"
-13:11:21 verbalized 9984/16000: batch of 128 took 10s (0.1s per explanation) | latest: "Wiki-style factual/scientific American business page format with statistics about a midwestern food retail company's ope"
-13:11:31 verbalized 10112/16000: batch of 128 took 10s (0.1s per explanation) | latest: "Indian political leader's bio-statements with historical narrative about Muslim community development and social service"
-13:11:42 verbalized 10240/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'Wikipedia heraldic description format with structured German-language entry listing flags; the text explains the arms of'
-13:11:52 verbalized 10368/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'Music/artist biography format with Russian-language cultural context, describing a concert venue showcasing rock singer '
-13:12:02 verbalized 10496/16000: batch of 128 took 10s (0.1s per explanation) | latest: "Scientific biographical/academic prose describing a biologist's research activities and naming honors, establishing info"
-13:12:13 verbalized 10624/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Film/Book description format with literary quotes and titles presented, suggesting a movie database or review entry for '
-13:12:23 verbalized 10752/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'News headline format with health reporting context detailing food safety violations, citing official agencies and contam'
-13:12:33 verbalized 10880/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'Australian cultural institution exhibition context established with formal museum typography, suggesting a famous work o'
-13:12:43 verbalized 11008/16000: batch of 128 took 10s (0.1s per explanation) | latest: "American newspaper article format with encyclopedic tone discussing a baseball player's longevity record, establishing h"
-13:12:53 verbalized 11136/16000: batch of 128 took 10s (0.1s per explanation) | latest: "Newspaper magazine column review format, with critic blurb praising TV comedy's hip smartness and cultural versatility.\n"
-13:13:04 verbalized 11264/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Technical military aircraft historical description with English-language Wikipedia-style format, listing specifications '
-13:13:14 verbalized 11392/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Indian language literary biography format with factual details about a film actor, describing a classic Indian movie "Je'
-13:13:24 verbalized 11520/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Classic American film article structure with source quotes attributed to Hollywood stars, establishing narrative context'
-13:13:34 verbalized 11648/16000: batch of 128 took 9s (0.1s per explanation) | latest: "Historical narrative with literary translation style describing Polish nobleman's inheritance context, listing quirky an"
-13:13:45 verbalized 11776/16000: batch of 128 took 10s (0.1s per explanation) | latest: "Historical novel excerpt format with literary criticism tone, describing a celebrity's political scandal and CIA activit"
-13:13:55 verbalized 11904/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Biological/zoological description format with taxonomic naming conventions, listing species of Primates in a scientific '
-13:14:05 verbalized 12032/16000: batch of 128 took 10s (0.1s per explanation) | latest: "Biographical encyclopedia article structure with scholarly prose details about a U.S. literary figure's career, listing "
-13:14:15 verbalized 12160/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'Biological species account format with taxonomic description of a bird species, presenting behavioral and habitat detail'
-13:14:26 verbalized 12288/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Nigeria-based travel/educational article format with Images credit attributions suggesting promotional or cultural narra'
-13:14:36 verbalized 12416/16000: batch of 128 took 9s (0.1s per explanation) | latest: "Sports journalism article structure with statistic-focused column format, listing baseball greats' contract comparisons "
-13:14:46 verbalized 12544/16000: batch of 128 took 9s (0.1s per explanation) | latest: "Fanfiction forum post format with a British comic strip entry explaining retirement of a show's character, suggesting in"
-13:14:57 verbalized 12672/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Indian political/constitutional biography format with statistic details about Indian freedom movement leader J D Chalam,'
-13:15:07 verbalized 12800/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'British comedy/ironic prose style with satirical commentary and crude sexual slang imagery ("Sexy Meat Pie," "The pure h'
-13:15:17 verbalized 12928/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Encyclopedic pop music biography format with trivia listing "The James Taylor Quartet" contributors, detailing instrumen'
-13:15:27 verbalized 13056/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Historical/academic prose describing radical leftist literary movements, mixing cultural and political analysis about Me'
-13:15:38 verbalized 13184/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'American fantasy adventure novel format with dated comic book prose describing a superhero situation, intertwining plot '
-13:15:48 verbalized 13312/16000: batch of 128 took 9s (0.1s per explanation) | latest: "Wiki article format with structured entries describing a ethnic neighborhood's history, cultural attributes, and social "
-13:16:00 verbalized 13440/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'British theatre biography format with biographical details about opera singer Tom Craig, establishing career highlights '
-13:16:10 verbalized 13568/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Bulgarian historical prose with citations documenting Hungarian political turmoil, structured around WWII period and com'
-13:16:20 verbalized 13696/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'Scientific plant pathology article format with technical description of a disease (Sugarcane Aphid), establishing a list'
-13:16:30 verbalized 13824/16000: batch of 128 took 10s (0.1s per explanation) | latest: "Ukrainian music performer biography format with poetic passages about singer's performances and hits; the text describes"
-13:16:41 verbalized 13952/16000: batch of 128 took 10s (0.1s per explanation) | latest: "Greek football encyclopedia article (Wiki/Latin language format) describing Portuguese midfielder António Falcão's seaso"
-13:16:51 verbalized 14080/16000: batch of 128 took 10s (0.1s per explanation) | latest: "Art historical caption format with descriptive prose establishing a female Nigerian artist's background and legacy, sugg"
-13:17:01 verbalized 14208/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'Dutch classical music festival program description with cultural context listing performers and orchestral lineup, maint'
-13:17:11 verbalized 14336/16000: batch of 128 took 10s (0.1s per explanation) | latest: "Indian historical/academic article describing Gandhi's non-violent independence work during the 1940s, establishing biog"
-13:17:21 verbalized 14464/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'Historical logo description with sports branding format, detailing a NFL flag redesign with official team colors and sym'
-13:17:32 verbalized 14592/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'Young adult/teenage girl essay format with Spanish language tone discussing a historical figure, likely an actress/celeb'
-13:17:42 verbalized 14720/16000: batch of 128 took 10s (0.1s per explanation) | latest: "Formal music biography format with scholarly caption structure, describing a composer's work and credentials, establishi"
-13:17:52 verbalized 14848/16000: batch of 128 took 10s (0.1s per explanation) | latest: "British children's fiction article structure with comedic description listing a band of musical instruments transforming"
-13:18:02 verbalized 14976/16000: batch of 128 took 9s (0.1s per explanation) | latest: "Sports blog format with historical article structure detailing an NHL team's record during the 1976-77 season, listing m"
-13:18:13 verbalized 15104/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'UK青年-filled comedy forum post describing a character named "Vinny," listing obsession details about the fictional comedi'
-13:18:23 verbalized 15232/16000: batch of 128 took 10s (0.1s per explanation) | latest: "Highschool literary analysis essay tone establishes poetic prose with lyrical imagery involving a male character's memor"
-13:18:33 verbalized 15360/16000: batch of 128 took 10s (0.1s per explanation) | latest: "American music blog format with literary prose describing an indie singer-songwriter's early career, establishing biogra"
-13:18:44 verbalized 15488/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'Formal news article structure with English-language context about Russian sanctions claim, listing geopolitical disputes'
-13:18:54 verbalized 15616/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'Indian Wikipedia article format with historical details about a prominent Indian village Thanoli, describing a religious'
-13:19:04 verbalized 15744/16000: batch of 128 took 9s (0.1s per explanation) | latest: "News article format with Associated Press-style reporting structure covers oil company executive's expansion plans and b"
-13:19:15 verbalized 15872/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Baseball sports statistics format with daily results section structure detailing the 2013 Winter Grand Prix day two even'
-13:19:25 verbalized 16000/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Classical music biography format with educational background details, establishing a historical narrative about the Chic'
-13:19:25 stage round0_sample: 1302.8s
-Fetching 18 files:   0%|          | 0/18 [00:00<?, ?it/s]Fetching 18 files: 100%|██████████| 18/18 [00:00<00:00, 1803.18it/s]
-`torch_dtype` is deprecated! Use `dtype` instead!
-Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00, 68.04it/s]
-Some weights of Qwen2ForCausalLM were not initialized from the model checkpoint at /workspace/hf/hub/models--kitft--nla-qwen2.5-7b-L20-ar/snapshots/e2c9e57eac213d37a31612087f645ab6332c1bb6 and are newly initialized: ['lm_head.weight', 'model.norm.weight']
-You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
-[NLACritic] 21 layers  d_model=3584  mse_scale=59.87
-13:20:11 reconstructed 0/16000
-13:20:22 reconstructed 640/16000
-13:20:33 reconstructed 1280/16000
-13:20:44 reconstructed 1920/16000
-13:20:55 reconstructed 2560/16000
-13:21:06 reconstructed 3200/16000
-13:21:16 reconstructed 3840/16000
-13:21:27 reconstructed 4480/16000
-13:21:38 reconstructed 5120/16000
-13:21:49 reconstructed 5760/16000
-13:22:00 reconstructed 6400/16000
-13:22:11 reconstructed 7040/16000
-13:22:22 reconstructed 7680/16000
-13:22:33 reconstructed 8320/16000
-13:22:44 reconstructed 8960/16000
-13:22:55 reconstructed 9600/16000
-13:23:06 reconstructed 10240/16000
-13:23:16 reconstructed 10880/16000
-13:23:27 reconstructed 11520/16000
-13:23:38 reconstructed 12160/16000
-13:23:49 reconstructed 12800/16000
-13:24:00 reconstructed 13440/16000
-13:24:11 reconstructed 14080/16000
-13:24:22 reconstructed 14720/16000
-13:24:33 reconstructed 15360/16000
-13:24:44 stage round0_reconstruct: 318.5s
-13:27:11 stage round0_score: 146.3s
-13:27:33 loading kitft/nla-qwen2.5-7b-L20-av on cuda
-Fetching 18 files:   0%|          | 0/18 [00:00<?, ?it/s]Fetching 18 files: 100%|██████████| 18/18 [00:00<00:00, 1305.33it/s]
-`torch_dtype` is deprecated! Use `dtype` instead!
-Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:02,  1.08it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.07it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:02<00:00,  1.13it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  1.61it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  1.37it/s]
-13:27:41 train step 1/250: loss 0.8862 (2s)
-13:27:51 train step 11/250: loss 1.1095 (12s)
-13:28:01 train step 21/250: loss 1.0207 (22s)
-13:28:12 train step 31/250: loss 1.0085 (32s)
-13:28:22 train step 41/250: loss 1.0461 (42s)
-13:28:32 train step 51/250: loss 0.9087 (53s)
-13:28:42 train step 61/250: loss 0.8387 (63s)
-13:28:53 train step 71/250: loss 0.9536 (73s)
-13:29:03 train step 81/250: loss 0.9524 (84s)
-13:29:13 train step 91/250: loss 1.0198 (94s)
-13:29:23 train step 101/250: loss 0.9279 (104s)
-13:29:34 train step 111/250: loss 1.1519 (114s)
-13:29:44 train step 121/250: loss 0.9098 (125s)
-13:29:54 train step 131/250: loss 0.9591 (135s)
-13:30:04 train step 141/250: loss 0.9651 (145s)
-13:30:15 train step 151/250: loss 0.8471 (155s)
-13:30:26 train step 161/250: loss 1.0075 (166s)
-13:30:36 train step 171/250: loss 0.9777 (177s)
-13:30:47 train step 181/250: loss 1.0038 (187s)
-13:30:57 train step 191/250: loss 0.9357 (198s)
-13:31:08 train step 201/250: loss 0.8684 (208s)
-13:31:18 train step 211/250: loss 1.0156 (219s)
-13:31:29 train step 221/250: loss 0.8942 (229s)
-13:31:40 train step 231/250: loss 0.8415 (240s)
-13:31:50 train step 241/250: loss 0.9748 (250s)
-13:31:59 stage round0_train: 287.9s
-13:31:59 round 0 cosine_all=0.894, cosine_kept=0.901, score_all=0.883, score_kept=0.898, unsupported_names_all=1.085, unsupported_names_kept=0.283, true_name_rate_all=0.454, true_name_rate_kept=0.452, wrong_names_per_explanation_all=0.726, wrong_names_per_explanation_kept=0.473, similarity_between_samples=0.321, identical_sample_pairs=0.000, length_chars_all=702.825, length_chars_kept=703.309
-13:32:17 loading kitft/nla-qwen2.5-7b-L20-av on cuda
-Fetching 18 files:   0%|          | 0/18 [00:00<?, ?it/s]Fetching 18 files: 100%|██████████| 18/18 [00:00<00:00, 2261.42it/s]
-`torch_dtype` is deprecated! Use `dtype` instead!
-Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:02,  1.09it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.07it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:02<00:00,  1.13it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  1.62it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  1.38it/s]
-13:32:26 applied adapter /workspace/project/runs/hb/seed1-holdback/round0/adapter
-13:32:36 verbalized 128/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Ukrainian language travel diary with descriptive prose about a rural Soviet hotel ("white wooden hut"), listing services'
-13:32:46 verbalized 256/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'British music encyclopedia format with scholarly tone, discussing pianist biography and collecting context, establishing'
-13:32:56 verbalized 384/16000: batch of 128 took 10s (0.1s per explanation) | latest: "Historical newspaper article entry format with film biography details, discussing director John Williams' score for Supe"
-13:33:07 verbalized 512/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'British music encyclopedia biography listing career details of jazz singer Jack Pickett, with chronological account of h'
-13:33:17 verbalized 640/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'American film biography format with literary credentials establishing a book description, suggesting a structured accoun'
-13:33:27 verbalized 768/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Canadian sports historical article format with biographical soccer statistics listing career details for Canadian footba'
-13:33:38 verbalized 896/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'UK newspaper architectural heritage article describing a Victorian mansion sale, detailing historic restoration work and'
-13:33:48 verbalized 1024/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Scientific/technical biology paper format with abstract describing fungal physiology methodology using FTIR spectroscopy'
-13:33:58 verbalized 1152/16000: batch of 128 took 9s (0.1s per explanation) | latest: "Historical football article format with English-language sports encyclopedia structure detailing Dutch club Ajax's domes"
-13:34:09 verbalized 1280/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Nature/ecological travel writing format with scientific descriptive prose about a Panamanian park, listing iconic specie'
-13:34:19 verbalized 1408/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'UK newspaper column format with cultural criticism tone and witty, slightly arrogant British music journalist prose revi'
-13:34:29 verbalized 1536/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'Literary journal account of a classical music review, with substantial quoted praise from a New York newspaper describin'
-13:34:40 verbalized 1664/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'British/UK hospital/medical facility description format with a corporate wording style listing services and facilities r'
-13:34:50 verbalized 1792/16000: batch of 128 took 9s (0.1s per explanation) | latest: "Narrative momentum: comic book wiki entry recounting kid's TV series episodes details, mixing pop culture with tone of e"
-13:35:00 verbalized 1920/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'Scientific description format with bird species identification details, describing a lizard species with behavioral and '
-13:35:10 verbalized 2048/16000: batch of 128 took 9s (0.1s per explanation) | latest: "Historical/cultural tourism website format with factual prose describing Florida's citrus industry and historical promin"
-13:35:20 verbalized 2176/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'British Wikipedia article format with biographical details about a work of art, establishing scholarly attribution conte'
-13:35:30 verbalized 2304/16000: batch of 128 took 10s (0.1s per explanation) | latest: "Indian journalist's satirical language with provocative quotes about Bollywood politics, listing allegations against cri"
-13:35:41 verbalized 2432/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Historical sports reporting format with British Athletics statistics, listing Olympic race results in a structured manne'
-13:35:51 verbalized 2560/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Wikipedia encyclopedia article format with a technical military date, suggesting a structured historical description abo'
-13:36:01 verbalized 2688/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Wikipedia-style baseball article format with historical context listing player stats from a minor league team, implying '
-13:36:11 verbalized 2816/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'American music journalism format with vintage pop culture review tone, blending album description and cultural commentar'
-13:36:21 verbalized 2944/16000: batch of 128 took 9s (0.1s per explanation) | latest: "Student/wikisite biographical format with descriptive prose about a high school's cheerleading club, suggesting local cl"
-13:36:32 verbalized 3072/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'American pop culture media format with comedic tone and film title context, suggesting a movie synopsis or descriptive c'
-13:36:42 verbalized 3200/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'Spanish cultural/artistic event description with formal and symbolic imagery detailing funeral monuments of Pope Benedic'
-13:36:52 verbalized 3328/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Geographic/encyclopedic listing format with scientific plant descriptions; numbered listings of surface water features o'
-13:37:02 verbalized 3456/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'Australian historic architecture/cultural tourism narrative describing beer brewing process with visual art context, usi'
-13:37:12 verbalized 3584/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Historical/technical article format with military equipment details suggesting a US WWII era post discussing ansjete arm'
-13:37:23 verbalized 3712/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Biographical encyclopedia entry format with musical career details listing accolades and achievements, describing the ja'
-13:37:33 verbalized 3840/16000: batch of 128 took 9s (0.1s per explanation) | latest: "Indian cinema biographical article listing actor Raj Kapoor's early films and achievements, with factual tone and timeli"
-13:37:44 verbalized 3968/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Wikipedia article format with biographical entries about Hungarian athlete Andras Szekeres, listing athletic achievement'
-13:37:54 verbalized 4096/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Indian Hindu/religious historical figure biography with scholarly tone listing achievements and services of Sir Cowasji '
-13:38:06 verbalized 4224/16000: batch of 128 took 9s (0.1s per explanation) | latest: "German historical biography with literary tone, listing qualities of a prominent soldier's life, suggesting a structured"
-13:38:16 verbalized 4352/16000: batch of 128 took 9s (0.1s per explanation) | latest: "Singaporean Wikipedia article format with promotional article details presenting character's artistic design aesthetic, "
-13:38:26 verbalized 4480/16000: batch of 128 took 10s (0.1s per explanation) | latest: "British historical document describing a UK canal's early rail history, with text detailing topographical and geological"
-13:38:36 verbalized 4608/16000: batch of 128 took 10s (0.1s per explanation) | latest: "Literary fiction prose with dramatic narrative voice, discussing a police interrogator's tactics — implying a mock legal"
-13:38:46 verbalized 4736/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'Canadian music newspaper culture piece detailing an indie rock album release, mixing lyrical description with event hist'
-13:38:57 verbalized 4864/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'Wildlife/educational tourism promotional writing about Cape Cod National Seashore in Massachusetts, implying descriptive'
-13:39:07 verbalized 4992/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'British Arms & armor heraldic stamp description format with formal Tudor-era watermark inscription pattern, listing hist'
-13:39:17 verbalized 5120/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'Wikipedia biographical article format with Canadian parliamentary politics listing, establishing historical record of a '
-13:39:27 verbalized 5248/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Historical encyclopedia article format with scholarly attribution of Islamic medical figures, listing achievements about'
-13:39:37 verbalized 5376/16000: batch of 128 took 9s (0.1s per explanation) | latest: "Australian sports news article format detailing player Scott Crane's career-ending match for Brisbane Lions, with factua"
-13:39:47 verbalized 5504/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'British historical architectural description with Victorian architectural details and historical context, blending paint'
-13:39:58 verbalized 5632/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'Literary English translation of a French letter, with witty, satirical tone mixing political and personal reflection ("M'
-13:40:08 verbalized 5760/16000: batch of 128 took 10s (0.1s per explanation) | latest: "Historical/educational article structure with layman's economics format using nostalgia and humor, continuing with a quo"
-13:40:18 verbalized 5888/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'Historical music column format with celebrity trivia and product description, blending vintage instruments with contempo'
-13:40:28 verbalized 6016/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'Wikipedia article format with historical description of a folksong collection, listing sources and lyrics about the Amer'
-13:40:38 verbalized 6144/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'Historical/biographical article tone with literary description style, referencing a novel about Vietnam War to circumsta'
-13:40:49 verbalized 6272/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'Wiki article format with fanon character description listing personality traits and conflicts with other characters like'
-13:40:59 verbalized 6400/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'Historical/cultural article format with English language description of a Mexican mining town, establishing facts about '
-13:41:09 verbalized 6528/16000: batch of 128 took 10s (0.1s per explanation) | latest: "Children's literature format with a story describing a cartoon character's scene, listing events with comic tone and num"
-13:41:19 verbalized 6656/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Botanical species entry format with scientific description following British mycological publication conventions, detail'
-13:41:29 verbalized 6784/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'Biological/scientific species description format with taxonomic details about the Red LARGE Thornbird, listing habitat c'
-13:41:39 verbalized 6912/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Fictional/BBW / pulp novel fan format establishes a personal narrative structure with chapters or story sections around '
-13:41:49 verbalized 7040/16000: batch of 128 took 9s (0.1s per explanation) | latest: "Wikipedia biographical article format with encyclopedia entry structure detailing a Black American actress's ethnic back"
-13:42:00 verbalized 7168/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'Historical/ archaeological reporting prose describing North American Rock shelter discoveries, establishing factual evid'
-13:42:10 verbalized 7296/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Educational/encyclopedic wildlife article format with scientific species description, listing characteristics about a wo'
-13:42:20 verbalized 7424/16000: batch of 128 took 9s (0.1s per explanation) | latest: "Wiki page format with humor/character description structure listing powers of a video game character's voice actor, impl"
-13:42:30 verbalized 7552/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'Classical music encyclopedia format with German-language program notes structure, listing works by Brahms with dates and'
-13:42:40 verbalized 7680/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'American popular fiction novel format with narrative describing a military thriller setting, establishing a story about '
-13:42:50 verbalized 7808/16000: batch of 128 took 10s (0.1s per explanation) | latest: "Baseball encyclopedia article format with sportswriting statistics covering Joe Morgan's career, listing seasons and gam"
-13:43:01 verbalized 7936/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'British media article structure with nostalgic discourse around a celebrity wedding video, detailing romantic gesture ri'
-13:43:11 verbalized 8064/16000: batch of 128 took 9s (0.1s per explanation) | latest: "English literary quotation book with vasculary charm and wit, quoting Victorian prose about a married lady's ballooning "
-13:43:21 verbalized 8192/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'American encyclopedia article format with entertainment history trivia listing, describing a rock concert recording feat'
-13:43:32 verbalized 8320/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Old Victorian English literary work on Health and Physiology, with quotations illustrating vegetarian doctrines, showing'
-13:43:42 verbalized 8448/16000: batch of 128 took 9s (0.1s per explanation) | latest: "Wikipedia article format detailing American rock musician Roy Orbison's career, providing historical context to a song's"
-13:43:52 verbalized 8576/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Narrative describing a fantasy anime character with mysterious nature, suggesting a sci-fi RPG format with imaginative d'
-13:44:02 verbalized 8704/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'Wikipedia article format with structured entry about a historic battle site in Germany, with formal encyclopedic tone.\n\n'
-13:44:12 verbalized 8832/16000: batch of 128 took 9s (0.1s per explanation) | latest: "Artistic/educational biography with vivid performance description establishing a composer's innovative work and interdis"
-13:44:23 verbalized 8960/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'German language species description with botanical insect catalog format, listing characteristics of a butterfly species'
-13:44:33 verbalized 9088/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'British botanical species database entry format, with taxonomic details including species name, locality, and flower dat'
-13:44:44 verbalized 9216/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Wikipedia article format with historical narrative structure describing a fictional superhero comic, blending trivia wit'
-13:44:54 verbalized 9344/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Historical biography article format with biographical details about a political figure, establishing factual narrative a'
-13:45:04 verbalized 9472/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'Biographical article format with historical context suggests an encyclopedia or biography entry about Hungarian-American'
-13:45:15 verbalized 9600/16000: batch of 128 took 10s (0.1s per explanation) | latest: "Wiki article format with cultural/Reدعو genre structure announces a film's plot details, referencing awards and credits."
-13:45:25 verbalized 9728/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Sinhala linguistic/cultural reference with historical context about radio broadcast and patriotic songs, suggesting an A'
-13:45:35 verbalized 9856/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Historical business encyclopedia entry, describing a mid-20th-century American retail firm, with formal economic prose t'
-13:45:46 verbalized 9984/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'American Wikipedia/encyclopedic format with political facts listing agricultural statistics for a Ohio-based grocery sto'
-13:45:56 verbalized 10112/16000: batch of 128 took 9s (0.1s per explanation) | latest: "Indian political leader's biographical narrative with historical context about Coimbatore's Muslim community institution"
-13:46:06 verbalized 10240/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'Wikipedia heraldic description format with German language entry detailing shield elements, listing coat of arms attribu'
-13:46:16 verbalized 10368/16000: batch of 128 took 9s (0.1s per explanation) | latest: "Artistic biography format with Russian language cultural event description, listing a music venue and iconic band's disc"
-13:46:27 verbalized 10496/16000: batch of 128 took 10s (0.1s per explanation) | latest: "Scientific biographical profile format with academic credentials and awards describing a geographer's research interests"
-13:46:37 verbalized 10624/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Filmographic description format (bibliography/catalog entry) with brief plot synopsis suggesting a literary movie about '
-13:46:47 verbalized 10752/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'News story format with CDC report detailing food contamination, citing health officials reporting bacterial violations a'
-13:46:57 verbalized 10880/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Australian cultural institution text format with scholarly image concordance, suggesting a museum exhibition catalogue o'
-13:47:07 verbalized 11008/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'American newspaper-style historical prose article about a musical conductor, establishing factual and informational tone'
-13:47:18 verbalized 11136/16000: batch of 128 took 10s (0.1s per explanation) | latest: "NYTimes newspaper column review format with cultural commentary tone, referencing TV critic David Kamp's syndicated colu"
-13:47:28 verbalized 11264/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'Technical military vehicle history article in English with dated descriptions of aircraft specifications, suggesting enc'
-13:47:38 verbalized 11392/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'Indian film biography format with factual documentary details about Indian cinema legend Karanjwt Singh, describing a pi'
-13:47:48 verbalized 11520/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'Old US newspaper drama film reference format with literary quotation structure ("Classic film scene"), establishing icon'
-13:47:58 verbalized 11648/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'Historical prose format with imaginative literary testament structure, presenting numbered anecdotes about Russian noble'
-13:48:08 verbalized 11776/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Narrative momentum: literary fiction column format with political exposition establishing tensions between Israeli write'
-13:48:18 verbalized 11904/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Biological taxonomic description format with scientific prose describing a bird genus, including Latin species names and'
-13:48:28 verbalized 12032/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Biographical encyclopedia article on American literary figure Francis Scott Key, systematically describing career and li'
-13:48:39 verbalized 12160/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Biological species account format with taxonomic description and habitat details following a species-by-species comparis'
-13:48:49 verbalized 12288/16000: batch of 128 took 9s (0.1s per explanation) | latest: "Nigerian/Indian travel news photo caption format with cultural context about India's conservation efforts and eco-friend"
-13:48:59 verbalized 12416/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Sports news article format with statistical baseball reference tone, listing historical baseball statistics using a名人 na'
-13:49:09 verbalized 12544/16000: batch of 128 took 10s (0.1s per explanation) | latest: "Fan site/post format with dated Japanese anime post referencing a character's retirement announcement, implying a blog o"
-13:49:19 verbalized 12672/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Indian political analyst article with historical facts and quotations listing achievements of BP Pohournée, oxidative Co'
-13:49:29 verbalized 12800/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'British pub/fitness humour poem with crude slang and whimsical metaphorical language, blending cartoon imagery with lyri'
-13:49:39 verbalized 12928/16000: batch of 128 took 9s (0.1s per explanation) | latest: "Music encyclopedia article listing jazz drummer Leon Redbone's early history and credentials, with a chronological compo"
-13:49:50 verbalized 13056/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Historical sociological account in English describing Cuban labor union ideology, with scholarly analysis of socialist i'
-13:50:00 verbalized 13184/16000: batch of 128 took 9s (0.1s per explanation) | latest: "Fictional Star Trek novel prose describing a superhero's experiences, establishing ongoing plot details and narrative to"
-13:50:10 verbalized 13312/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Wikipedia article style with encyclopedic structure describing a neighborhood, listing cultural identities and history o'
-13:50:20 verbalized 13440/16000: batch of 128 took 9s (0.1s per explanation) | latest: "British theatre biographical format with musical/singing credentials listing achievements of Ian McKellen's stage career"
-13:50:30 verbalized 13568/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Bulgarian historical prose with scholarly recounting of Hungarian partisan politics, presenting a chronological sequence'
-13:50:40 verbalized 13696/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Scientific/academic plant description format with technical terminology establishes a scholarly article about sugarcane '
-13:50:51 verbalized 13824/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Ukrainian-language music performer biography format with artistic photo description and concert program details, suggest'
-13:51:01 verbalized 13952/16000: batch of 128 took 9s (0.1s per explanation) | latest: "Greek football biography article written in a sport context, listing achievements and facts about Barcelona's 1988 seaso"
-13:51:11 verbalized 14080/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Art historical/educational prose format with formal descriptive register, introducing a female Cuban artist and her work'
-13:51:21 verbalized 14208/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'Netherlands classical jazz artist CD description with German language structure, listing composer program details of a D'
-13:51:31 verbalized 14336/16000: batch of 128 took 9s (0.1s per explanation) | latest: "Historical/academic Indian biography describing Trotsky's early career and political activities in India's famine relief"
-13:51:41 verbalized 14464/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'Official NFL branding history format with numerical details and imagery describing a stadium logo, following an athletic'
-13:51:51 verbalized 14592/16000: batch of 128 took 9s (0.1s per explanation) | latest: "Student/young woman writing style with informal tone discussing a historical figure's personality traits, suggesting a p"
-13:52:01 verbalized 14720/16000: batch of 128 took 9s (0.1s per explanation) | latest: "Historical music reference format with scholarly biographical context establishing a composer's works, describing a spec"
-13:52:12 verbalized 14848/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'British comic book article format with numbered list structure describing musical instrument-based band of animals, deta'
-13:52:22 verbalized 14976/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'Sports statistic article structure with historical football blog format covering season highlights for the Columbus Blue'
-13:52:32 verbalized 15104/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'British comedy forums post listing character traits of a bizarre working-class woman ("Frank"), with whimsical slanguage'
-13:52:42 verbalized 15232/16000: batch of 128 took 10s (0.1s per explanation) | latest: "High school literary analysis essay tone with informal poetic language establishing theme around a song's romantic image"
-13:52:53 verbalized 15360/16000: batch of 128 took 10s (0.1s per explanation) | latest: "American literary blog format with music-oriented narrative describing a singer-songwriter's career, establishing a biog"
-13:53:03 verbalized 15488/16000: batch of 128 took 10s (0.1s per explanation) | latest: 'Formal article structure with English-language geopolitical news about international sanctions, citing a report on Russi'
-13:53:13 verbalized 15616/16000: batch of 128 took 9s (0.1s per explanation) | latest: 'Indian Wikipedia article format with alphanumeric sequence describing a historic Indian village called Godhar, detailing'
-13:53:23 verbalized 15744/16000: batch of 128 took 10s (0.1s per explanation) | latest: "Business news article format with headline and article structure describing an automotive company's sustainability effor"

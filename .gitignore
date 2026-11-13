@@ -1,27 +1,28 @@
+# local environment and secrets
 .venv/
 __pycache__/
-nla_ref/
-.claude/
-# large and reproducible: activations are re-extracted by fade.py / fade2.py
-runs/**/acts-*.pt
-# staging copies for Kaggle uploads (the originals are tracked elsewhere in the repo)
-kaggle/dataset*/*
-!kaggle/dataset*/dataset-metadata.json
-# secrets (never commit)
 .env
-# large mirrored training data (rebuilt by hb.py)
-runs/hb_pod/shared/data-*.pt
-# reconstruction caches and other tensors: large and recomputable
-runs/**/*.pt
-# fine-tuned adapter weights (39 MB each) stay on disk in runs/hb_pod/, not in git
-runs/hb_pod/**/adapter_model.safetensors
-# per-round training samples (12 MB each) and duplicate live copies; kept.json and the eval samples are tracked
-runs/hb_pod/**/live.jsonl
-runs/hb_pod/**/*-live.jsonl
-runs/hb_pod/*/round*/samples.json
-runs/hb_pod/shared/
-runs/hb_pod/last_mirror.txt
-runs/kaggle_step4/live-*.jsonl
-runs/pods.txt
-# download bookkeeping written by fetch_artifacts.py
+.claude/
 .cache/
+# the authors' reference code, cloned during setup
+nla_ref/
+# early experiments that the report does not use (kept locally)
+archive/
+# large files: tensors, adapter weights and per-round samples are on Hugging Face (see fetch_artifacts.py)
+runs/**/*.pt
+runs/finetune/**/adapter_model.safetensors
+runs/finetune/*/round*/samples.json
+runs/finetune/shared/
+# duplicate live copies and run-time logs
+runs/**/live.jsonl
+runs/**/*-live.jsonl
+runs/**/live-*.jsonl
+runs/progress.log
+runs/verbalize-live.jsonl
+runs/pods.txt
+# staging copies for Kaggle uploads
+infra/kaggle/dataset*/*
+!infra/kaggle/dataset*/dataset-metadata.json
+# pod mirror bookkeeping
+runs/finetune/logs-*/
+runs/finetune/last_mirror.txt
