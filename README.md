@@ -86,6 +86,17 @@ python finetune.py configs/holdback.json --n_train 2000 --k 8 --rounds 3 --tag f
 python evaluate.py runs/finetune/full-holdback/round2/adapter --gen_batch 128
 ```
 
+## Environment
+
+| Machine | Specification | Used for |
+|---|---|---|
+| Laptop | MacBook Air, Apple M5, 24 GB, macOS 26.6; Python 3.12, PyTorch 2.15 (MPS, bfloat16) | Extracting activations, probes, every analysis and table |
+| Kaggle notebook | 2 x Tesla T4 (15 GB each); PyTorch 2.11, float16 | Pipeline check and generating the 8,640 explanations (70 per minute) |
+| Rented GPUs (RunPod) | RTX A6000 and A40, 48 GB each; Ubuntu 24.04, PyTorch 2.8, CUDA 12.8, bfloat16 | Fine-tuning and held-out evaluation (800 to 900 explanations per minute at batch 128) |
+
+`requirements.txt` pins the laptop environment. Model revisions: `Qwen/Qwen2.5-7B-Instruct` at `a09a3545`,
+`kitft/nla-qwen2.5-7b-L20-av` at `b8846916`, `kitft/nla-qwen2.5-7b-L20-ar` at `e2c9e57e`.
+
 ## Large files
 
 Too big for git, so they live on Hugging Face and `fetch_artifacts.py` puts them in place:

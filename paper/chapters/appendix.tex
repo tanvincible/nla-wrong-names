@@ -26,9 +26,65 @@ Every table and figure here & \texttt{python paper/build\_assets.py} \\
 \caption{Which script produces which result.}
 \end{table}
 
-All but training and evaluation run on a laptop from the saved files. Fine-tuning used a LoRA of rank 16 on
-the attention projections, learning rate $10^{-4}$, batch size 8 and one pass over the 2{,}000 chosen
-explanations per round; each run took about 100 minutes on one 48\,GB GPU. Seeds are fixed throughout.
+All but training and evaluation run on a laptop from the saved files. Seeds are fixed throughout.
+
+\section{Hardware}
+
+Three machines were used (Table~\ref{tab:hardware}). The models run in 16-bit precision on all of them.
+
+\begin{table}[h]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}p{0.2\linewidth}p{0.27\linewidth}p{0.3\linewidth}p{0.15\linewidth}@{}}
+\toprule
+Machine & Specification & Used for & Precision \\
+\midrule
+Laptop & MacBook Air, Apple M5, 10 cores, 24\,GB memory, macOS 26.6 & Extracting activations, probes, every analysis and table & bfloat16 (MPS) \\
+Kaggle notebook & 2 $\times$ NVIDIA Tesla T4, 15\,GB each & Pipeline check; generating the 8{,}640 explanations (batch 32, 70 per minute, 123 minutes) & float16 \\
+Rented GPU & 1 $\times$ NVIDIA RTX A6000, 48\,GB; 16 virtual CPUs, 62\,GB memory & Reconstruction run; evaluating the released and reconstruction verbalizers & bfloat16 \\
+Rented GPUs & 2 $\times$ NVIDIA A40, 48\,GB, one run per card & All other fine-tuning runs and evaluations; token probabilities & bfloat16 \\
+\bottomrule
+\end{tabular}
+\caption{Hardware.}
+\label{tab:hardware}
+\end{table}
+
+On the 48\,GB cards generation ran at batch 128, about 800 to 900 explanations per minute. Fine-tuning peaked
+at 44\,GB of GPU memory, and a three-round run with its evaluation took about 100 minutes.
+
+\section{Software}
+
+\begin{table}[h]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lll@{}}
+\toprule
+ & Laptop & Rented GPUs \\
+\midrule
+Python & 3.12.13 & 3.12 \\
+PyTorch & 2.15.0 & 2.8.0 with CUDA 12.8 (Ubuntu 24.04) \\
+transformers & 4.57.6 & 4.57 \\
+peft & 0.21.2 & 0.21.2 \\
+scikit-learn, spaCy, NLTK & 1.9.1, 3.8.18, 3.10.4 & same \\
+\bottomrule
+\end{tabular}
+\caption[Software versions]{Software versions. The Kaggle notebook used PyTorch 2.11.0 with the same
+transformers range. \texttt{requirements.txt} pins the laptop environment.}
+\label{tab:software}
+\end{table}
+
+The three models are fixed to these revisions on Hugging Face:
+{\small
+\begin{itemize}
+\item target model, \texttt{Qwen/Qwen2.5-7B-Instruct}, revision \texttt{a09a3545}
+\item verbalizer, \texttt{kitft/nla-qwen2.5-7b-L20-av}, revision \texttt{b8846916}
+\item reconstructor, \texttt{kitft/nla-qwen2.5-7b-L20-ar}, revision \texttt{e2c9e57e}
+\end{itemize}}
+Fine-tuning used a LoRA of rank 16
+(scale 32, dropout 0.05) on the four attention projections, AdamW with learning rate $10^{-4}$, batch size 8
+and one pass over the chosen explanations per round.
 
 \chapter{Layer Indexing}
 \label{app:layer}
