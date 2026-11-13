@@ -7,3 +7,19 @@ runs/**/acts-*.pt
 # staging copies for Kaggle uploads (the originals are tracked elsewhere in the repo)
 kaggle/dataset*/*
 !kaggle/dataset*/dataset-metadata.json
+# secrets (never commit)
+.env
+# large mirrored training data (rebuilt by hb.py)
+runs/hb_pod/shared/data-*.pt
+# reconstruction caches and other tensors: large and recomputable
+runs/**/*.pt
+# fine-tuned adapter weights (39 MB each) stay on disk in runs/hb_pod/, not in git
+runs/hb_pod/**/adapter_model.safetensors
+# per-round training samples (12 MB each) and duplicate live copies; kept.json and the eval samples are tracked
+runs/hb_pod/**/live.jsonl
+runs/hb_pod/**/*-live.jsonl
+runs/hb_pod/*/round*/samples.json
+runs/hb_pod/shared/
+runs/hb_pod/last_mirror.txt
+runs/kaggle_step4/live-*.jsonl
+runs/pods.txt
