@@ -1,0 +1,3 @@
+11:04:29 arm recall: 2000 activations x K=8 x 3 round(s) -> /workspace/project/runs/hb/full-recall
+11:04:29 stage data: 0.2s
+11:04:29 held out of training: Egypt, India, Napoleon, Picasso, Sydney, Tokyo, cat, cello, honey, horse, pasta, piano -> 1598 activations left
