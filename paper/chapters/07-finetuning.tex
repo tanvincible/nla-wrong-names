@@ -117,21 +117,27 @@ passages; 95\% intervals.}
 
 \section{Analysis}
 
-\textbf{Why the hold-back effect is small.} The samples chosen for training had 35\% fewer wrong names than
-average; the trained verbalizer writes 5 to 8\% fewer. Imitating a slightly better subset of one's own samples is
-a weak push, because the verbalizer already finds those samples likely. Training harder on the same samples
-does not help: five passes over the first round's choices fit them far more closely but gave a smaller
-held-out effect ($-6.5\%$), which is memorisation.
+\newcommand{\question}[1]{\medskip\noindent\textbf{Q. #1}\par\nopagebreak\smallskip\noindent\ignorespaces}
 
-\textbf{Why the specific does not come back.} When one of eight samples names the right entity far from it,
-that sample looks like a lucky draw, not a skill. A skill would transfer to new passages after training; a
-lucky draw does not. This fits Chapter~\ref{ch:fading}: at
-16 tokens the information the probe reads is real, but the verbalizer has no reliable way to reach it.
-Dingeto~\cite{dingeto2026recap} reports the same for a direct truth reward in a different setting.
+\question{Why is the hold-back effect so small?}
+Because the push is weak. The samples chosen for training had 35\% fewer wrong names than average, but the
+trained verbalizer writes only 5 to 8\% fewer. It is imitating a slightly better subset of its own samples,
+and it already finds those samples likely.
 
-\textbf{Filter or fine-tune?} Table~\ref{tab:combine} puts the two fixes side by side. The agreement filter
-alone removes 44 to 62\% of the wrong names, depending on distance. Hold back removes 5 to 8\% overall. Together
-they are only slightly better than the filter alone.
+\question{Would training harder on those samples help?}
+No. Five passes over the first round's choices fit them far more closely but gave a smaller held-out effect
+($-6.5\%$). That is memorisation.
+
+\question{Why does the specific not come back?}
+Because naming it far from the entity is a lucky draw, not a skill. A skill would transfer to new passages
+after training; a lucky draw does not. This fits Chapter~\ref{ch:fading}: at 16 tokens the information the
+probe reads is real, but the verbalizer has no reliable way to reach it. Dingeto~\cite{dingeto2026recap}
+reports the same for a direct truth reward in a different setting.
+
+\question{Filter or fine-tune?}
+Filter. Table~\ref{tab:combine} puts the two side by side. The agreement filter alone removes 44 to 62\% of
+the wrong names, depending on distance. Hold back removes 5 to 8\% overall. Together they are only slightly
+better than the filter alone.
 
 \begin{table}[t]
 \centering
@@ -143,7 +149,8 @@ with the two-of-four agreement filter, and with both. Natural text, held-out pas
 \label{tab:combine}
 \end{table}
 
-Larger changes to training, such as a grounding reward~\cite{hong2026grounding} or a different
-reconstruction objective~\cite{lek2026flownla}, may well do more. The fine-tuning here matters less as a fix
-than as a test. The account in Chapter~\ref{ch:incentives} said what
-would happen under each reward, and that is what happened.
+\question{Then what was the fine-tuning for?}
+It was a test, not a fix. The account in Chapter~\ref{ch:incentives} said what would happen under each
+reward, and that is what happened. Larger changes to training, such as a grounding
+reward~\cite{hong2026grounding} or a different reconstruction objective~\cite{lek2026flownla}, may well
+remove more.
