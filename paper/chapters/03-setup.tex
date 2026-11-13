@@ -96,8 +96,12 @@ A falling true-name rate could mean two things: the verbalizer is failing to rep
 holds, or the activation no longer holds it. To tell these apart I need an independent estimate of what the
 activation holds.
 
-I use a linear probe~\cite{alain2016probes}. For each type and each distance, a ten-way logistic regression
-is trained on standardised activations to say which of the ten entities of that type is in the passage.
+I use a linear probe~\cite{alain2016probes}. For each type $t$ and distance $\delta$, a ten-way logistic
+regression on the standardised activation $\tilde h$ predicts which of the ten entities of that type is in
+the passage:
+\begin{equation}
+p(e \mid h) = \operatorname{softmax}\bigl(A_{t,\delta}\, \tilde h + b_{t,\delta}\bigr)_e .
+\end{equation}
 Its regularisation strength is chosen on the validation passages from nine values between $10^{-5}$ and
 $10^{3}$, and the probe is then refit on fitting and validation passages together and scored on the test
 passages. Chance is 10\%.

@@ -56,14 +56,26 @@ explanation, one token at a time. This is the encoder.
 top. It reads the explanation and outputs a vector. This is the decoder.
 \end{description}
 
-Both vectors are scaled to unit length before they are compared, so the reconstruction error is
-$2(1-\cos(h,\hat h))$: only the direction matters. I report the cosine throughout.
+In symbols, let $h \in \mathbb{R}^d$ be the activation, $V_\theta(z \mid h)$ the verbalizer's distribution over
+explanations $z$, and $R_\phi(z) \in \mathbb{R}^d$ the reconstructor's output. Both vectors are scaled to unit
+length before they are compared, so the error depends only on direction:
+\begin{equation}
+\Bigl\| \tfrac{h}{\|h\|} - \tfrac{R_\phi(z)}{\|R_\phi(z)\|} \Bigr\|^2 = 2\,\bigl(1 - s(h,z)\bigr),
+\qquad s(h,z) = \cos\bigl(h, R_\phi(z)\bigr).
+\label{eq:score}
+\end{equation}
+I call $s$ the reconstruction score and report it throughout.
 
 The authors train in three stages. The reconstructor first learns to predict activations from text. The
 verbalizer first learns to imitate explanations that a large language model, called through an API, wrote
 for each position. Then the two are trained together: the verbalizer by reinforcement learning
 (GRPO~\cite{shao2024deepseekmath}), with the reconstruction score as its reward, and the reconstructor by
-ordinary regression on whatever the verbalizer writes. In this last stage the only reward is reconstruction.
+ordinary regression on whatever the verbalizer writes. In this last stage the verbalizer's objective is
+\begin{equation}
+\max_\theta \; \mathbb{E}_{h}\, \mathbb{E}_{z \sim V_\theta(\cdot \mid h)} \bigl[\, s(h,z) \,\bigr],
+\label{eq:objective}
+\end{equation}
+and nothing else. Whatever does not move $s$ is invisible to training.
 
 The explanations the released verbalizer writes have a steady three-part shape, visible in the example in
 Chapter~\ref{ch:intro}. The first paragraph gives the genre and topic of the text. The second quotes or
@@ -82,6 +94,14 @@ country, city, person, animal, food or instrument. An explanation can do three t
 this a \emph{wrong name}.
 \item Name nothing of that type, and describe the passage only in general terms.
 \end{itemize}
+
+To make this precise, let $e$ be the entity in the passage, $P$ the set of same-type names that occur in the
+passage, and $N(z)$ the set of same-type names in an explanation $z$. Then $z$ names the true entity when
+$e \in N(z)$, and its wrong names are
+\begin{equation}
+W(z) = N(z) \setminus \bigl(P \cup \{e\}\bigr).
+\label{eq:wrong}
+\end{equation}
 
 The third option is not a failure. If the activation no longer holds the entity, the faithful thing to say
 is nothing. The failure this report studies is the second one, because a wrong name is indistinguishable from

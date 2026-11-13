@@ -17,6 +17,15 @@ copies and sent all three through the reconstructor.
 control: it shows what an edit of the same size costs when it removes real information.
 \end{itemize}
 
+Writing $z^{-W}$ for the copy with wrong names removed and $z^{-e}$ for the copy with the true name removed,
+the quantities of interest are what each kind of name is worth to the score of Equation~\ref{eq:score}:
+\begin{equation}
+\Delta_{\text{wrong}} = s(h,z) - s(h,z^{-W}), \qquad \Delta_{\text{true}} = s(h,z) - s(h,z^{-e}).
+\label{eq:delta}
+\end{equation}
+If $\Delta_{\text{wrong}} \le 0$, the objective in Equation~\ref{eq:objective} would already discourage wrong
+names. If it is near zero or positive, it does not.
+
 The edits worked as intended: afterwards no wrong name is detected in 99.8\% of the first copies, and the
 true name is gone from 94.3\% of the second.
 
@@ -41,9 +50,9 @@ the reconstruction score: cosine lost when it is edited out. Natural text; 95\% 
 \label{fig:edit}
 \end{figure}
 
-Removing the wrong names lowers the cosine by 0.003 at the entity's token and 0.006 one token later
-(Table~\ref{tab:edit}, Figure~\ref{fig:edit}). Per name removed, that is about 0.002. Removing the true name
-costs 0.211 at the entity's token, seventy times as much, and 0.016 one token later.
+$\Delta_{\text{wrong}}$ is 0.003 at the entity's token and 0.006 one token later (Table~\ref{tab:edit},
+Figure~\ref{fig:edit}); per name removed, about 0.002. $\Delta_{\text{true}}$ is 0.211 at the entity's
+token, seventy times as much, and 0.016 one token later.
 
 \section{Interpretation}
 
@@ -58,8 +67,14 @@ topic. So the objective gives the verbalizer a small push towards naming \emph{s
 single token later. From then on, getting the specific right earns almost nothing, so a verbalizer trained
 only on reconstruction has little reason to keep track of it.
 
-\textbf{This sets the scale for a fix.} Any penalty meant to discourage wrong names has to outweigh 0.002 per
-name without outweighing what a true name earns. The fine-tuning experiments use 0.01 per unsupported name.
+\textbf{This sets the scale for a fix.} A penalty of $\lambda$ per suspect name changes the reward to
+$s(h,z) - \lambda\,|U(z)|$, where $U(z)$ is the set of names to discourage. For it to bite without also
+driving out true names, $\lambda$ must sit between what a wrong name earns and what a true one earns:
+\begin{equation}
+0.002 \;\approx\; \Delta_{\text{wrong}} \text{ per name} \;<\; \lambda \;<\; \Delta_{\text{true}} \;\approx\; 0.016
+\text{ (one token after the entity).}
+\end{equation}
+The fine-tuning experiments use $\lambda = 0.01$.
 
 The verbalizer is doing what an autoencoder does: it keeps what helps reconstruction. The specific helps
 very little, so nothing protects it.

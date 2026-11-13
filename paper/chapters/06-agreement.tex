@@ -7,8 +7,12 @@ writes once is usually not.
 
 \section{Consensus}
 
-Each activation has four independently sampled explanations. For every name that appears in any of them, I
-count how many of the four contain it. Figure~\ref{fig:consensus} shows how often a name is true at each
+Each activation has $K=4$ independently sampled explanations $z_1,\dots,z_K$. For every name $n$ that appears
+in any of them, I count how many contain it:
+\begin{equation}
+c(n) = \sum_{k=1}^{K} \mathbf{1}\bigl[\, n \in N(z_k) \,\bigr].
+\label{eq:count}
+\end{equation} Figure~\ref{fig:consensus} shows how often a name is true at each
 count, pooling distances 1, 4 and 16. Distance~0 is left out of the pooled figure because the true name is
 always present there, which would flatter the result.
 
@@ -36,8 +40,7 @@ samples give it, with the number of names in brackets. Natural text; 95\% interv
 
 \section{Filter}
 
-This suggests a filter that needs no training: sample several explanations, and keep a name only if enough
-of them agree. Table~\ref{tab:filter} shows the trade-off in the terms of retrieval, treating the names as
+This suggests a filter that needs no training: keep a name only if $c(n) \ge m$ for some threshold $m$. Table~\ref{tab:filter} shows the trade-off in the terms of retrieval, treating the names as
 retrieved items.
 
 \begin{table}[t]
