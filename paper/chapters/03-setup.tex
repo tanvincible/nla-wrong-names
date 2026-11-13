@@ -1,0 +1,116 @@
+\chapter{Setup}
+\label{ch:setup}
+
+Everything in this report runs on the released NLA for Qwen2.5-7B-Instruct at layer~20. The target model,
+the verbalizer and the reconstructor are used exactly as published, except in the fine-tuning experiments,
+where a small adapter is added to the verbalizer. This chapter describes the data and the three measuring
+instruments: a detector for names, a probe that says what the activation still holds, and the statistics.
+
+\section{Data}
+
+I chose 60 entities, ten of each of six types (Table~\ref{tab:entities}). Three types are proper nouns and
+three are common nouns, so that the results do not depend on capital letters or on how well a named-entity
+recogniser works.
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{@{}lp{0.78\linewidth}@{}}
+\toprule
+Type & Entities \\
+\midrule
+Country & France, Japan, Egypt, Brazil, Canada, India, Germany, Italy, Mexico, Russia \\
+City & Paris, Tokyo, Cairo, Chicago, London, Berlin, Moscow, Sydney, Toronto, Rome \\
+Person & Shakespeare, Napoleon, Einstein, Mozart, Darwin, Lincoln, Churchill, Gandhi, Picasso, Beethoven \\
+Animal & dog, cat, horse, lion, tiger, elephant, wolf, eagle, rabbit, dolphin \\
+Food & bread, cheese, rice, pasta, chocolate, pizza, butter, honey, potato, sugar \\
+Instrument & piano, guitar, violin, cello, flute, trumpet, saxophone, clarinet, harp, banjo \\
+\bottomrule
+\end{tabular}
+\caption{The 60 entities.}
+\label{tab:entities}
+\end{table}
+
+For each entity I collected 100 passages from the November 2023 English Wikipedia dump, 6{,}000 in all. A
+passage qualifies if the entity appears in it exactly once, none of the other nine entities of its type
+appears, at least 50 tokens come before the entity, and 16 tokens come after it. Articles whose title
+contains the entity are skipped, so that the passage is about something else and merely mentions the entity,
+and each article contributes at most one passage per entity.
+
+The passages are split per entity: 30 for testing, and of the remaining 70, 14 for validation and 56 for
+fitting. That gives 1{,}800 test, 840 validation and 3{,}360 fitting passages. Test passages are never used
+to fit a probe or to fine-tune anything.
+
+\section{Activations}
+
+For every passage I ran the target model and saved the layer-20 activation at six positions: the entity's
+last token, and 1, 2, 4, 8 and 16 tokens after it. I call these \emph{distances}. Distance~0 is where the
+model has just read the entity; distance~16 is roughly a sentence later.
+
+Before trusting any number, I checked that my pipeline reproduces known reconstruction quality. I had an
+earlier pilot run of the released models, written separately and run on different hardware, which gave a
+mean cosine of 0.907 between original and rebuilt activations. Repeating that run's recipe, the pipeline
+used here gives 0.908, and explains 75.0\% of the variance, in line with the roughly 75\% the authors report
+for this model. Getting there required fixing an off-by-one in which layer is read, described in
+Appendix~B. On Wikipedia passages the mean cosine is 0.893, a little lower.
+
+\section{Explanations}
+
+Generating explanations is the expensive step, so the main measurements use a fixed subset of the test set:
+nine test passages per entity, chosen by a seeded shuffle before any explanation was generated, at distances
+0, 1, 4 and 16. That is 540 passages and 2{,}160 activations. For each activation the verbalizer wrote four
+explanations, sampled independently at temperature~1, for 8{,}640 explanations in total. Four samples per
+activation is what later makes it possible to ask whether the samples agree.
+
+\section{Name Detector}
+
+Every result depends on deciding, for an explanation and its passage, which names are true and which are
+wrong. The rules are:
+
+\begin{itemize}
+\item The explanation \textbf{names the true entity} if the entity, or one of a small fixed set of variants
+(\emph{wolves} for wolf, \emph{puppy} for dog), appears as a whole word.
+\item A \textbf{wrong name} is any other entity of the same type that appears in the explanation and does
+\emph{not} appear in the passage. A same-type name that is in the passage is real content the explanation
+got right, so it is not counted against it.
+\end{itemize}
+
+``Any other entity of the same type'' has to reach well beyond my ten. For countries I use every country in
+GeoNames, for cities every city above 300{,}000 people, for people the spans a named-entity recogniser tags
+as persons (spaCy's small English model~\cite{spacy}), and for animals, foods and instruments the
+corresponding branches of WordNet~\cite{miller1995wordnet}, keeping a word only where that sense is its most
+common one. The broad lists matter: about four in five of the wrong names found later are outside my list of
+60 (Section~\ref{sec:wrongnames}).
+
+The detector is imperfect, and I would rather say how than hide it. A hand check of 30 flagged explanations
+found four kinds of false alarm: category words (\emph{bird}, \emph{mammal}), meals (\emph{dinner}), words
+for people in general (\emph{humans}), and ``persons'' that were not proper nouns. The detector used
+throughout drops these. What remains is that the recogniser sometimes misses or invents a person, ambiguous
+words such as \emph{bear} and \emph{bass} are never detected, and adjectives such as \emph{French} never
+count as a country. These errors affect every condition I compare in the same way, since the same detector
+scores all of them, but they do mean the absolute rates carry more uncertainty than their intervals show.
+
+\section{Probe Baseline}
+
+A falling true-name rate could mean two things: the verbalizer is failing to report something the activation
+holds, or the activation no longer holds it. To tell these apart I need an independent estimate of what the
+activation holds.
+
+I use a linear probe~\cite{alain2016probes}. For each type and each distance, a ten-way logistic regression
+is trained on standardised activations to say which of the ten entities of that type is in the passage.
+Its regularisation strength is chosen on the validation passages from nine values between $10^{-5}$ and
+$10^{3}$, and the probe is then refit on fitting and validation passages together and scored on the test
+passages. Chance is 10\%.
+
+The probe is a floor on what the activation holds, not a ceiling: a better reader might find more. It also
+has an easier job than the verbalizer, since it chooses among ten known answers while the verbalizer writes
+free text. I return to this when comparing the two.
+
+\section{Statistics}
+
+Passages about the same entity are not independent, so every interval in this report is a 95\% bootstrap
+interval that resamples the 60 entities, with 10{,}000 resamples~\cite{efron1979bootstrap}. When two
+conditions are compared on the same passages, I bootstrap the per-entity difference, which is much tighter
+than comparing two separate intervals. All sampling uses fixed seeds, and every result is labelled as coming
+from \emph{natural} text (real passages) or from \emph{planted} concepts (vectors I added by hand). Chapters
+\ref{ch:fading} to \ref{ch:agreement} use natural text only.

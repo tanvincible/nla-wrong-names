@@ -1,0 +1,73 @@
+% Project report for CS787. Build:  cd paper && python build_assets.py && tectonic main.tex
+\documentclass[12pt,a4paper]{report}
+
+% ---------------------------------------------------------------- fill these in
+\newcommand{\reporttitle}{Naming the Wrong City}
+\newcommand{\reportsubtitle}{Where Natural Language Autoencoders Lose Specifics,\\ and What Brings Them Back}
+\newcommand{\studentname}{Tanvi}
+\newcommand{\rollno}{[Roll No.]}
+\newcommand{\programme}{[Programme]}
+\newcommand{\instructor}{Prof.\ Arnab Bhattacharya}
+\newcommand{\course}{CS787: Generative Artificial Intelligence}
+\newcommand{\department}{Department of Computer Science and Engineering}
+\newcommand{\institute}{Indian Institute of Technology Kanpur}
+\newcommand{\semester}{2026--27, Semester I}
+\newcommand{\reportdate}{November 2026}
+% ----------------------------------------------------------------
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[colorlinks=true,linkcolor=black,citecolor=black,urlcolor=blue!50!black]{hyperref}
+
+\setstretch{1.15}
+\titleformat{\chapter}[hang]{\LARGE\bfseries}{\thechapter}{0.8em}{}
+\titleformat{name=\chapter,numberless}[hang]{\LARGE\bfseries}{}{0pt}{}
+\titlespacing*{\chapter}{0pt}{-12pt}{16pt}
+\setlist{itemsep=2pt,topsep=4pt}
+\graphicspath{{figs/}}
+
+% a passage or explanation quoted from the data
+\newenvironment{sample}[1]{\par\smallskip\noindent\begin{minipage}{\linewidth}\small\textbf{#1}\par\vspace{2pt}%
+  \begin{quote}\itshape}{\end{quote}\end{minipage}\par\smallskip}
+\newcommand{\true}[1]{\textbf{#1}}
+\newcommand{\wrong}[1]{\textbf{\underline{#1}}}
+
+\begin{document}
+
+\pagenumbering{roman}
+\input{front/titlepage}
+\input{front/certificate}
+\input{front/declaration}
+\input{front/acknowledgements}
+\input{front/abstract}
+\tableofcontents
+\listoffigures
+\listoftables
+\clearpage
+\pagenumbering{arabic}
+
+\input{chapters/01-introduction}
+\input{chapters/02-background}
+\input{chapters/03-setup}
+\input{chapters/04-fading}
+\input{chapters/05-incentives}
+\input{chapters/06-agreement}
+
+\bibliographystyle{plainnat}
+\bibliography{refs}
+
+\end{document}

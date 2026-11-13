@@ -1,0 +1,87 @@
+\chapter{Agreement}
+\label{ch:agreement}
+
+If the reconstruction score cannot tell a true name from a wrong one, something else must. This chapter
+shows that the verbalizer's own samples can: a name it writes every time is usually true, and a name it
+writes once is usually not.
+
+\section{Consensus}
+
+Each activation has four independently sampled explanations. For every name that appears in any of them, I
+count how many of the four contain it. Figure~\ref{fig:consensus} shows how often a name is true at each
+count, pooling distances 1, 4 and 16. Distance~0 is left out of the pooled figure because the true name is
+always present there, which would flatter the result.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.6\linewidth]{consensus}
+\caption[Names that more samples agree on are more often true]{Names that more samples agree on are more
+often true. Natural text, distances 1, 4 and 16 pooled, 3{,}489 names; 95\% intervals.}
+\label{fig:consensus}
+\end{figure}
+
+A name given by one sample is true 6\% of the time. A name given by all four is true 64\% of the time. As a
+score for ranking names, the agreement count has an AUC of 0.80, and it holds up at every distance
+(Table~\ref{tab:consensus}).
+
+\begin{table}[t]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\input{tables/consensus}
+\caption[Precision of a name by how many samples give it]{Precision of a name (\%) by how many of the four
+samples give it, with the number of names in brackets. Natural text; 95\% intervals.}
+\label{tab:consensus}
+\end{table}
+
+\section{Filter}
+
+This suggests a filter that needs no training: sample several explanations, and keep a name only if enough
+of them agree. Table~\ref{tab:filter} shows the trade-off in the terms of retrieval, treating the names as
+retrieved items.
+
+\begin{table}[t]
+\centering
+\small
+\input{tables/filter}
+\caption[The agreement filter as a precision--recall trade-off]{The agreement filter as a
+precision--recall trade-off (\%). Natural text, distances 1, 4 and 16 pooled; 95\% intervals. ``True names
+kept'' is recall relative to no filter.}
+\label{tab:filter}
+\end{table}
+
+Requiring two of four removes 74\% of the wrong names and keeps 77\% of the true ones, which doubles
+precision from 17.5\% to 38\%. Requiring all four reaches 64\% precision but keeps only half the true names.
+Two of four is the setting I carry forward: it removes most of the damage for a modest loss.
+
+The cost is compute. Four explanations instead of one is four times the generation. The filter also only
+removes names; it cannot recover a true name the verbalizer never wrote.
+
+\section{Verifiers}
+
+Agreement uses only the verbalizer's outputs. An alternative is to check each name against the activation
+itself: does the activation point towards the named entity more than towards its rivals?
+Table~\ref{tab:verifiers} compares three such checks.
+
+\begin{table}[t]
+\centering
+\small
+\input{tables/verifiers}
+\caption[Three ways to tell true names from wrong ones]{Three ways to tell true names from wrong ones (AUC,
+95\% intervals; natural text). The first two score a name by the activation's similarity to a direction for
+that entity; they cover only names among the 60 listed entities, so the columns are not computed on
+identical sets of names.}
+\label{tab:verifiers}
+\end{table}
+
+\begin{itemize}
+\item \textbf{Concept vectors} are entity directions built without any labelled passages, from the target
+model's activations on the prompt ``Tell me about X''. They are weak: AUC 0.65 to 0.79.
+\item \textbf{Probe directions} come from the trained probe. They are the best check near the entity (0.90
+at one token), but they need dozens of labelled passages for every entity one wants to verify.
+\item \textbf{Agreement} needs neither labels nor access to the target model. It matches the probe
+directions from four tokens on (0.77 against 0.76, and 0.72 against 0.70).
+\end{itemize}
+
+For a method whose selling point is that it is unsupervised, agreement is the natural check: it is nearly as
+good as the supervised one and works for any name, not just the entities someone trained a probe for.

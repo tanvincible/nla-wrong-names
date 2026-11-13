@@ -1,0 +1,76 @@
+\chapter{Introduction}
+\label{ch:intro}
+
+\section{Motivation}
+
+A natural language autoencoder (NLA) takes one activation vector from inside a language model and writes a
+short paragraph describing what that vector contains~\cite{frasertaliente2026nla}. A second model reads the
+paragraph and tries to rebuild the vector. If the rebuilt vector is close to the original, the paragraph must
+have carried most of the information, so it can be read as an explanation of the activation. The appeal is
+obvious: instead of a list of feature numbers, you get English.
+
+The trouble is that English is persuasive. Here is a passage from Wikipedia, and what the released NLA for
+Qwen2.5-7B wrote about the activation one token after the word \emph{cello}:
+
+\begin{sample}{Passage (the model has read up to ``son'')}
+\ldots It has since performed at the Wigmore Hall in London, and in many countries worldwide. A recording of
+the \true{cello} son$|$atas of Antonio Vivaldi \ldots
+\end{sample}
+
+\begin{sample}{Explanation written by the NLA}
+Biographical music description format with British classical composer context \ldots\ Final token ``son'' is
+a truncated word mid-expression (``the \wrong{piano} son''), part of a noun phrase listing the completed
+work's content (``the \wrong{piano} sonatas''), strongly expecting ``atas'' \ldots
+\end{sample}
+
+Most of this is right. The explanation knows the text is about classical music in a British setting, it
+knows the current word is the first half of ``sonatas'', and it knows which letters come next.
+The one thing it gets wrong is the specific: the instrument was a cello, and the explanation says piano, twice,
+with no hint of doubt. A reader who trusts the explanation walks away believing the model was thinking about a
+piano.
+
+This report is about that failure. I call the cello a \emph{specific}: a named entity that is really in the
+text. The gist (classical music, a recording, sonatas) survives the round trip through language. The
+specific often does not, and what replaces it is a confident wrong name of the same kind.
+
+\section{Question}
+
+I ask one narrow question and try to answer it carefully:
+
+\begin{quote}
+When an NLA explanation names an entity, how often is the name wrong, why does that happen, and what removes
+the wrong names?
+\end{quote}
+
+Each part needs its own kind of evidence: \emph{how often} is a measurement on real text against a baseline,
+\emph{why} needs an intervention, and \emph{what removes them} is a comparison between a cheap fix at
+inference time and a costlier one by fine-tuning.
+
+\section{Contributions}
+
+Working with the released Qwen2.5-7B NLA and 6{,}000 Wikipedia passages about 60 entities, I find four things.
+
+\begin{enumerate}
+\item \textbf{Specifics fade from the explanation faster than from the activation.} At the entity's own token
+the explanation names it essentially every time. Sixteen tokens later it names it 7.5\% of the time, while a
+linear probe on the same activations still reads it 35\% of the time. Over the same stretch, between a fifth
+and a half of all explanations contain a wrong name of the same type (Chapter~\ref{ch:fading}).
+
+\item \textbf{The training objective barely notices a wrong name.} Editing the wrong names out of an
+explanation changes the reconstruction score by about 0.002 per name. Editing the true name out costs 0.21 at
+the entity's token and 0.016 one token later (Chapter~\ref{ch:incentives}).
+
+\item \textbf{Agreement between samples separates right from wrong.} A name that appears in only one of four
+sampled explanations is right 6\% of the time; a name that appears in all four is right 64\% of the time.
+Keeping only names that at least two samples agree on removes 74\% of the wrong names and keeps 77\% of the
+true ones, with no training and no access to labels (Chapter~\ref{ch:agreement}).
+
+\item \textbf{Fine-tuning on that signal helps, a little.} Rewarding explanations whose names the other
+samples support cuts wrong names by about 8\% on held-out passages without losing true names. Rewarding
+reconstruction alone, or a contrastive version of it, changes nothing.
+\end{enumerate}
+
+Along the way I found that the usage example published with the models reads activations one layer too early,
+which silently lowers reconstruction quality; Appendix~B documents the bug and the check that confirmed the
+fix. All code, explanations, tables and fine-tuned adapters are released, and every table in this report is
+generated from saved outputs by one command.

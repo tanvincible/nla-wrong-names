@@ -1,0 +1,20 @@
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+
+A natural language autoencoder (NLA) explains an activation inside a language model by writing a paragraph
+about it, and is trained so that a second model can rebuild the activation from the paragraph. The
+explanations read well, but they sometimes name the wrong specific: a city, person or instrument that was
+never in the text. This report measures that failure on the released NLA for Qwen2.5-7B, using 6{,}000
+Wikipedia passages about 60 entities, and asks how often it happens, why, and what removes it.
+
+Four findings come out. First, specifics fade from the explanation faster than from the activation: sixteen
+tokens after an entity, the explanation names it 7.5\% of the time while a linear probe still reads it 35\%
+of the time, and 22\% of explanations contain a wrong name of the same type. Second, the training objective
+barely notices: editing a wrong name out changes the reconstruction cosine by about 0.002. Third, agreement
+between sampled explanations separates true names from wrong ones; keeping only names that two of four
+samples share removes 74\% of wrong names and keeps 77\% of true ones, with no training. Fourth, fine-tuning
+the verbalizer to prefer names its other samples support cuts wrong names by a further 8\% on held-out
+passages, while fine-tuning on reconstruction alone changes nothing.
+
+The practical advice is simple: do not trust a name in a single NLA explanation, sample several and keep
+what they agree on.

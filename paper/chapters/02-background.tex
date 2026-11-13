@@ -1,0 +1,93 @@
+\chapter{Background}
+\label{ch:background}
+
+\section{Autoencoders}
+
+An autoencoder is a pair of functions trained together: an encoder that squeezes an input into a smaller
+code, and a decoder that rebuilds the input from the code~\cite{hinton2006reducing}. Nothing tells the
+encoder what the code should mean. The only pressure is that the decoder has to succeed, so the code ends up
+holding whatever the decoder needs most.
+
+That last sentence is the key to this whole report. An autoencoder keeps what helps reconstruction and is
+indifferent to everything else. If two different inputs can be rebuilt almost equally well from the same
+code, the encoder has no reason to tell them apart.
+
+\section{NLA Design}
+
+A natural language autoencoder~\cite{frasertaliente2026nla} is an autoencoder whose input is an activation
+vector from a language model and whose code is a paragraph of English. Figure~\ref{fig:nla} shows the three
+models involved.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[
+  box/.style={draw, rounded corners=3pt, minimum height=1.0cm, minimum width=2.9cm, align=center, font=\small},
+  data/.style={align=center, font=\small},
+  arr/.style={-{Stealth[length=2.2mm]}, thick}]
+\node[box] (target) {Target model\\(frozen)};
+\node[data, left=0.6cm of target] (text) {passage};
+\node[data, right=0.9cm of target] (h) {activation\\$h \in \mathbb{R}^{3584}$};
+\node[box, right=0.9cm of h] (av) {Verbalizer};
+\node[box, below=1.1cm of av] (ar) {Reconstructor};
+\node[data, right=0.9cm of ar] (z) {explanation $z$\\(text)};
+\node[data] (hh) at (h |- ar) {rebuilt\\activation $\hat h$};
+\draw[arr] (text) -- (target);
+\draw[arr] (target) -- (h);
+\draw[arr] (h) -- (av);
+\draw[arr] (av.east) -| (z.north);
+\draw[arr] (z) -- (ar);
+\draw[arr] (ar) -- (hh);
+\draw[{Stealth[length=2mm]}-{Stealth[length=2mm]}, dashed] (h) -- node[left, font=\small]{$\cos(h,\hat h)$} (hh);
+\end{tikzpicture}
+\caption[The three models in a natural language autoencoder]{The three models in a natural language
+autoencoder. The target model reads a passage; one activation $h$ is taken from its residual stream. The
+verbalizer turns $h$ into text, and the reconstructor turns the text back into a vector. Training rewards a
+high cosine between $h$ and $\hat h$.}
+\label{fig:nla}
+\end{figure}
+
+\begin{description}
+\item[Target model.] The model being explained. Here it is Qwen2.5-7B-Instruct~\cite{qwen25}, and the
+activation is the residual stream after block 20 of 28, a vector of 3{,}584 numbers at one token position.
+\item[Verbalizer.] A copy of the target model, fine-tuned to describe an activation. The vector is rescaled
+and placed into a fixed prompt as if it were the embedding of a single token; the verbalizer then writes an
+explanation, one token at a time. This is the encoder.
+\item[Reconstructor.] Another fine-tuned copy, cut off after the extraction layer, with a linear layer on
+top. It reads the explanation and outputs a vector. This is the decoder.
+\end{description}
+
+Both vectors are scaled to unit length before they are compared, so the reconstruction error is
+$2(1-\cos(h,\hat h))$: only the direction matters. I report the cosine throughout.
+
+The authors train in three stages. The reconstructor first learns to predict activations from text. The
+verbalizer first learns to imitate explanations that a large language model, called through an API, wrote
+for each position. Then the two are trained together: the verbalizer by reinforcement learning
+(GRPO~\cite{shao2024deepseekmath}), with the reconstruction score as its reward, and the reconstructor by
+ordinary regression on whatever the verbalizer writes. In this last stage the only reward is reconstruction.
+
+The explanations the released verbalizer writes have a steady three-part shape, visible in the example in
+Chapter~\ref{ch:intro}. The first paragraph gives the genre and topic of the text. The second quotes or
+paraphrases the sentence being read. The third describes the final token and lists what is expected next. I
+use this shape later, to ask whether wrong names sit in the part that describes the context or the part that
+predicts the continuation.
+
+\section{Specifics}
+
+By a \emph{specific} I mean a named entity that appears in the passage the target model read: a particular
+country, city, person, animal, food or instrument. An explanation can do three things with it.
+
+\begin{itemize}
+\item Name it. I call this a \emph{true name}.
+\item Name a different entity of the same type that is not in the passage, as with the piano above. I call
+this a \emph{wrong name}.
+\item Name nothing of that type, and describe the passage only in general terms.
+\end{itemize}
+
+The third option is not a failure. If the activation no longer holds the entity, the faithful thing to say
+is nothing. The failure this report studies is the second one, because a wrong name is indistinguishable from
+a true one to anyone reading the explanation without the passage in front of them.
+
+Specifics are the natural place to look for trouble. The gist of a passage (music, a biography, a list of
+recordings) is shared by thousands of training examples and moves the activation a long way, so the
+reconstructor depends on it and the verbalizer learns to report it. Which instrument it was moves the
+activation much less. Chapter~\ref{ch:incentives} measures exactly how much less.
