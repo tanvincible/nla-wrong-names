@@ -133,25 +133,28 @@ def all_names(text, typ):
     return out
 
 
-def name_spans(text, passage_text, entity):
-    """[(start, end, "true" | "wrong")] for every same-type name occurrence; names the passage contains are skipped."""
+def name_spans(text, passage_text, entity, with_name=False):
+    """[(start, end, "true" | "wrong")] for every same-type name occurrence; names the passage contains are skipped.
+    with_name=True adds the canonical name (the one claims() reports) as a fourth element."""
     from entities import _PAT
     typ = TYPE[entity]
     low = passage_text if typ in PROPER else passage_text.lower()
     mine = {f if typ in PROPER else f.lower() for f in forms(entity)}
-    spans = [(m.start(), m.end(), "true") for m in _PAT[entity].finditer(text)]
+    canon = _canon(typ)
+    spans = [(m.start(), m.end(), "true", entity) for m in _PAT[entity].finditer(text)]
     found = list(_matcher(typ)(text)) + [(m.start(), m.end(), e) for e in ENTITIES[typ] if e != entity
                                          for m in _PAT[e].finditer(text)]
     for a, b, n in found:
         parts = [n] + (n.split() if typ == "person" else [])
         if any(p in mine for p in parts) or any(re.search(r"\b" + re.escape(p), low) for p in parts):
             continue
-        spans.append((a, b, "wrong"))
+        hit = [canon[p] for p in parts if p in canon]
+        spans.append((a, b, "wrong", hit[0] if hit else n.split()[-1] if typ == "person" else n))
     out = []  # drop overlaps, longest first
     for sp in sorted(spans, key=lambda x: (x[0] - x[1], x[0])):
         if all(sp[1] <= o[0] or sp[0] >= o[1] for o in out):
             out.append(sp)
-    return sorted(out)
+    return sorted(out) if with_name else sorted(sp[:3] for sp in out)
 
 
 GENERIC_NOUN = {"country": ("country", "countries"), "city": ("city", "cities"), "person": ("person", "people"),

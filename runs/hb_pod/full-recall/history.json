@@ -1,0 +1,65 @@
+[
+ {
+  "round": 0,
+  "cosine_all": 0.8928642272949219,
+  "cosine_kept": 0.8986933827400208,
+  "score_all": 0.9045655131340027,
+  "score_kept": 0.9224417805671692,
+  "unsupported_names_all": 1.061170220375061,
+  "unsupported_names_kept": 0.41301625967025757,
+  "true_name_rate_all": 0.44626095118898623,
+  "true_name_rate_kept": 0.5575719649561952,
+  "wrong_names_per_explanation_all": 0.7076032540675845,
+  "wrong_names_per_explanation_kept": 0.4568210262828536,
+  "similarity_between_samples": 0.3199847631700067,
+  "identical_sample_pairs": 0.0,
+  "length_chars_all": 703.8419117647059,
+  "length_chars_kept": 704.886733416771
+ },
+ {
+  "round": 1,
+  "cosine_all": 0.8930137157440186,
+  "cosine_kept": 0.8991126418113708,
+  "score_all": 0.9056037664413452,
+  "score_kept": 0.923605740070343,
+  "unsupported_names_all": 0.9723091125488281,
+  "unsupported_names_kept": 0.3729662001132965,
+  "true_name_rate_all": 0.44626095118898623,
+  "true_name_rate_kept": 0.5644555694618273,
+  "wrong_names_per_explanation_all": 0.6889862327909887,
+  "wrong_names_per_explanation_kept": 0.49624530663329164,
+  "similarity_between_samples": 0.32060034145089583,
+  "identical_sample_pairs": 0.0,
+  "length_chars_all": 702.1141270337922,
+  "length_chars_kept": 702.6420525657071,
+  "train": {
+   "first_loss": 1.0017684698104858,
+   "last_loss": 0.9002826809883118,
+   "mean_loss": 0.9818403333425522,
+   "steps": 200
+  }
+ },
+ {
+  "round": 2,
+  "cosine_all": 0.8932898640632629,
+  "cosine_kept": 0.8991993069648743,
+  "score_all": 0.906151294708252,
+  "score_kept": 0.9235861301422119,
+  "unsupported_names_all": 0.9565081596374512,
+  "unsupported_names_kept": 0.336670845746994,
+  "true_name_rate_all": 0.4485294117647059,
+  "true_name_rate_kept": 0.5550688360450563,
+  "wrong_names_per_explanation_all": 0.7004849812265331,
+  "wrong_names_per_explanation_kept": 0.47684605757196497,
+  "similarity_between_samples": 0.3232713967991484,
+  "identical_sample_pairs": 0.0,
+  "length_chars_all": 703.2302878598248,
+  "length_chars_kept": 703.4637046307885,
+  "train": {
+   "first_loss": 0.9647992849349976,
+   "last_loss": 0.8550062775611877,
+   "mean_loss": 0.9685059171915055,
+   "steps": 200
+  }
+ }
+]

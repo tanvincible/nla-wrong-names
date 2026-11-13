@@ -26,5 +26,6 @@
  "epochs": 1,
  "beta": 0.05,
  "holdout": 2,
+ "score_workers": 7,
  "tag": "full"
 }

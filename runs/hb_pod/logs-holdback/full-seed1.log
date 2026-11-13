@@ -1,0 +1,43 @@
+12:55:49 arm holdback: 2000 activations x K=8 x 3 round(s) -> /workspace/project/runs/hb/seed1-holdback
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 1335.95it/s]
+Fetching 18 files:   0%|          | 0/18 [00:00<?, ?it/s]Fetching 18 files: 100%|██████████| 18/18 [00:00<00:00, 1333.64it/s]
+12:56:10 loading Qwen/Qwen2.5-7B-Instruct on cuda
+Fetching 14 files:   0%|          | 0/14 [00:00<?, ?it/s]Fetching 14 files: 100%|██████████| 14/14 [00:00<00:00, 1953.24it/s]
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:02,  1.48it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.51it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:03<00:01,  1.16s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.06it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.08it/s]
+12:56:15 extract 0/6000 sequences
+12:56:17 extract 200/6000 sequences
+12:56:19 extract 400/6000 sequences
+12:56:21 extract 600/6000 sequences
+12:56:23 extract 800/6000 sequences
+12:56:25 extract 1000/6000 sequences
+12:56:27 extract 1200/6000 sequences
+12:56:29 extract 1400/6000 sequences
+12:56:31 extract 1600/6000 sequences
+12:56:33 extract 1800/6000 sequences
+12:56:35 extract 2000/6000 sequences
+12:56:37 extract 2200/6000 sequences
+12:56:39 extract 2400/6000 sequences
+12:56:42 extract 2600/6000 sequences
+12:56:44 extract 2800/6000 sequences
+12:56:47 extract 3000/6000 sequences
+12:56:49 extract 3200/6000 sequences
+12:56:52 extract 3400/6000 sequences
+12:56:55 extract 3600/6000 sequences
+12:56:58 extract 3800/6000 sequences
+12:57:01 extract 4000/6000 sequences
+12:57:04 extract 4200/6000 sequences
+12:57:07 extract 4400/6000 sequences
+12:57:10 extract 4600/6000 sequences
+12:57:14 extract 4800/6000 sequences
+12:57:17 extract 5000/6000 sequences
+12:57:21 extract 5200/6000 sequences
+12:57:25 extract 5400/6000 sequences
+12:57:30 extract 5600/6000 sequences
+12:57:34 extract 5800/6000 sequences
+12:57:42 twins: mean cosine with the original 0.900 (min 0.382, max 1.000)
+12:57:42 stage data: 113.7s
+12:58:00 loading kitft/nla-qwen2.5-7b-L20-av on cuda
+Fetching 18 files:   0%|          | 0/18 [00:00<?, ?it/s]Fetching 18 files: 100%|██████████| 18/18 [00:00<00:00, 1799.36it/s]
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:02,  1.05it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.03it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:02<00:00,  1.10it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  1.58it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  1.34it/s]
