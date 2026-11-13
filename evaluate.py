@@ -2,7 +2,7 @@
 
     python evaluate.py released                              the released verbalizer
     python evaluate.py runs/finetune/holdback-holdback/round2/adapter
-    options: --passages 540 (default; the seeded step 4 set) or a smaller number, --name <label>
+    options: --passages 540 (default; the same passages the main measurements use) or a smaller number, --name <label>
 
 For each test passage at 0, 1, 4 and 16 tokens after the entity: 4 explanations. Reported per distance:
 wrong names per explanation, share with at least one wrong name, true-name rate, mean cosine, plus the two
@@ -45,7 +45,7 @@ def main(argv=None):
     by_e = defaultdict(list)
     for i in test:
         by_e[passages[i]["entity"]].append(i)
-    chosen = [i for e in by_e for i in by_e[e][:NLA_CFG["per_entity"]]]  # the same 540 as step 4
+    chosen = [i for e in by_e for i in by_e[e][:NLA_CFG["per_entity"]]]  # the same 540 as the main measurements
     if a.passages < len(chosen):
         chosen = sorted(random.Random(0).sample(chosen, a.passages))
     rows = [(i, d) for d in EVAL_DISTS for i in chosen]
@@ -55,12 +55,12 @@ def main(argv=None):
     sf = out / f"{tag}-samples.json"
     if not sf.exists():
         have = {}
-        if released:  # reuse the step 4 explanations where they exist
+        if released:  # reuse the saved explanations where they exist
             for f in sorted(FADE2.glob(f"nla-{cfg_hash(NLA_CFG)}*.jsonl")):
                 for j in map(json.loads, f.read_text().splitlines()):
                     have[(j["i"], j["d"])] = j["samples"]
         if all(r in have for r in rows):
-            log(f"eval {name}: reusing the step 4 explanations for all {len(rows)} activations")
+            log(f"eval {name}: reusing the saved explanations for all {len(rows)} activations")
             samples = [have[r] for r in rows]
         else:
             t0 = time.time()

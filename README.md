@@ -97,7 +97,7 @@ and `kitft/nla-qwen2.5-7b-L20-ar`.
 
 ## Other folders
 
-- `infra/` holds the Kaggle job that generated the explanations and two shell scripts for rented GPUs. None
+- `infra/` holds the Kaggle job that generated the explanations (`infra/kaggle/kernel/generate_explanations.py`) and two shell scripts for rented GPUs. None
   of it is needed to check the results.
 - `data/words.txt` is a word list used by the name detector.
 

@@ -1,6 +1,6 @@
 """Does the reconstruction score pay for wrong names? A check on existing explanations (natural text).
 
-Take step 4 explanations at distances 0 and 1 that name the true entity AND give at least one wrong same-type
+Take saved explanations at distances 0 and 1 that name the true entity AND give at least one wrong same-type
 name in the part describing the context (cleaned detector). Make two edited copies of each:
   (a) every wrong same-type name replaced by "another <type>"      (wrong names removed)
   (b) control: every mention of the TRUE name replaced the same way (wrong names left in)

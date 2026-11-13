@@ -92,7 +92,7 @@ def save(fig, name):
 
 # ------------------------------------------------------------------ chapter 4: fading
 def fading():
-    fade = md_table("analysis/fade_curve.md", "### Steps 2 and 3")
+    fade = md_table("analysis/fade_curve.md", "### Reading the entity")
     write("fade", ["Tokens after entity", "Concept-vector readout", "Trained probe"],
           [[r[0], pct(r[1]), pct(r[2])] for r in fade], "cll")
 
@@ -175,10 +175,10 @@ def agreement():
     write("filter-full", ["Tokens after entity", "Keep a name if given by", "Wrong names removed", "True names kept", "Precision",
                           "Names left"], [[r[0].replace(" pooled", "")] + frow(r) for r in E], "llllll")
 
-    V = md_table("analysis/fade_curve.md", "### Step 4: can a verifier")
+    V = md_table("analysis/fade_curve.md", "### Can a verifier")
     auc = {(r[0], r[1]): r[6] for r in V}
     write("verifiers", ["Tokens after entity", "Concept vectors", "Probe directions", "Agreement count"],
-          [[d, num(auc[(d, "readout A")], 2), num(auc[(d, "trained probe")], 2), num(D[d][5], 2)] for d in ["0", "1", "4", "16"]], "clll")
+          [[d, num(auc[(d, "concept vectors")], 2), num(auc[(d, "trained probe")], 2), num(D[d][5], 2)] for d in ["0", "1", "4", "16"]], "clll")
 
     fig, ax = plt.subplots(figsize=(4.6, 3.0))
     vals = [ci(D["1, 4 and 16 pooled"][k]) for k in (1, 2, 3, 4)]

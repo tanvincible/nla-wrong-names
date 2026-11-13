@@ -1,10 +1,10 @@
 Passages: 6000 (3360 fit, 840 validation, 1800 test), 60 entities, 100 per entity (every entity capped at the same count). All natural text.
 
-### Steps 2 and 3: top-1 accuracy among the 10 same-type entities (natural, test passages, chance 0.10)
+### Reading the entity from the activation: top-1 accuracy among the 10 same-type entities (natural, test passages, chance 0.10)
 
 Probe: logistic regression, C chosen on validation from [1e-05, 0.0001, 0.001, 0.01, 0.1, 1.0, 10.0, 100.0, 1000.0] per distance and type, refit on fit+validation.
 
-| tokens after entity | readout A (concept vectors) | trained probe (swept) | C chosen per type |
+| tokens after entity | concept vectors | trained probe | C chosen per type |
 |---|---|---|---|
 | 0 | 0.491 [0.421, 0.562] | 0.999 [0.997, 1.000] | 1e-05, 0.001, 0.01, 0.001, 0.001, 0.001 |
 | 1 | 0.302 [0.251, 0.355] | 0.592 [0.553, 0.630] | 10, 0.1, 10, 10, 0.1, 10 |
@@ -13,11 +13,11 @@ Probe: logistic regression, C chosen on validation from [1e-05, 0.0001, 0.001, 0
 | 8 | 0.228 [0.185, 0.274] | 0.362 [0.317, 0.408] | 0.01, 0.001, 0.001, 1e-05, 1e-05, 1e-05 |
 | 16 | 0.224 [0.187, 0.265] | 0.312 [0.269, 0.359] | 0.001, 0.01, 1e-05, 1e-05, 0.0001, 0.001 |
 
-**Prediction, stated before the step 4 results.** If the verbalizer names the true entity at distances 4 and 16 much more often than the probe's top-1 accuracy there, the fade is a limitation of the probe, not a property of the activation. If it names the true entity no more often than the probe reads it, and its same-type confabulations rise as the probe falls, the fade is real and the verbalizer is guessing.
+**Prediction, stated before the explanations were generated.** If the verbalizer names the true entity at distances 4 and 16 much more often than the probe's top-1 accuracy there, the fade is a limitation of the probe, not a property of the activation. If it names the true entity no more often than the probe reads it, and its same-type confabulations rise as the probe falls, the fade is real and the verbalizer is guessing.
 
 2160 activations, 8640 explanations.
 
-### Step 4: what the verbalizer names, narrow detection (natural, test passages)
+### What the verbalizer names, narrow detection (natural, test passages)
 
 Wrong name = one of the 9 other listed entities of the type.
 
@@ -28,7 +28,7 @@ Wrong name = one of the 9 other listed entities of the type.
 | 4 | 0.217 [0.182, 0.252] | 0.075 [0.054, 0.099] | 0.707 [0.673, 0.742] | 469 / 163 / 1528 |
 | 16 | 0.075 [0.054, 0.098] | 0.048 [0.035, 0.062] | 0.877 [0.852, 0.902] | 161 / 104 / 1895 |
 
-### Step 4: what the verbalizer names, broad detection (natural, test passages)
+### What the verbalizer names, broad detection (natural, test passages)
 
 Wrong name = any same-type entity (all countries, large cities, any person, wordnet animals/foods/instruments) that is not the true one and does not occur in the passage.
 
@@ -39,7 +39,7 @@ Wrong name = any same-type entity (all countries, large cities, any person, word
 | 4 | 0.217 [0.182, 0.252] | 0.235 [0.198, 0.272] | 0.548 [0.503, 0.593] | 469 / 507 / 1184 |
 | 16 | 0.075 [0.054, 0.098] | 0.200 [0.167, 0.236] | 0.725 [0.685, 0.763] | 161 / 432 / 1567 |
 
-### Step 4: like-for-like with the probe (natural)
+### Verbalizer against the probe when it names something (natural)
 
 The probe is forced to pick one of 10. The comparable verbalizer number is: among explanations that name some entity of the right type, the share that name the true one.
 
@@ -50,24 +50,24 @@ The probe is forced to pick one of 10. The comparable verbalizer number is: amon
 | 4 | 0.396 [0.354, 0.438] | 0.742 [0.666, 0.813] (632) | 0.481 [0.417, 0.544] (976) |
 | 16 | 0.312 [0.269, 0.359] | 0.608 [0.498, 0.708] (265) | 0.272 [0.204, 0.342] (593) |
 
-### Step 4: can a verifier separate true from false claims? (natural)
+### Can a verifier separate true from false claims? (natural)
 
-A claim is any same-type entity an explanation names. It passes if the activation scores the claimed entity above the 9 others. Scored two ways: readout A (concept vectors) and the trained probe.
+A claim is any same-type entity an explanation names. It passes if the activation scores the claimed entity above the 9 others. Scored two ways: by the concept vectors and by the trained probe.
 
 | tokens after entity | scorer | true claims | pass rate, true (Wilson) | false claims | pass rate, false (Wilson) | AUC (bootstrap over entities) |
 |---|---|---|---|---|---|---|
-| all | readout A | 3950 | 0.451 [0.435, 0.466] | 1459 | 0.143 [0.126, 0.162] | 0.723 [0.674, 0.766] |
+| all | concept vectors | 3950 | 0.451 [0.435, 0.466] | 1459 | 0.143 [0.126, 0.162] | 0.723 [0.674, 0.766] |
 | all | trained probe | 3950 | 0.870 [0.859, 0.880] | 1459 | 0.108 [0.093, 0.125] | 0.931 [0.912, 0.949] |
-| 0 | readout A | 2159 | 0.508 [0.487, 0.529] | 413 | 0.082 [0.060, 0.113] | 0.790 [0.737, 0.841] |
+| 0 | concept vectors | 2159 | 0.508 [0.487, 0.529] | 413 | 0.082 [0.060, 0.113] | 0.790 [0.737, 0.841] |
 | 0 | trained probe | 2159 | 1.000 [0.998, 1.000] | 413 | 0.000 [0.000, 0.009] | 1.000 [1.000, 1.000] |
-| 1 | readout A | 1161 | 0.369 [0.341, 0.397] | 648 | 0.156 [0.130, 0.186] | 0.688 [0.626, 0.744] |
+| 1 | concept vectors | 1161 | 0.369 [0.341, 0.397] | 648 | 0.156 [0.130, 0.186] | 0.688 [0.626, 0.744] |
 | 1 | trained probe | 1161 | 0.774 [0.749, 0.797] | 648 | 0.117 [0.095, 0.144] | 0.896 [0.865, 0.924] |
-| 4 | readout A | 469 | 0.422 [0.378, 0.467] | 267 | 0.206 [0.162, 0.259] | 0.655 [0.570, 0.733] |
+| 4 | concept vectors | 469 | 0.422 [0.378, 0.467] | 267 | 0.206 [0.162, 0.259] | 0.655 [0.570, 0.733] |
 | 4 | trained probe | 469 | 0.629 [0.584, 0.672] | 267 | 0.202 [0.158, 0.254] | 0.764 [0.685, 0.836] |
-| 16 | readout A | 161 | 0.366 [0.296, 0.443] | 131 | 0.145 [0.095, 0.215] | 0.651 [0.538, 0.759] |
+| 16 | concept vectors | 161 | 0.366 [0.296, 0.443] | 131 | 0.145 [0.095, 0.215] | 0.651 [0.538, 0.759] |
 | 16 | trained probe | 161 | 0.509 [0.433, 0.585] | 131 | 0.206 [0.146, 0.283] | 0.703 [0.609, 0.784] |
 
-### Step 4: 10 random explanations per distance (natural)
+### Ten random explanations per distance (natural)
 
 #### 0 tokens after the entity
 

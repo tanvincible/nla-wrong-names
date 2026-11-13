@@ -1,4 +1,4 @@
-"""Step 1: check the Mac pipeline against the Kaggle run, measured exactly the way that run measured it.
+"""Check that this pipeline reproduces known reconstruction quality, measured the way an earlier reference run measured it.
 
 Kaggle reference: nla_injection_pilot.py, condition C0_none (2x T4, fp16): mean cosine 0.907,
 mean fve_nrm 0.747, mean |h| 111.3. Its recipe, repeated here:
@@ -184,7 +184,7 @@ if __name__ == "__main__":
     print(f"\n== verdict on the Kaggle recipe: {'PASS' if ok else 'FAIL'} "
           f"(needs cosine >= 0.89 and |h| within 3% of {KAGGLE['norm']})")
     if not ok:
-        raise SystemExit("step 1 failed: stop and debug before anything else")
+        raise SystemExit("pipeline check failed: stop and debug before anything else")
 
     if "--throughput" not in sys.argv:
         raise SystemExit

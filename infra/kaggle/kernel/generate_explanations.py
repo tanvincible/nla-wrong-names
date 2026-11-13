@@ -1,12 +1,12 @@
 """Kaggle job (GPU T4 x2, internet on, private):
 
   1. verify_pipeline.py: the exact Kaggle-recipe pipeline check. If it fails, stop before spending the long run.
-  2. Step 4: the released verbalizer explains the Mac-extracted activations (540 test passages x 4 distances,
+  2. Generation: the released verbalizer explains the Mac-extracted activations (540 test passages x 4 distances,
      4 samples each), so it explains exactly the activations the probe was scored on.
 
 The verbalizer runs in fp16 here (a T4 has no bf16), split across the two GPUs; the activations it reads were
 extracted on the Mac in bf16. Explanations are appended to live-*.jsonl after every batch of 32.
-Input: the private dataset holding step4_input-*.pt, the project .py files and the neutral-passage file.
+Input: the private dataset holding generation_input-*.pt, the project .py files and the neutral-passage file.
 """
 import json
 import os
@@ -65,7 +65,7 @@ def assemble(live, rows, n, out):
 
 
 def main():
-    inp = next(Path("/kaggle/input").rglob("step4_input-*.pt"))
+    inp = next(Path("/kaggle/input").rglob("generation_input-*.pt"))
     tag = inp.stem.split("-", 1)[1]
     tmp, free = scratch_dir()
     os.environ.update(HF_HOME=str(tmp / "hf"), NLA_DTYPE="float16", NLA_DEVICE_MAP="balanced", NLA_BATCH="32",
@@ -106,16 +106,16 @@ def main():
     for f in (PROJ / "runs" / "passages").glob("verify-*.pt"):
         shutil.copy(f, WORK)
     if v.returncode != 0:
-        raise SystemExit("verification failed: not starting step 4")
+        raise SystemExit("verification failed: not starting generation")
     for r in ("target", "ar"):  # only the verbalizer is needed from here on
         shutil.rmtree(tmp / "hf" / "hub" / ("models--" + REPOS[r].replace("/", "--")), ignore_errors=True)
 
-    # 2. step 4
+    # 2. generation
     from nla_local import DT, verbalize
     d = torch.load(inp)
     rows, n = [tuple(r) for r in d["rows"]], d["n"]
     live, out = WORK / f"live-{tag}.jsonl", WORK / f"nla-{tag}.jsonl"
-    say(f"step 4: {len(rows)} activations x {n} samples = {len(rows) * n} explanations, dtype {DT}, batch 32")
+    say(f"generation: {len(rows)} activations x {n} samples = {len(rows) * n} explanations, dtype {DT}, batch 32")
     t0 = time.time()
     try:
         verbalize(d["vectors"].float(), n=n, temperature=d["temperature"], batch=32, seed=0, live=str(live))
@@ -131,7 +131,7 @@ def main():
         if (PROJ / "runs" / "progress.log").exists():
             shutil.copy(PROJ / "runs" / "progress.log", WORK / "progress.log")
         shutil.rmtree(PROJ, ignore_errors=True)  # keep the saved output small
-        say(f"step 4 took {mins:.1f} min")
+        say(f"generation took {mins:.1f} min")
 
 
 if __name__ == "__main__":

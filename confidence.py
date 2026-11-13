@@ -4,7 +4,7 @@ Sampling four explanations and counting how many give a name costs four generati
 estimates the probability the verbalizer assigns to that name, one forward pass should do as well: every
 time it wrote a name, it gave that name's tokens a probability.
 
-    python confidence.py --score    GPU: run the 8,640 step 4 explanations back through the verbalizer and save
+    python confidence.py --score    GPU: run the 8,640 saved explanations back through the verbalizer and save
                               the log-probability it assigned to each of their tokens (runs/analysis/confidence-logp.pt)
     python confidence.py            CPU: score each name by the probability of its FIRST mention in ONE explanation
                               and compare with the agreement count; writes runs/analysis/confidence.md

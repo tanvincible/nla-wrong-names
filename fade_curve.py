@@ -1,17 +1,17 @@
-"""Steps 2-4 on the larger corpus, with a swept probe. Supersedes fade.py (which stays as the 30-per-entity run).
+"""How fast does a named entity fade from the activation, and what do the explanations name meanwhile?
 
-All results are NATURAL text (real Wikipedia passages); nothing is planted.
+All results are on natural text (real Wikipedia passages).
 
-  split     per entity: 30% test; of the rest, 20% validation and 80% fit
-  step 2    readout A: concept vectors ("Tell me about {x}." minus baseline mean), top-1 of the 10 same-type
-  step 3    10-way logistic-regression probe per distance and type; C chosen on validation from CS, then
-            refit on fit+validation and scored on test
-  step 4    verbalizer explanations (generated elsewhere, read from runs/analysis/nla-*.jsonl): names the true
-            entity / a different same-type entity / neither; then a verifier test on every same-type claim,
-            scored two ways: readout A's margin and the trained probe's margin
+  split            per entity: 30% test; of the rest, 20% validation and 80% fit
+  concept vectors  "Tell me about {x}." minus the mean over unrelated words; top-1 of the 10 same-type entities
+  probe            10-way logistic regression per distance and type; C chosen on validation from CS, then
+                   refit on fit+validation and scored on test
+  explanations     generated on a GPU (infra/kaggle) and read from runs/analysis/nla-*.jsonl: does each name
+                   the true entity, a different same-type entity, or neither; then a verifier test on every
+                   same-type claim, scored by the concept vectors and by the probe
 
-    python fade_curve.py            analysis (extracts activations on first run)
-    python fade_curve.py --export   also write runs/analysis/step4_input.pt for the generation job
+    python fade_curve.py            the analysis (extracts activations on the first run)
+    python fade_curve.py --export   also write runs/analysis/generation_input-*.pt for the generation job
 
 Intervals: bootstrap over entities (10k resamples); Wilson for plain proportions. Caches keyed by config hash.
 """
@@ -37,12 +37,12 @@ DISTS = [0, 1, 2, 4, 8, 16]
 CS = [1e-5, 1e-4, 1e-3, 1e-2, 1e-1, 1.0, 10.0, 100.0, 1000.0]  # widened: the first range hit both edges
 ACT_CFG = dict(passages=PASSAGES.name, dists=DISTS, baseline=BASELINE, prompt="Tell me about {}.")
 SPLIT = dict(seed=0, test_frac=0.3, val_frac=0.2)
-# step 4: test passages per entity, distances, samples per activation
+# explanations: test passages per entity, distances, samples per activation
 # The 9 are the first 9 of each entity's test list, whose order comes from the seeded shuffle in split():
-# fixed by seed before any step 4 output existed.
+# fixed by seed before any explanation was generated.
 NLA_CFG = dict(per_entity=9, dists=[0, 1, 4, 16], n=4, temperature=1.0, act=cfg_hash(ACT_CFG), split=SPLIT)
 PREDICTION = (
-    "**Prediction, stated before the step 4 results.** If the verbalizer names the true entity at distances 4 "
+    "**Prediction, stated before the explanations were generated.** If the verbalizer names the true entity at distances 4 "
     "and 16 much more often than the probe's top-1 accuracy there, the fade is a limitation of the probe, not a "
     "property of the activation. If it names the true entity no more often than the probe reads it, and its "
     "same-type confabulations rise as the probe falls, the fade is real and the verbalizer is guessing.")
@@ -139,7 +139,7 @@ def split(passages):
 
 
 def a_scores(h, mu, cv, typ):
-    """readout A: cosine of the centred activation with each same-type concept vector."""
+    """Concept-vector readout: cosine of the centred activation with each same-type concept vector."""
     return {e: cos(h - mu, cv[e]).item() for e in ENTITIES[typ]}
 
 
@@ -165,7 +165,7 @@ if __name__ == "__main__":
     lines = [f"Passages: {len(passages)} ({len(fit)} fit, {len(val)} validation, {len(test)} test), {len(n_per)} entities, "
              f"{cap} per entity (every entity capped at the same count). All natural text.\n"]
 
-    # ---- steps 2 and 3
+    # ---- what the activation holds
     A, P = [defaultdict(list) for _ in DISTS], [defaultdict(list) for _ in DISTS]
     probes, chosen_c = {}, defaultdict(list)
     X = H.numpy()
@@ -190,12 +190,12 @@ if __name__ == "__main__":
                 P[k][ent[i]].append(pred == ent[i])
         log(f"probe sweep done for distance {d}: chosen C per type {chosen_c[d]}")
     a_ci, p_ci = [boot_mean(x) for x in A], [boot_mean(x) for x in P]
-    lines += ["### Steps 2 and 3: top-1 accuracy among the 10 same-type entities (natural, test passages, chance 0.10)\n",
+    lines += ["### Reading the entity from the activation: top-1 accuracy among the 10 same-type entities (natural, test passages, chance 0.10)\n",
               f"Probe: logistic regression, C chosen on validation from {CS} per distance and type, refit on fit+validation.\n",
-              "| tokens after entity | readout A (concept vectors) | trained probe (swept) | C chosen per type |", "|---|---|---|---|"]
+              "| tokens after entity | concept vectors | trained probe | C chosen per type |", "|---|---|---|---|"]
     lines += [f"| {d} | {fmt(a)} | {fmt(p)} | {', '.join(f'{c:g}' for c in chosen_c[d])} |" for d, a, p in zip(DISTS, a_ci, p_ci)]
 
-    # ---- step 4 rows: the first per_entity test passages of each entity, at each distance
+    # ---- the activations that get explanations: the first per_entity test passages of each entity, at each distance
     by_e = defaultdict(list)
     for i in test:
         by_e[ent[i]].append(i)
@@ -204,8 +204,8 @@ if __name__ == "__main__":
     tag = cfg_hash(NLA_CFG)
     if "--export" in sys.argv:
         torch.save({"rows": rows, "n": NLA_CFG["n"], "temperature": NLA_CFG["temperature"],
-                    "vectors": torch.stack([H[i, DISTS.index(d)] for i, d in rows]).half()}, OUT / f"step4_input-{tag}.pt")
-        print(f"wrote step4_input-{tag}.pt: {len(rows)} activations x {NLA_CFG['n']} samples = {len(rows) * NLA_CFG['n']} explanations")
+                    "vectors": torch.stack([H[i, DISTS.index(d)] for i, d in rows]).half()}, OUT / f"generation_input-{tag}.pt")
+        print(f"wrote generation_input-{tag}.pt: {len(rows)} activations x {NLA_CFG['n']} samples = {len(rows) * NLA_CFG['n']} explanations")
     done = {}
     for f in sorted(OUT.glob(f"nla-{tag}*.jsonl")):
         for j in map(json.loads, f.read_text().splitlines()):
@@ -240,14 +240,14 @@ if __name__ == "__main__":
         for v, what in (("narrow", "wrong name = one of the 9 other listed entities of the type"),
                         ("broad", "wrong name = any same-type entity (all countries, large cities, any person, WordNet "
                                   "animals/foods/instruments) that is not the true one and does not occur in the passage")):
-            lines += [f"\n### Step 4: what the verbalizer names, {v} detection (natural, test passages)\n", f"{what.capitalize()}.\n",
+            lines += [f"\n### What the verbalizer names, {v} detection (natural, test passages)\n", f"{what.capitalize()}.\n",
                       "| tokens after entity | names the true entity | names a wrong same-type entity | names neither | counts (true / wrong / neither) |",
                       "|---|---|---|---|---|"]
             for d in counts:
                 c = {k: sum(map(sum, x.values())) for k, x in both[v][d].items()}
                 r = {k: fmt(boot_mean(x)) for k, x in both[v][d].items()}
                 lines.append(f"| {d} | {r['true']} | {r['other']} | {r['neither']} | {c['true']} / {c['other']} / {c['neither']} |")
-        lines += ["\n### Step 4: like-for-like with the probe (natural)\n",
+        lines += ["\n### Verbalizer against the probe when it names something (natural)\n",
                   "The probe is forced to pick one of 10. The comparable verbalizer number is: among explanations that "
                   "name some entity of the right type, the share that name the true one.\n",
                   "| tokens after entity | probe top-1 | verbalizer, narrow (n) | verbalizer, broad (n) |", "|---|---|---|---|"]
@@ -264,20 +264,20 @@ if __name__ == "__main__":
             ms = sorted(m for m in (auc([v for k in rng.choices(keys, k=len(keys)) for v in by[k]]) for _ in range(10000)) if m == m)
             return (auc([v for k in keys for v in by[k]]), ms[int(.025 * len(ms))], ms[int(.975 * len(ms)) - 1]) if ms else (float("nan"),) * 3
 
-        lines += ["\n### Step 4: can a verifier separate true from false claims? (natural)\n",
+        lines += ["\n### Can a verifier separate true from false claims? (natural)\n",
                   "A claim is any same-type entity an explanation names. It passes if the activation scores the claimed "
-                  "entity above the 9 others. Scored two ways: readout A (concept vectors) and the trained probe.\n",
+                  "entity above the 9 others. Scored two ways: by the concept vectors and by the trained probe.\n",
                   "| tokens after entity | scorer | true claims | pass rate, true (Wilson) | false claims | pass rate, false (Wilson) | AUC (bootstrap over entities) |",
                   "|---|---|---|---|---|---|---|"]
         for d in ["all"] + list(counts):
             sub = [c for c in claims if d == "all" or c[1] == d]
-            for name, col in (("readout A", 3), ("trained probe", 4)):
+            for name, col in (("concept vectors", 3), ("trained probe", 4)):
                 tp, fp = [c[col] > 0 for c in sub if c[2]], [c[col] > 0 for c in sub if not c[2]]
                 lines.append(f"| {d} | {name} | {len(tp)} | {fmt(wilson(sum(tp), len(tp)))} | {len(fp)} | "
                              f"{fmt(wilson(sum(fp), len(fp)))} | {fmt(auc_ci(sub, col))} |")
 
         rng = random.Random(0)
-        lines.append("\n### Step 4: 10 random explanations per distance (natural)\n")
+        lines.append("\n### Ten random explanations per distance (natural)\n")
         for d in counts:
             lines.append(f"#### {d} tokens after the entity\n")
             pool = [r for r in rows if r[1] == d]
@@ -299,7 +299,7 @@ if __name__ == "__main__":
         m, lo, hi = zip(*cis)
         ax.plot(pos, m, marker="o", label=label, **kw)
         ax.fill_between(pos, lo, hi, alpha=0.15, color=kw.get("color"))
-    draw(xs, a_ci, "readout A (concept vectors), top-1 of 10", color="tab:blue")
+    draw(xs, a_ci, "concept vectors, top-1 of 10", color="tab:blue")
     draw(xs, p_ci, "trained probe (swept), top-1 of 10", color="tab:green")
     if ci:
         pos = [DISTS.index(d) for d in ci]

@@ -1,4 +1,4 @@
-"""Further analyses of the 8,640 step 4 explanations (no new generation). All NATURAL text.
+"""What the 8,640 saved explanations name, and whether their samples agree (no new generation). Natural text.
 
   A  the three-bin table (true / wrong same-type / neither) with the current name detector
   B  non-exclusive rate: explanations containing at least one wrong same-type name, whatever else they say
