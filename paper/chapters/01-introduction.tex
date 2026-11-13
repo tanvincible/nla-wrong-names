@@ -35,8 +35,7 @@ specific often does not, and what replaces it is a confident wrong name of the s
 
 \section{Prior Work}
 
-\textbf{What exists.} Wrong specifics in NLA explanations are a known problem, and several groups have worked
-on it.
+Wrong specifics in NLA explanations are a known problem, and several groups have worked on it.
 
 \begin{itemize}
 \item \emph{The NLA authors} report it themselves~\cite{frasertaliente2026nla}: explanations are usually right
@@ -57,22 +56,6 @@ what an activation holds, and agreement between samples is a standard signal for
 ordinary generation~\cite{manakul2023selfcheckgpt,wang2023selfconsistency}.
 \end{itemize}
 
-\textbf{What is new here.} This report retrains nothing from scratch and needs no access to the source text
-at inference. Against the work above it adds four things, as far as I know:
-
-\begin{itemize}
-\item \emph{A fade curve with a ceiling.} The true name and the wrong names are tracked token by token after
-the entity, next to a probe on the same activations, so what the verbalizer drops can be separated from what
-the model no longer holds.
-\item \emph{A price for each kind of name.} The edit test puts a number on a wrong name and on the true name
-separately, and shows how fast the true name's value decays. This sharpens Dingeto's 2\% finding.
-\item \emph{Agreement as a filter, and where it comes from.} Agreement is measured across samples of one
-activation, with its precision--recall trade-off, and most of it is traced to token-level confidence that a
-single explanation already carries.
-\item \emph{Rewards as tests.} Small fine-tunes of the released verbalizer, using only that agreement signal,
-check whether its behaviour changes the way the incentive account predicts.
-\end{itemize}
-
 \section{Question}
 
 I ask one narrow question and try to answer it carefully:
@@ -89,28 +72,31 @@ training objective, more training on that objective should not remove them, and 
 
 \section{Contributions}
 
-Working with the released Qwen2.5-7B NLA and 6{,}000 Wikipedia passages about 60 entities, I find four things.
+Working with the released Qwen2.5-7B NLA and 6{,}000 Wikipedia passages about 60 entities, this report adds
+four things to the work above. As far as I know each is new. None of them retrains an NLA from scratch or
+needs the source text at inference.
 
 \begin{enumerate}
-\item \textbf{Specifics fade from the explanation faster than from the activation.} At the entity's own token
-the explanation names it essentially every time. Sixteen tokens later it names it 7.5\% of the time, while a
-linear probe on the same activations still reads it 35\% of the time. Over the same stretch, between a fifth
-and a half of all explanations contain a wrong name of the same type (Chapter~\ref{ch:fading}).
+\item \textbf{A fade curve with a ceiling.} Names are tracked token by token after the entity, next to a probe
+on the same activations, which separates what the verbalizer drops from what the model no longer holds.
+Sixteen tokens after the entity the explanation names it 7.5\% of the time while the probe still reads it
+35\% of the time, and between a fifth and a half of all explanations contain a wrong name of the same type
+(Chapter~\ref{ch:fading}).
 
-\item \textbf{The training objective barely notices a wrong name.} Editing the wrong names out of an
-explanation changes the reconstruction score by about 0.002 per name. Editing the true name out costs 0.21 at
-the entity's token and 0.016 one token later (Chapter~\ref{ch:incentives}).
+\item \textbf{A price for each kind of name.} Sharpening Dingeto's 2\% finding, an edit test prices wrong and
+true names separately. A wrong name is worth about 0.002 of reconstruction score. The true name is worth
+0.21 at the entity's token and 0.016 one token later (Chapter~\ref{ch:incentives}).
 
-\item \textbf{Agreement between samples separates right from wrong.} A name that appears in only one of four
-sampled explanations is right 6\% of the time; a name that appears in all four is right 64\% of the time.
-Keeping only names that at least two samples agree on removes 74\% of the wrong names and keeps 77\% of the
-true ones, with no training and no labels. Most of this signal is the verbalizer's own token-level
-confidence, which a single explanation already carries (Chapter~\ref{ch:agreement}).
+\item \textbf{Agreement as a filter, and where it comes from.} The NLA authors' observation about neighbouring
+tokens is applied to repeated samples of one activation and measured. A name in one of four samples is right
+6\% of the time; a name in all four, 64\%. Keeping names that two samples agree on removes 74\% of the wrong
+names and keeps 77\% of the true ones, with no training and no labels. Most of this signal is token-level
+confidence that a single explanation already carries (Chapter~\ref{ch:agreement}).
 
-\item \textbf{Changing the reward changes the behaviour, as predicted.} Fine-tuning on more reconstruction
-leaves wrong names untouched. Adding a cost on names the other samples do not support cuts them by 5 to 8\%
-on held-out passages, in two independent runs, without losing true names. Rewarding the true name does not bring it back
-(Chapter~\ref{ch:finetuning}).
+\item \textbf{Rewards as tests.} Small fine-tunes of the released verbalizer check the incentive account. More
+reconstruction leaves wrong names untouched. A cost on names the other samples do not support cuts them by
+5 to 8\% on held-out passages, in two independent runs, without losing true names. Rewarding the true name
+does not bring it back (Chapter~\ref{ch:finetuning}).
 \end{enumerate}
 
 Along the way I found that the usage example published with the models reads activations one layer too early,
