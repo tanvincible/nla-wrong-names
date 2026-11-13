@@ -29,6 +29,8 @@ from nla_inference import (  # noqa: E402
     EXPLANATION_RE, NLACritic, inject_at_marked_positions, load_nla_config, normalize_activation,
 )
 
+# a stage can return thousands of tensors; the default Linux strategy opens one file descriptor each
+torch.multiprocessing.set_sharing_strategy("file_system")
 DEV = "cuda" if torch.cuda.is_available() else "mps"
 # bf16 by default: Qwen's rare ~14k-norm activations can overflow fp16. A T4 has no bf16, so the Kaggle job
 # sets NLA_DTYPE=float16 and NLA_DEVICE_MAP=balanced (one 15 GB model split across its two GPUs).
@@ -118,10 +120,15 @@ def _extract_at(id_lists, positions, batch=8):
 
 @torch.inference_mode()
 def _verbalize(vectors, n=1, temperature=1.0, max_new_tokens=200, batch=int(os.environ.get("NLA_BATCH", 8)),
-               seed=0, live=None):
+               seed=0, live=None, adapter=None):
     """vectors [N, d] -> N lists of n sampled explanations. Batch b is seeded with seed + b. If `live` is a
-    path, every batch is appended to it as {"offset", "explanations"} so a crash loses nothing."""
+    path, every batch is appended to it as {"offset", "explanations"} so a crash loses nothing.
+    `adapter` is a LoRA checkpoint directory to apply on top of the released verbalizer."""
     path, tok, model = load(AV)
+    if adapter:
+        from peft import PeftModel
+        model = PeftModel.from_pretrained(model, adapter).merge_and_unload().eval()
+        log(f"applied adapter {adapter}")
     cfg = load_nla_config(path, tok)
     ids = tok.apply_chat_template(
         [{"role": "user", "content": cfg.actor_prompt_template.format(injection_char=cfg.injection_char)}],
