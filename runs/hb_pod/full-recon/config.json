@@ -1,0 +1,27 @@
+{
+ "arm": "recon",
+ "n_train": 2000,
+ "k": 8,
+ "rounds": 3,
+ "seed": 0,
+ "dists": [
+  0,
+  1,
+  4,
+  16
+ ],
+ "lam": 0.01,
+ "tau": 1.0,
+ "agreement_ref": "released",
+ "name_types": "all",
+ "negatives": "twins",
+ "lr": 0.0001,
+ "lora_r": 16,
+ "lora_alpha": 32,
+ "lora_dropout": 0.05,
+ "train_batch": 8,
+ "gen_batch": 128,
+ "ar_batch": 32,
+ "max_new_tokens": 200,
+ "tag": "full"
+}

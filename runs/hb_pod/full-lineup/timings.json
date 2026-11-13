@@ -1,0 +1,13 @@
+{
+ "data": 0.1,
+ "round0_score": 702.2,
+ "round0_train": 306.0,
+ "round1_sample": 1303.7,
+ "round1_reconstruct": 334.4,
+ "round1_score": 660.8,
+ "round1_train": 282.0,
+ "round2_sample": 1309.7,
+ "round2_reconstruct": 313.4,
+ "round2_score": 667.8,
+ "round2_train": 285.5
+}

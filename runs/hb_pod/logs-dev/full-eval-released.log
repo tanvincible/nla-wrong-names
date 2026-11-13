@@ -1,0 +1,42 @@
+07:59:32 eval released: reusing the step 4 explanations for all 2160 activations
+Fetching 18 files:   0%|          | 0/18 [00:00<?, ?it/s]Fetching 18 files: 100%|██████████| 18/18 [00:00<00:00, 2889.97it/s]
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00, 36.50it/s]
+Some weights of Qwen2ForCausalLM were not initialized from the model checkpoint at /workspace/hf/hub/models--kitft--nla-qwen2.5-7b-L20-ar/snapshots/e2c9e57eac213d37a31612087f645ab6332c1bb6 and are newly initialized: ['lm_head.weight', 'model.norm.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+[NLACritic] 21 layers  d_model=3584  mse_scale=59.87
+07:59:53 reconstructed 0/8640
+08:00:03 reconstructed 640/8640
+08:00:14 reconstructed 1280/8640
+08:00:24 reconstructed 1920/8640
+08:00:35 reconstructed 2560/8640
+08:00:45 reconstructed 3200/8640
+08:00:56 reconstructed 3840/8640
+08:01:07 reconstructed 4480/8640
+08:01:18 reconstructed 5120/8640
+08:01:28 reconstructed 5760/8640
+08:01:39 reconstructed 6400/8640
+08:01:50 reconstructed 7040/8640
+08:02:01 reconstructed 7680/8640
+08:02:12 reconstructed 8320/8640
+# released: 540 held-out test passages x 4 distances x 4 samples (natural text)
+
+| tokens after entity | wrong names per explanation | share with at least one wrong name | true-name rate | mean cosine | any same-type names per explanation | length (chars) |
+|---|---|---|---|---|---|---|
+| 0 | 0.719 [0.627, 0.813] | 0.453 [0.407, 0.499] | 1.000 [0.999, 1.000] | 0.900 [0.896, 0.904] | 1.876 [1.764, 1.992] | 704 |
+| 1 | 1.097 [0.954, 1.249] | 0.543 [0.495, 0.592] | 0.537 [0.483, 0.592] | 0.892 [0.888, 0.895] | 1.815 [1.636, 1.997] | 705 |
+| 4 | 0.517 [0.432, 0.605] | 0.326 [0.281, 0.373] | 0.217 [0.182, 0.252] | 0.891 [0.888, 0.895] | 0.868 [0.757, 0.982] | 695 |
+| 16 | 0.334 [0.268, 0.409] | 0.225 [0.190, 0.263] | 0.075 [0.054, 0.098] | 0.893 [0.890, 0.897] | 0.485 [0.405, 0.573] | 696 |
+
+With the filter "keep a name only if at least 2 of the 4 samples give it" applied to the same samples:
+
+| tokens after entity | wrong names per explanation | share with at least one wrong name | true-name rate |
+|---|---|---|---|
+| 0 | 0.387 [0.321, 0.454] | 0.289 [0.245, 0.334] | 1.000 [0.999, 1.000] |
+| 1 | 0.609 [0.508, 0.715] | 0.382 [0.334, 0.431] | 0.511 [0.454, 0.567] |
+| 4 | 0.232 [0.182, 0.283] | 0.177 [0.142, 0.212] | 0.193 [0.159, 0.227] |
+| 16 | 0.126 [0.099, 0.156] | 0.102 [0.081, 0.123] | 0.061 [0.041, 0.083] |
+
+Seconds per stage: {'reconstruct': 165.8, 'score_names': 122.3}. Intervals: bootstrap over entities (10k resamples).
+/usr/lib/python3.12/multiprocessing/resource_tracker.py:254: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '

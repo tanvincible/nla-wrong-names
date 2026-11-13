@@ -147,3 +147,103 @@
 02:22:22 probe sweep done for distance 4: chosen C per type [0.001, 0.1, 0.001, 0.001, 0.0001, 1.0]
 02:22:25 probe sweep done for distance 8: chosen C per type [0.01, 0.001, 0.001, 1e-05, 1e-05, 1e-05]
 02:22:27 probe sweep done for distance 16: chosen C per type [0.001, 0.01, 1e-05, 1e-05, 0.0001, 0.001]
+04:40:51 probe sweep done for distance 0: chosen C per type [1e-05, 0.001, 0.01, 0.001, 0.001, 0.001]
+04:40:55 probe sweep done for distance 1: chosen C per type [10.0, 0.1, 10.0, 10.0, 0.1, 10.0]
+04:40:58 probe sweep done for distance 2: chosen C per type [10.0, 0.1, 0.01, 0.1, 0.0001, 0.001]
+04:41:01 probe sweep done for distance 4: chosen C per type [0.001, 0.1, 0.001, 0.001, 0.0001, 1.0]
+04:41:04 probe sweep done for distance 8: chosen C per type [0.01, 0.001, 0.001, 1e-05, 1e-05, 1e-05]
+04:41:06 probe sweep done for distance 16: chosen C per type [0.001, 0.01, 1e-05, 1e-05, 0.0001, 0.001]
+05:33:36 reconstructed 1/3000 texts
+05:34:16 reconstructed 51/3000 texts
+05:34:47 reconstructed 101/3000 texts
+05:35:24 reconstructed 151/3000 texts
+05:36:01 reconstructed 201/3000 texts
+05:36:16 arm recon: 12 activations x K=4 x 2 round(s) -> /Users/tanvi/acads/cs787/project/runs/hb_dryrun/dry-recon
+05:36:20 twins: mean cosine with the original -0.004 (min -0.042, max 0.045)
+05:36:20 stage data: 3.9s
+05:36:20 stage round0_sample: 0.0s
+05:36:20 stage round0_reconstruct: 0.0s
+05:36:35 stage round0_score: 14.6s
+05:36:35 stage round0_train: 0.0s
+05:36:35 round 0 cosine_all=0.002, cosine_kept=0.017, score_all=0.002, score_kept=0.017, unsupported_names_all=1.000, unsupported_names_kept=1.000, true_name_rate_all=0.000, true_name_rate_kept=0.000, wrong_names_per_explanation_all=0.312, wrong_names_per_explanation_kept=0.250, similarity_between_samples=0.403, identical_sample_pairs=0.000, length_chars_all=43.854, length_chars_kept=43.250
+05:36:35 stage round1_sample: 0.0s
+05:36:35 stage round1_reconstruct: 0.0s
+05:36:35 stage round1_score: 0.7s
+05:36:35 stage round1_train: 0.0s
+05:36:35 round 1 cosine_all=0.001, cosine_kept=0.020, score_all=0.001, score_kept=0.020, unsupported_names_all=1.375, unsupported_names_kept=1.000, true_name_rate_all=0.021, true_name_rate_kept=0.000, wrong_names_per_explanation_all=0.271, wrong_names_per_explanation_kept=0.250, similarity_between_samples=0.425, identical_sample_pairs=0.000, length_chars_all=49.188, length_chars_kept=46.250
+05:36:35 arm holdback: 12 activations x K=4 x 2 round(s) -> /Users/tanvi/acads/cs787/project/runs/hb_dryrun/dry-holdback
+05:36:35 stage data: 0.0s
+05:36:35 stage round0_score: 0.1s
+05:36:35 stage round0_train: 0.0s
+05:36:35 round 0 cosine_all=0.002, cosine_kept=0.014, score_all=-0.008, score_kept=0.012, unsupported_names_all=1.000, unsupported_names_kept=0.250, true_name_rate_all=0.000, true_name_rate_kept=0.000, wrong_names_per_explanation_all=0.312, wrong_names_per_explanation_kept=0.167, similarity_between_samples=0.403, identical_sample_pairs=0.000, length_chars_all=43.854, length_chars_kept=38.083
+05:36:35 stage round1_sample: 0.0s
+05:36:35 stage round1_reconstruct: 0.0s
+05:36:37 stage round1_score: 1.3s
+05:36:37 stage round1_train: 0.0s
+05:36:37 round 1 cosine_all=-0.003, cosine_kept=0.012, score_all=-0.014, score_kept=0.009, unsupported_names_all=1.125, unsupported_names_kept=0.250, true_name_rate_all=0.000, true_name_rate_kept=0.000, wrong_names_per_explanation_all=0.271, wrong_names_per_explanation_kept=0.083, similarity_between_samples=0.292, identical_sample_pairs=0.000, length_chars_all=45.833, length_chars_kept=38.333
+05:36:37 arm lineup: 12 activations x K=4 x 2 round(s) -> /Users/tanvi/acads/cs787/project/runs/hb_dryrun/dry-lineup
+05:36:37 stage data: 0.0s
+05:36:37 stage round0_score: 0.1s
+05:36:37 stage round0_train: 0.0s
+05:36:37 round 0 cosine_all=0.002, cosine_kept=0.016, score_all=-1.385, score_kept=-1.370, unsupported_names_all=1.000, unsupported_names_kept=1.250, true_name_rate_all=0.000, true_name_rate_kept=0.000, wrong_names_per_explanation_all=0.312, wrong_names_per_explanation_kept=0.417, similarity_between_samples=0.403, identical_sample_pairs=0.000, length_chars_all=43.854, length_chars_kept=48.167
+05:36:37 stage round1_sample: 0.0s
+05:36:37 stage round1_reconstruct: 0.0s
+05:36:38 stage round1_score: 0.9s
+05:36:38 stage round1_train: 0.0s
+05:36:38 round 1 cosine_all=-0.002, cosine_kept=0.018, score_all=-1.387, score_kept=-1.370, unsupported_names_all=1.375, unsupported_names_kept=1.500, true_name_rate_all=0.042, true_name_rate_kept=0.083, wrong_names_per_explanation_all=0.396, wrong_names_per_explanation_kept=0.667, similarity_between_samples=0.308, identical_sample_pairs=0.000, length_chars_all=48.417, length_chars_kept=49.500
+05:36:41 eval released: reusing the step 4 explanations for all 24 activations
+05:36:44 reconstructed 251/3000 texts
+05:37:15 reconstructed 301/3000 texts
+05:37:44 reconstructed 351/3000 texts
+05:38:14 reconstructed 401/3000 texts
+05:38:45 reconstructed 451/3000 texts
+05:39:19 reconstructed 501/3000 texts
+05:39:50 reconstructed 551/3000 texts
+05:40:20 reconstructed 601/3000 texts
+05:40:50 reconstructed 651/3000 texts
+05:41:20 reconstructed 701/3000 texts
+05:41:54 reconstructed 751/3000 texts
+05:42:28 reconstructed 801/3000 texts
+05:43:06 reconstructed 851/3000 texts
+05:43:40 reconstructed 901/3000 texts
+05:44:12 reconstructed 951/3000 texts
+05:44:45 reconstructed 1001/3000 texts
+05:45:17 reconstructed 1051/3000 texts
+05:45:49 reconstructed 1101/3000 texts
+05:46:21 reconstructed 1151/3000 texts
+05:46:54 reconstructed 1201/3000 texts
+05:47:25 reconstructed 1251/3000 texts
+05:47:57 reconstructed 1301/3000 texts
+05:48:32 reconstructed 1351/3000 texts
+05:49:04 reconstructed 1401/3000 texts
+05:49:37 reconstructed 1451/3000 texts
+05:50:11 reconstructed 1501/3000 texts
+05:50:42 reconstructed 1551/3000 texts
+05:51:12 reconstructed 1601/3000 texts
+05:51:43 reconstructed 1651/3000 texts
+05:52:17 reconstructed 1701/3000 texts
+05:52:48 reconstructed 1751/3000 texts
+05:53:21 reconstructed 1801/3000 texts
+05:53:55 reconstructed 1851/3000 texts
+05:54:29 reconstructed 1901/3000 texts
+05:55:02 reconstructed 1951/3000 texts
+05:55:36 reconstructed 2001/3000 texts
+05:56:11 reconstructed 2051/3000 texts
+05:56:44 reconstructed 2101/3000 texts
+05:57:13 reconstructed 2151/3000 texts
+05:57:43 reconstructed 2201/3000 texts
+05:58:13 reconstructed 2251/3000 texts
+05:58:42 reconstructed 2301/3000 texts
+05:59:13 reconstructed 2351/3000 texts
+05:59:43 reconstructed 2401/3000 texts
+06:00:12 reconstructed 2451/3000 texts
+06:00:42 reconstructed 2501/3000 texts
+06:01:12 reconstructed 2551/3000 texts
+06:01:41 reconstructed 2601/3000 texts
+06:02:10 reconstructed 2651/3000 texts
+06:02:39 reconstructed 2701/3000 texts
+06:03:08 reconstructed 2751/3000 texts
+06:03:38 reconstructed 2801/3000 texts
+06:04:07 reconstructed 2851/3000 texts
+06:04:37 reconstructed 2901/3000 texts
+06:05:06 reconstructed 2951/3000 texts
