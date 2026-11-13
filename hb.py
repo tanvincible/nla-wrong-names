@@ -25,6 +25,7 @@ Every stage caches under runs/hb/<tag>/ and logs its seconds; rerunning resumes.
 """
 import argparse
 import json
+import multiprocessing as mp
 import random
 import time
 from collections import Counter
@@ -42,7 +43,7 @@ from nla_inference import NLACritic, inject_at_marked_positions, load_nla_config
 DEFAULT = dict(arm="recon", n_train=2000, k=8, rounds=3, seed=0, dists=[0, 1, 4, 16], lam=0.01, tau=1.0,
                agreement_ref="released", name_types="all", negatives="twins",
                lr=1e-4, lora_r=16, lora_alpha=32, lora_dropout=0.05, train_batch=8, gen_batch=32, ar_batch=32,
-               max_new_tokens=200, epochs=1, beta=0.05, holdout=0, tag="")
+               max_new_tokens=200, epochs=1, beta=0.05, holdout=0, score_workers=7, tag="")
 HB = RUNS / "hb"
 
 
@@ -199,18 +200,31 @@ def jaccard(a, b):
     return len(a & b) / max(1, len(a | b))
 
 
+def _score_row(job):
+    """One activation's K samples -> (unsupported-name count per sample, (names the true entity, wrong names) per sample)."""
+    it, row, refrow, same, agreement_ref, name_types = job
+    unsup = []
+    for s, z in enumerate(row):
+        # a sample is never counted as its own support: in round 0 the reference samples are the samples themselves
+        others = [r for o, r in enumerate(refrow) if not (same and o == s)] if agreement_ref == "released" else \
+                 [r for o, r in enumerate(row) if o != s]
+        support = Counter(n for o in others for n in names_of(o, it["type"], name_types))
+        unsup.append(sum(support[n] < 2 for n in names_of(z, it["type"], name_types)))
+    return unsup, [claims(z, it["text"], it["entity"]) for z in row]
+
+
 def score_round(cfg, data, samples, recs, ref):
     """-> (scores [N, K], stats). ref[j] = reference samples for activation j (from the released verbalizer)."""
     N, K = len(samples), len(samples[0])
     c = cos(recs.view(N, K, -1), data["h"][:, None])
-    unsup = torch.zeros(N, K)
-    for j, it in enumerate(data["items"]):
-        for s, z in enumerate(samples[j]):
-            others = [r for r in ref[j] if r is not z] if cfg["agreement_ref"] == "released" else \
-                     [samples[j][o] for o in range(K) if o != s]
-            support = Counter(n for o in others for n in names_of(o, it["type"], cfg["name_types"]))
-            unsup[j, s] = sum(support[n] < 2 for n in names_of(z, it["type"], cfg["name_types"]))
-    truth = [[claims(z, it["text"], it["entity"]) for z in samples[j]] for j, it in enumerate(data["items"])]
+    jobs = [({k: it[k] for k in ("type", "text", "entity")}, samples[j], ref[j], ref is samples, cfg["agreement_ref"],
+             cfg["name_types"]) for j, it in enumerate(data["items"])]
+    if cfg["score_workers"] > 1:  # name detection is the slow part and is independent per activation
+        with mp.get_context("spawn").Pool(cfg["score_workers"]) as pool:
+            rows = pool.map(_score_row, jobs, chunksize=16)
+    else:
+        rows = list(map(_score_row, jobs))
+    unsup, truth = torch.tensor([u for u, _ in rows], dtype=torch.float), [t for _, t in rows]
     if cfg["arm"] == "recon":
         score = c.clone()
     elif cfg["arm"] == "holdback":
