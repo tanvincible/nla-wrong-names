@@ -14,6 +14,7 @@ from huggingface_hub import hf_hub_download, snapshot_download
 MODEL = "tanvincible/nla-qwen2.5-7b-L20-av-specifics-lora"  # one folder per scoring rule
 DATA = "tanvincible/nla-specifics-artifacts"               # files at the same paths they have in this repo
 ADAPTERS = {"recon": "full-recon/round2", "holdback": "full-holdback/round2", "lineup": "full-lineup/round2",
+            "holdback-seed1": "seed1-holdback/round2",
             "holdback-5epochs": "ep5-holdback/round0", "recall": "full-recall/round2"}
 
 if __name__ == "__main__":

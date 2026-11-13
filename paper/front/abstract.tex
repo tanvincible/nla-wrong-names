@@ -15,7 +15,7 @@ between sampled explanations separates true names from wrong ones; keeping only 
 samples share removes 74\% of wrong names and keeps 77\% of true ones, with no training, and most of that
 signal is already present in one explanation's token probabilities. Fourth, the explanation survives
 intervention: fine-tuning on reconstruction alone changes nothing, a cost on unsupported names cuts wrong
-names by 8\% on held-out passages, and rewarding the true name does not bring it back.
+names by 5 to 8\% on held-out passages, and rewarding the true name does not bring it back.
 
 The practical advice is simple: trust the gist of an NLA explanation, and do not trust a name unless
 several samples agree on it.

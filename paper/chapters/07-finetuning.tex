@@ -59,7 +59,7 @@ entities. The released verbalizer has 0.667 wrong names per explanation and a tr
 \centering
 \includegraphics[width=0.92\linewidth]{arms}
 \caption[Only the penalty on unsupported names moves wrong names]{Only the penalty on unsupported names
-moves wrong names, and nothing moves true names. Change relative to the released verbalizer; lines are 95\%
+moves wrong names, in both runs, and nothing moves true names. Change relative to the released verbalizer; lines are 95\%
 intervals. Natural text, held-out passages.}
 \label{fig:arms}
 \end{figure}
@@ -71,8 +71,9 @@ names where they were ($-1.3\%$, interval spanning zero). Making reconstruction 
 not help either ($-0.5\%$).
 
 \textbf{A cost on unsupported names removes some of them.} Hold back cuts wrong names by 8.4\%, with an
-interval well clear of zero. The true-name rate, the reconstruction cosine and the length of the
-explanations are all unchanged, so the verbalizer has not simply learned to name less.
+interval well clear of zero. A second run from a different seed, with its own training passages and
+samples, cuts them by 5.1\%, again clear of zero. In both runs the true-name rate, the reconstruction cosine
+and the length of the explanations are unchanged, so the verbalizer has not simply learned to name less.
 
 \textbf{The specific cannot be coaxed back.} Rewarding the true name does not raise the true-name rate: $+0.2$
 points overall, and $-0.7$ points on the entities held out of training (Table~\ref{tab:keep}). The samples it
@@ -92,7 +93,7 @@ passages; 95\% intervals.}
 \section{Analysis}
 
 \textbf{Why the hold-back effect is small.} The samples chosen for training had 35\% fewer wrong names than
-average; the trained verbalizer writes 8\% fewer. Imitating a slightly better subset of one's own samples is
+average; the trained verbalizer writes 5 to 8\% fewer. Imitating a slightly better subset of one's own samples is
 a weak push, because the verbalizer already finds those samples likely. Training harder on the same samples
 does not help: five passes over the first round's choices fit them far more closely but gave a smaller
 held-out effect ($-6.5\%$), which is memorisation.
@@ -103,7 +104,7 @@ lucky draw does not. This fits Chapter~\ref{ch:fading}: at 16 tokens the informa
 real, but the verbalizer has no reliable way to reach it.
 
 \textbf{Filter or fine-tune?} Table~\ref{tab:combine} puts the two fixes side by side. The agreement filter
-alone removes 44 to 62\% of the wrong names, depending on distance. Hold back removes 7 to 11\%. Together
+alone removes 44 to 62\% of the wrong names, depending on distance. Hold back removes 5 to 8\% overall. Together
 they are only slightly better than the filter alone.
 
 \begin{table}[t]
@@ -111,8 +112,8 @@ they are only slightly better than the filter alone.
 \footnotesize
 \setlength{\tabcolsep}{4pt}
 \input{tables/combine}
-\caption[The filter and fine-tuning compared]{Wrong names per explanation with fine-tuning, with the
-two-of-four agreement filter, and with both. Natural text, held-out passages; 95\% intervals.}
+\caption[The filter and fine-tuning compared]{Wrong names per explanation with fine-tuning (the first hold-back run),
+with the two-of-four agreement filter, and with both. Natural text, held-out passages; 95\% intervals.}
 \label{tab:combine}
 \end{table}
 

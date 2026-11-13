@@ -204,7 +204,8 @@ def confidence():
 
 # ------------------------------------------------------------------ chapter 7: fine-tuning
 ARMS = [("Reconstruction", "full-recon-round2", "finetune/compare.md"), ("Lineup", "full-lineup-round2", "finetune/compare.md"),
-        ("Hold back", "full-holdback-round2", "finetune/compare.md"), ("Keep the specific", "full-recall-round2", "finetune/compare-holdout.md")]
+        ("Hold back", "full-holdback-round2", "finetune/compare.md"), ("Hold back, second run", "seed1-holdback-round2", "finetune/compare.md"),
+        ("Keep the specific", "full-recall-round2", "finetune/compare-holdout.md")]
 
 
 def signed(cell, scale=1, digits=3):
@@ -238,7 +239,7 @@ def finetuning():
             r[5].replace("%", "\\%"), signed(r[6], digits=1)]
            for d in ["0", "1", "4", "16"] for r in [rows[("Hold back", "full-holdback-round2", d)]]], "ccllcl")
 
-    fig, axes = plt.subplots(1, 2, figsize=(6.4, 2.3), sharey=True)
+    fig, axes = plt.subplots(1, 2, figsize=(6.4, 2.7), sharey=True)
     labels = [a[0] for a in ARMS][::-1]
     for ax, col, title, zero in ((axes[0], 3, "Change in wrong names per explanation", 0), (axes[1], 6, "Change in true-name rate (points)", 0)):
         vals = [ci(allfour[label][col]) for label in labels]

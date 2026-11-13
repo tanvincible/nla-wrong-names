@@ -3,5 +3,13 @@
  "round0_sample": 1302.8,
  "round0_reconstruct": 318.5,
  "round0_score": 146.3,
- "round0_train": 287.9
+ "round0_train": 287.9,
+ "round1_sample": 1304.3,
+ "round1_reconstruct": 308.8,
+ "round1_score": 225.5,
+ "round1_train": 285.5,
+ "round2_sample": 1304.8,
+ "round2_reconstruct": 311.5,
+ "round2_score": 224.8,
+ "round2_train": 295.5
 }

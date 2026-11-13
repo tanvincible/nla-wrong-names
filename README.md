@@ -20,7 +20,7 @@ happens, why, and what removes it.
 | How often | Sixteen tokens after an entity the explanation names it 7.5% of the time, while a linear probe on the same activation still reads it 35% of the time. 22% of explanations name a wrong entity of the same type. |
 | Why | Editing a wrong name out of an explanation changes the reconstruction score by about 0.002. The training objective has no reason to remove it. |
 | What helps | Sample four explanations and keep the names at least two agree on: 74% of wrong names go, 77% of true names stay, with no training. Most of that signal is already in one explanation's token probabilities. |
-| A test of the "why" | Fine-tuning on reconstruction alone changes nothing. Adding a cost on unsupported names cuts wrong names by 8%. Rewarding the true name does not bring it back. |
+| A test of the "why" | Fine-tuning on reconstruction alone changes nothing. Adding a cost on unsupported names cuts wrong names by 5 to 8% in two independent runs. Rewarding the true name does not bring it back. |
 
 ## Where to find each result
 
@@ -52,6 +52,7 @@ The 8,640 explanations everything is measured on are in `runs/analysis/nla-95f71
 | `full-recon` | reconstruction cosine | Reconstruction |
 | `full-lineup` | pick the activation out of four near-twins | Lineup |
 | `full-holdback` | cosine minus a cost per unsupported name | Hold back |
+| `seed1-holdback` | the same, from a different seed | Hold back, second run |
 | `full-recall` | hold back plus a bonus for the true name | Keep the specific |
 | `ep5-holdback` | hold back, one round of five passes | mentioned in section 7.4 |
 
@@ -74,7 +75,7 @@ python fade_curve.py
 python name_analysis.py
 python edit_test.py
 python confidence.py
-python compare.py full-recon-round2 full-holdback-round2 full-lineup-round2
+python compare.py full-recon-round2 full-holdback-round2 seed1-holdback-round2 ep5-holdback-round0 full-lineup-round2
 python paper/build_assets.py && (cd paper && tectonic main.tex)
 ```
 
