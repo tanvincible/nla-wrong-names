@@ -42,9 +42,10 @@ When an NLA explanation names an entity, how often is the name wrong, why does t
 the wrong names?
 \end{quote}
 
-Each part needs its own kind of evidence: \emph{how often} is a measurement on real text against a baseline,
-\emph{why} needs an intervention, and \emph{what removes them} is a comparison between a cheap fix at
-inference time and a costlier one by fine-tuning.
+The middle part matters most. The aim is to understand why the verbalizer behaves this way, not to ship a
+better one. So \emph{how often} is a measurement against a baseline, \emph{why} is tested with an
+intervention, and the fixes are there mainly as checks on the explanation: if wrong names are free under the
+training objective, more training on that objective should not remove them, and a penalty on them should.
 
 \section{Contributions}
 
